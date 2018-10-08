@@ -8,7 +8,6 @@
 
   [![Build Status](https://travis-ci.org/encryptic-team/Encryptic.svg?branch=master)](https://travis-ci.org/encryptic-team/Encryptic)
   [![Coverage Status](https://coveralls.io/repos/github/encryptic-team/Encryptic/badge.svg?branch=master)](https://coveralls.io/github/encryptic-team/Encryptic)
-  [![Code Climate](https://codeclimate.com/github/encryptic-team/Encryptic/badges/gpa.svg)](https://codeclimate.com/github/encryptic-team/Encryptic)
   ![Version](https://img.shields.io/badge/Version-0.0.1.beta-blue.svg)
 
   <h3>
@@ -53,7 +52,7 @@
 
 ## Quick Start (recommended)
 
-* Open [Encryptic.cc](https://Encryptic.cc/) and get started in less than 30 seconds.
+* Open [app.encryptic.org](https://app.encryptic.org/) and get started in less than 30 seconds.
 * No extra steps are required!
 
 ## Install Standalone Desktop App (beta)
@@ -62,7 +61,7 @@
 
 Install a version of Encryptic from here:
 
-https://github.com/daed/Encryptic/releases/
+https://github.com/encryptic-team/Encryptic/releases/
 
 ### Post installation
 
