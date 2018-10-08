@@ -6,21 +6,17 @@
     Demo: https://encryptic.org
     Encryptic is based upon the [Laverna Project](https://github.com/Laverna/laverna).
 
-  [![Build Status](https://travis-ci.org/daed/Encryptic.svg?branch=master)](https://travis-ci.org/daed/Encryptic)
-  [![Coverage Status](https://coveralls.io/repos/github/daed/Encryptic/badge.svg?branch=master)](https://coveralls.io/github/daed/Encryptic)
-  [![Code Climate](https://codeclimate.com/github/daed/Encryptic/badges/gpa.svg)](https://codeclimate.com/github/daed/Encryptic)
+  [![Build Status](https://travis-ci.org/encryptic-team/Encryptic.svg?branch=master)](https://travis-ci.org/encryptic-team/Encryptic)
+  [![Coverage Status](https://coveralls.io/repos/github/encryptic-team/Encryptic/badge.svg?branch=master)](https://coveralls.io/github/encryptic-team/Encryptic)
+  [![Code Climate](https://codeclimate.com/github/encryptic-team/Encryptic/badges/gpa.svg)](https://codeclimate.com/github/encryptic-team/Encryptic)
   ![Version](https://img.shields.io/badge/Version-0.0.1.beta-blue.svg)
 
   <h3>
-    <a href="https://gitter.im/Encryptic/Encryptic">
+    <a href="https://gitter.im/encryptic-team/Lobby">
       Gitter
     </a>
     <span> | </span>
-    <a href="https://webchat.freenode.net/?channels=Encryptic">
-      IRC
-    </a>
-    <span> | </span>
-    <a href="https://github.com/daed/Encryptic/wiki">
+    <a href="https://github.com/encryptic-team/Encryptic/wiki">
       Wiki
     </a>
     <span> | </span>
