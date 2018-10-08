@@ -1,0 +1,23 @@
+<div class="modal-dialog modal-mini">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title">{{ _.i18n('Erase data') }}</h3>
+        </div>
+            <div>
+                <p class="help-block">
+                    <p><b>{{_.i18n('This will delete all data for this username on this computer')}}!</b></p>
+                    <p class="text-danger help--error"></p>
+                </p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default btn--close">
+                {{ _.i18n('Close') }}
+            </button>
+            <button type="button" class="btn btn-success btn--save">
+                {{ _.i18n('ERASE') }}
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+{
+    "ar": {
+        "name": "Arabic",
+        "nativeName": "العربية"
+    },
+    "it": {
+        "name": "Italian",
+        "nativeName": "Italiano"
+    },
+    "bs_ba": {
+        "name": "Bosnian",
+        "nativeName": "Bosnian"
+    },
+    "cs": {
+        "name": "Czech",
+        "nativeName": "Čeština"
+    },
+    "da": {
+        "name": "Danish",
+        "nativeName": "Dansk"
+    },
+    "de": {
+        "name": "German",
+        "nativeName": "Deutsch"
+    },
+    "de_ch": {
+        "name": "Swiss german",
+        "nativeName": "Schwiizerdütsch"
+    },
+    "el": {
+        "name": "Greek",
+        "nativeName": "Ελληνικά"
+    },
+    "en": {
+        "name": "English",
+        "nativeName": "English"
+    },
+    "eo": {
+        "name": "Esperanto",
+        "nativeName": "Esperanto"
+    },
+    "es": {
+        "name": "Spanish",
+        "nativeName": "Español"
+    },
+    "fr": {
+        "name": "French",
+        "nativeName": "Français"
+    },
+    "gl": {
+        "name": "Galician",
+        "nativeName": "Galego"
+    },
+    "hi_in": {
+        "name": "Hindi",
+        "nativeName": "Hindi"
+    },
+    "ja": {
+        "name": "Japanese",
+        "nativeName": "日本語"
+    },
+    "ko": {
+        "name": "Korean",
+        "nativeName": "한국어"
+    },
+    "mr_in": {
+        "name": "Marathi",
+        "nativeName": "Marathi"
+    },
+    "nb": {
+        "name": "Norwegian Bokmål",
+        "nativeName": "Norsk bokmål"
+    },
+    "nl": {
+        "name": "Dutch",
+        "nativeName": "Nederlands"
+    },
+    "nn": {
+        "name": "Norwegian Nynorsk",
+        "nativeName": "Norsk nynorsk"
+    },
+    "oc": {
+        "name": "Occitan",
+        "nativeName": "Occitan"
+    },
+    "lt": {
+      "name": "Lithuanian",
+      "nativeName": "Lietuvių"
+    },
+    "lv": {
+      "name": "Latvian",
+      "nativeName": "Latviešu"
+    },
+    "pl": {
+        "name": "Polish",
+        "nativeName": "Polski"
+    },
+    "pt_br": {
+        "name": "Portugisich (Brasilien)",
+        "nativeName": "Portugisich (Brasilien)"
+    },
+    "ru": {
+        "name": "Russian",
+        "nativeName": "Русский"
+    },
+    "se": {
+        "name": "Swedish",
+        "nativeName": "Svenska"
+    },
+    "sq": {
+        "name": "Albanian",
+        "nativeName": "Shqip"
+    },
+    "tr": {
+        "name": "Turkish",
+        "nativeName": "Türkçe"
+    },
+    "zh_cn": {
+        "name": "Simplified Chinese",
+        "nativeName": "Simplified Chinese"
+    },
+    "zh_tw": {
+        "name": "Traditional Chinese (Taiwan)",
+        "nativeName": "Traditional Chinese (Taiwan)"
+    }
+}
