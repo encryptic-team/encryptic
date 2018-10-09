@@ -4,7 +4,7 @@
   <h3>🔖  &nbsp;🔏  &nbsp;📄&nbsp;</h3>
   <p><strong>An encryption-focused open source note taking applciation.</strong><br>
     Demo: https://encryptic.org
-    Encryptic is based upon the [Laverna Project](https://github.com/Laverna/laverna).
+    Encryptic is based upon the <a href="https://github.com/Laverna/laverna">Laverna Project</a>.
 
   [![Build Status](https://travis-ci.org/encryptic-team/Encryptic.svg?branch=master)](https://travis-ci.org/encryptic-team/Encryptic)
   [![Coverage Status](https://coveralls.io/repos/github/encryptic-team/Encryptic/badge.svg?branch=master)](https://coveralls.io/github/encryptic-team/Encryptic)
@@ -148,7 +148,7 @@ Localizations [are available here.](https://github.com/Encryptic/Encryptic/blob/
 
 ## Support Encryptic
 
-* Hit the star button on [GitHub](https://github.com/daed/Encryptic)
+* Hit the star button on [GitHub](https://github.com/encryptic-team/Encryptic)
 * Like us on [alternativeto.net](http://alternativeto.net/software/Encryptic/)
 * Contribute!
 
