@@ -69,7 +69,7 @@ None.  Removed the signal server component for the time being.
 
 #### Arch Linux (or derived distributions)
 
-* Install the package [hosted here](https://aur.archlinux.org/packages/Encryptic/). Once installed, run: `$ pacaur -S encryptic`
+* Install the package [hosted here](https://aur.archlinux.org/packages/encryptic/). Once installed, run: `$ pacaur -S encryptic`
 
 > *Running into issues with Arch Linux installation? Report [here](https://github.com/funilrys/PKGBUILD/issues/new) or contact [@funilrys](https://github.com/funilrys) on Gitter [here](https://gitter.im/funilrys_/PKGBUILD)*.
 
