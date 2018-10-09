@@ -93,14 +93,14 @@ If you're planning to contribute to the project's development, hit the fork butt
 **1. Clone the Encryptic repository:**
 
 ```bash
-$ git clone git@github.com:daed/Encryptic.git
+$ git clone git@github.com:daed/encryptic.git
 ```
 <br/>
 
 **2. Navigate to project directory and checkout `dev` branch:**
 
 ```bash
-$ cd Encryptic
+$ cd encryptic
 
 # unless you're patching bugs in the latest release, switch to dev branch:
 $ git fetch && git checkout dev
@@ -160,16 +160,13 @@ Encryptic uses a lot of other libraries and each of these [libraries use differe
 
 [1]: http://bitwiseshiftleft.github.io/sjcl/
 [2]: https://github.com/Encryptic/Encryptic/blob/master/bower.json
-[3]: http://blockchain.info/address/1Q68HfLjNvWbLFr3KGK6nfXg7vc3hpDr11
 [4]: https://www.gittip.com/Encryptic/
 [5]: http://alternativeto.net/software/Encryptic/
 [6]: https://github.com/Encryptic/Encryptic
 [7]: https://github.com/Encryptic/Encryptic/blob/master/CONTRIBUTE.md
 [8]: http://nodejs.org
 [9]: https://github.com/Encryptic/static-Encryptic/archive/gh-pages.zip
-[10]: https://Encryptic.cc/index.html
 [11]: https://www.mozilla.org/en-US/MPL/2.0/
 [12]: https://www.bountysource.com/teams/Encryptic
 [13]: https://github.com/Encryptic/Encryptic/releases
 [14]: https://git-scm.com/book/en/v2
-[15]: https://github.com/Encryptic/Encryptic/wiki
