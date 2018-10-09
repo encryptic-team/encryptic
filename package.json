@@ -1,6 +1,6 @@
 {
   "name": "Encryptic",
-  "version": "1.0.3-beta",
+  "version": "0.0.1",
   "description": "the client package for the Encryptic web files",
   "license": "MPL-2.0",
   "repository": {
