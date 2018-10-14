@@ -217,7 +217,10 @@ export default class Module {
         // Trigger invalid event if there are any validation errors
         if (errors) {
             model.trigger('invalid', {errors});
+            console.log("Error detected.  Dumping models:");
+            console.log(model.attributes);
             return Promise.reject(`Validation error: ${errors}`);
+
         }
 
         // Encrypt the model and save

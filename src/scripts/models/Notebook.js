@@ -55,7 +55,7 @@ export default class Notebook extends BaseModel {
     }
 
     get validateAttributes() {
-        return ['name'];
+        // return ['name'];
     }
 
     get escapeAttributes() {

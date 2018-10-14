@@ -170,6 +170,10 @@ export default class Export extends Mn.Object {
         }
         // Other collections' data is saved in one JSON file
         else {
+            if (collection.storeName === 'notebooks') 
+            {
+                coll.each(model => model.name = '');
+            }
             this.exportToJSON(path, collection);
         }
         log(`exporting ${coll.storeName}`);
