@@ -1,7 +1,7 @@
 {
     "name": "Encryptic",
     "description": "Open source note taking web application",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "launch_path": "/index.html",
     "icons": {
         "512": "/images/icon/icon.png",
@@ -13,7 +13,7 @@
     },
     "developer": {
         "name": "Encryptic Project Team",
-        "url": "https://github.com/Encryptic-team/Encryptic/"
+        "url": "https://github.com/encryptic-team/encryptic/"
     },
     "default_locale": "en",
     "installs_allowed_from": ["*"]
