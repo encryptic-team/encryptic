@@ -6,8 +6,9 @@ import _ from 'underscore';
 import Radio from 'backbone.radio';
 import JSZip from 'jszip';
 import * as openpgp from 'openpgp';
-
+import Migrate from './migrate/Controller';
 import deb from 'debug';
+import localforage from 'localforage';
 
 const log = deb('lav:components/importExport/Import');
 
@@ -57,6 +58,7 @@ export default class Import extends Mn.Object {
     }
 
     init() { // eslint-disable-line complexity
+        this.isOldBackup = false;
         if (this.options.files && this.options.files.length) {
             if (this.isZipFile()) {
                 return this.importData();
@@ -80,6 +82,10 @@ export default class Import extends Mn.Object {
         // Reload the page only if it isn't a backup from an older version
         if (!this.isOldBackup) {
             window.setTimeout(() => document.location.reload(), 800);
+        }
+        // Force migration if this is a backup from an older version.
+        if (this.isOldBackup) {
+            new Migrate().init();
         }
     }
 
@@ -291,7 +297,8 @@ export default class Import extends Mn.Object {
      * @returns {Promise}
      */
     import(zip) {
-        if (!_.isUndefined(zip.files['Encryptic-backups/notes-db/configs.json'])) {
+        if (!_.isUndefined(zip.files['laverna-backups/notes-db/configs.json'])) {
+            console.log("import: import():  Old laverna backups detected.");
             this.isOldBackup = true;
             return this.importCollections(zip);
         }
@@ -307,13 +314,20 @@ export default class Import extends Mn.Object {
      * @returns {Promise}
      */
     importProfile(zip) {
-        const file = zip.files['Encryptic-backups/profiles.json'];
+        let file = zip.files['Encryptic-backups/profiles.json'];
+        let name = "Encryptic";
+
+        if (!file) {
+            file = zip.files['laverna-backups/profiles.json'];
+            name = "laverna";
+            this.isLavernaBackup = true;
+        }
 
         if (!file && !this.user) {
             return Promise.reject('You need to create a profile first!');
         }
 
-        return zip.file('Encryptic-backups/profiles.json').async('string')
+        return zip.file(name + '-backups/profiles.json').async('string')
         .then(res => {
             this.profile = JSON.parse(res)[0];
 
@@ -336,23 +350,95 @@ export default class Import extends Mn.Object {
         const promises = [];
         let configFile;
 
-        _.each(zip.files, file => {
-            // Ignore directories and non JSON files
-            if (!this.isCollectionFile(file)) {
-                return;
-            }
+        console.log("import: importCollections(): isOldBackup is " + this.isOldBackup);
+        if (this.isOldBackup)
+        {
+            _.each(zip.files, file => {
+                // Ignore directories and non JSON files
+                if (!this.isCollectionFile(file)) {
+                    return;
+                }
+                promises.push(this.readLegacyFile(zip, file));
+            });
+            return Promise.all(promises);
+        }
+        else
+        {
+            _.each(zip.files, file => {
+                // Ignore directories and non JSON files
+                if (!this.isCollectionFile(file)) {
+                    return;
+                }
 
-            if (file.name.indexOf('configs.json') === -1) {
-                promises.push(this.readFile(zip, file));
-            }
-            else {
-                configFile = file;
-            }
-        });
+                if (file.name.indexOf('configs.json') === -1) {
+                    promises.push(this.readFile(zip, file));
+                }
+                else {
+                    configFile = file;
+                }
+            });
+        }
 
         // Import configs at the end to avoid encryption errors
         return Promise.all(promises)
         .then(() => this.readFile(zip, configFile));
+    }
+
+
+    /**
+     * Insert old data to notes-db database.
+     *
+     * @param {String} storeName - [notes|notebooks|files|tags|configs]
+     * @returns {Promise}
+     */
+    importOldData(storeName = 'notes', item) {
+        const models = [];
+        // We check this for a config file.
+        let key;
+        if (_.isUndefined(item.id))
+        {
+            key = item.name;
+        }
+        else
+        {
+            key = item.id;
+        }
+        const forage = localforage.createInstance({storeName, name: 'notes-db'})
+        return forage.setItem(key, item);
+    }
+
+    /**
+     * Read a file from an old laverna backup ZIP archive.
+     *
+     * @param {Object} zip
+     * @param {Object} file
+     * @returns {Promise}
+     */
+    readLegacyFile(zip, file) {
+        return zip.file(file.name).async('string')
+        .then(res => {
+            const path      = file.name.split('/');
+            const profileId = path[1] !== 'notes-db' ? this.profile.username : path[1];
+            const data      = JSON.parse(res);
+            //console.log("import: readLegacyFile(): data: ");
+            //console.log(data)
+
+            if (path[2] === 'notes') {
+                return this.importOldData("notes", data);
+            }
+            else if (path[2] === 'files') {
+                return this.importOldData("files", data);
+            }
+            else {
+                const type = path[2].split('.json')[0];
+                for (let i=0; i<data.length; i++)
+                {
+                    this.importOldData(type, data[i]);
+                }
+                
+                return Promise.resolve();
+            }
+        });
     }
 
     /**
@@ -381,6 +467,8 @@ export default class Import extends Mn.Object {
             const path      = file.name.split('/');
             const profileId = path[1] !== 'notes-db' ? this.profile.username : path[1];
             const data      = JSON.parse(res);
+            //console.log("data: ");
+            //console.log(data)
 
             if (path[2] === 'notes') {
                 return this.importNote({zip, profileId, data, name: file.name});

@@ -79,8 +79,10 @@ export default class Encryption {
         if ((!text || !text.length) || !this.configs.encrypt) {
             return text;
         }
-
-        return sjcl.decrypt(this.keys.key, text);
+        const d = sjcl.decrypt(this.keys.key, text);
+        console.log("migrate: decrypt(): data")
+        console.log(d);
+        return d;
     }
 
     /**
