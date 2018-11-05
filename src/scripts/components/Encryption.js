@@ -116,7 +116,7 @@ export default class Encryption {
      * @returns {Object}
      */
     readKeys(options = this.options) {
-        // console.log('Encryption.js: readKeys() start');
+        console.log('Encryption.js: readKeys()');
         const success = (async() => {
             this.options   = _.extend(this.options, options);
             let privateKey = this.options.privateKey || this.user.privateKey;
@@ -171,6 +171,7 @@ export default class Encryption {
      * @returns {Promise}
      */
     readPublicKeys() {
+        console.log("encryption: readPublicKeys()");
         return Radio.request('collections/Users', 'find')
         .then(collection => {
             // console.log("readPublicKeys():");
@@ -191,7 +192,7 @@ export default class Encryption {
      * @returns {Object} key
      */
     readUserKey({model}) {
-        // console.log("readUserKey()");
+        console.log("encryption: readUserKey()");
         // console.log(model.attributes);
         const pubkey = model.attributes.publicKey;
         (async() => {
@@ -211,6 +212,7 @@ export default class Encryption {
      * @returns {Promise} - resolves with an object {privateKey, publicKey}
      */
     generateKeys(options) {
+        console.log("encryption: generateKeys()");
         const opt = _.extend({
             numBits: 2048,
         }, options);
@@ -235,6 +237,7 @@ export default class Encryption {
      * @returns {Promise} resolves with the new private key
      */
     changePassphrase(options) {
+        console.log("encryption: changePassphrase()");
         const privateKey = this.openpgp.key.readArmored(this.user.privateKey).keys[0];
 
         // Try to decrypt the private key
@@ -267,6 +270,7 @@ export default class Encryption {
      * @returns {Promise}
      */
     sign({data}) {
+        console.log("encryption: sign()");
         // console.log("Before data:");
         // console.log(data)
         const message = this.openpgp.message.fromText(data);
@@ -288,6 +292,7 @@ export default class Encryption {
      * @returns {Promise}
      */
     verify(options) {
+        console.log("encryption: verify()");
         const message = this.openpgp.cleartext.readArmored(options.message);
         const keys    = options.publicKeys || this.getUserKeys(options.username);
         return this.openpgp.verify({message, publicKeys: keys.publicKeys || keys});
@@ -305,13 +310,16 @@ export default class Encryption {
      * @return {Object} - {privateKeys, publicKeys}
      */
     getUserKeys(username) {
+        console.log("encryption: getUserKeys()");
         const publicKeys = [this.keys.publicKeys[this.user.username]];
+
 
         if (username && this.keys.publicKeys[username] &&
             username !== this.user.username) {
             publicKeys.push(this.keys.publicKeys[username]);
         }
 
+        console.log("encryption: getUserKeys(): returning keys")
         return {
             publicKeys,
             privateKey : this.keys.privateKey,
@@ -331,28 +339,21 @@ export default class Encryption {
      * @returns {Promise} - resolves with an encrypted string
      */
     async encrypt(options) {
+        console.log("encryption: encrypt(): starting data:");
+        console.log(options.data);
         const keys = this.getUserKeys(options.username);
-        /*  Old.  Trying the bottome one first.
-        options.message = this.openpgp.message.fromText(options.data);
-        const crypt  = this.openpgp.encrypt(_.extend(options, keys))
-        .then(enc => {
-            return enc.data;    
-        });
-        return crypt;
-        */
-       
-        // console.log("encrypt(): unmodified options");
-        // console.log(options);
         // openpgp 4 needs a 'message', not 'data'
+        if (keys.publickeys == null && keys.privateKey == null)
+        {
+            console.log("encryption: encrypt(): no pub/priv key found.  Is this an old laverna import?  Passing through in case it is.");
+            return options.data;
+        }
         options.message = this.openpgp.message.fromText(options.data);
         options.publicKeys = keys.publicKeys;
         options.privateKeys = keys.privateKeys;
-        // console.log("encrypt(): modified options");
-        // console.log(options);
-        // console.log('running openpgp.encrypt()');
+        // importing from laverna 0.7.51 throws a "Unknown ASCII armor type" error here.
+        // I think it is breaking the import.
         const enc  = await this.openpgp.encrypt(options);
-        // console.log("enc");
-        // console.log(enc.data);
         return enc.data;
     }
 
@@ -368,6 +369,7 @@ export default class Encryption {
      * @returns {Promise}
      */
     async decrypt(options) {
+        console.log("encryption: decrypt()");
         const t0 = performance.now();
         const keys = this.getUserKeys(options.username);
         // console.log('Encryption.js: readArmored() start');
@@ -397,6 +399,7 @@ export default class Encryption {
      * @returns {Promise} resolve with the model
      */
     async encryptModel({model, username}) {
+        console.log("encryption: encryptModel()");
         // Don't encrypt if encryption is disabled
         if (!Number(this.configs.encrypt)) {
             log('do not encrypt');
@@ -421,6 +424,7 @@ export default class Encryption {
      * @returns {Promise} resolves with the model
      */
     async decryptModel({model, username}) {
+        console.log("encryption: decryptModel()");
         const message = model.attributes.encryptedData;
 
         if (!message.length) {
@@ -445,6 +449,7 @@ export default class Encryption {
      * @returns {Promise}
      */
     encryptCollection({collection, username}) {
+        console.log("encryption: encryptCollection()");
         // Don't decrypt if the collection is empty or encryption is disabled
         if (!collection.length || !Number(this.configs.encrypt)) {
             return Promise.resolve(collection);
@@ -468,6 +473,7 @@ export default class Encryption {
      * @returns {Promise}
      */
     decryptCollection({collection, username}) {
+        console.log("encryption: decryptCollection()");
         if (!collection.length) {
             return Promise.resolve(collection);
         }

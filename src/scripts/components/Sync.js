@@ -176,4 +176,5 @@ export default class Sync {
         const opt = _.extend(options);
         return this.db.dropDb(model);
     }
+
 }
