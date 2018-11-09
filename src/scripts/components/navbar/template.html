@@ -10,10 +10,10 @@
         </li>
 
         <li class="header--col--left--search">
-            <button id="header--sbtn" class="btn navbar-btn header--sbtn" title="{{_.i18n('Search')}}">
+            <button id="header--sbtn" class="btn navbar-btn header--sbtn" tooltip="{{_.i18n('Search')}}" tooltip-position="bottom" >
                 <i class="icon-search"></i>
             </button>
-        </li>
+        </li> 
     </ul>
 
     <form id="header--search" class="header--search" role="search">
@@ -23,17 +23,17 @@
 
     <div class="navbar-right header--right navbar-btn">
         <% if (isSyncEnabled()) { %>
-        <button class="btn header--sbtn" id="header--sync">
+        <button class="btn header--sbtn" id="header--sync" tooltip="Sync now" tooltip-position="bottom" >
             <span id="header--sync--icon"  class="icon-arrows"></span>
         </button>
         <% } %>
-        <button id="header--add--tag" class="header--add btn btn-secondary">
+        <button id="header--add--tag" class="header--add btn btn-secondary" tooltip="New tag" tooltip-position="bottom">
             <span class="icon-tag"></span>
         </button>
-        <button id="header--add--notebook" class="header--add btn btn-secondary">
+        <button id="header--add--notebook" class="header--add btn btn-secondary" tooltip="New notebook" tooltip-position="bottom">
             <span class="icon-notebook"></span>
         </button>
-        <a class="btn-secondary btn btn-success" href="#notes/add">
+        <a class="btn-secondary btn btn-success" tooltip="New note" tooltip-position="bottom" href="#notes/add">
             <i class="icon-doc-new"></i>
         </a>
     </div>

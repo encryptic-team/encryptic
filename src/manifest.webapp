@@ -13,7 +13,7 @@
     },
     "developer": {
         "name": "Encryptic Project Team",
-        "url": "https://github.com/encryptic-team/encryptic/"
+        "url": "https://encryptic.org/"
     },
     "default_locale": "en",
     "installs_allowed_from": ["*"]

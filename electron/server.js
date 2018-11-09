@@ -7,8 +7,10 @@ var finalhandler = require('finalhandler'),
     serve,
     server;
 
+console.log("server.js: serveStatic()");
 serve  = serveStatic(__dirname + '/dist', {index: ['index.html']});
 
+console.log("server.js: createServer()");
 server = http.createServer(function(req, res) {
     var done = finalhandler(req, res);
     serve(req, res, done);
