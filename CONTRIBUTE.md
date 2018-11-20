@@ -1,9 +1,7 @@
 Contribution
 ================
-Note, all contributions should be done on `dev` branch.
 
-
-### Localizations
+## Localizations
 ----------------
 1. Copy ./src/locales/en and rename it to locale name - ./src/locales/[localeName]
 2. Open ./src/locales/[localeName]/translation.json
