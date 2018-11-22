@@ -1,7 +1,7 @@
 /**
  * @module components/setup/View
  */
-import Mn from 'backbone.marionette';
+import {View as MnView} from 'backbone.marionette';
 import _ from 'underscore';
 
 // Content views
@@ -16,7 +16,7 @@ import Export   from './export/View';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class View extends Mn.View {
+export default class View extends MnView {
 
     get template() {
         const tmpl = require('./template.html');
@@ -57,6 +57,13 @@ export default class View extends Mn.View {
         return {
             'show:username': 'showUsername',
             'go:auth'      : 'destroy',
+        };
+    }
+
+    childViewTriggers() {
+        return {
+            'check:user': 'childview:check:user',
+            'save'      : 'childview:save',
         };
     }
 

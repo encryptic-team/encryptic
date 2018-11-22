@@ -1,7 +1,7 @@
 /**
  * @module components/help/keybindings/Controller
  */
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import View from './View';
 
@@ -16,7 +16,7 @@ const log = deb('lav:components/help/keybindings/Controller');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Controller extends Mn.Object {
+export default class Controller extends MnObject {
 
     /**
      * Fetch configs collection and render the view.

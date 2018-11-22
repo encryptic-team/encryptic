@@ -1,7 +1,7 @@
 /**
  * @module components/linkDialog/views/Item
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 
 /**
@@ -11,7 +11,7 @@ import _ from 'underscore';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Item extends Mn.View {
+export default class Item extends View {
 
     get template() {
         const tmpl = require('../templates/item.html');

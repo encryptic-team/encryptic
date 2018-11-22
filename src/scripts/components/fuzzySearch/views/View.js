@@ -1,7 +1,7 @@
 /**
  * @module components/fuzzySearch/views/View
  */
-import Mn from 'backbone.marionette';
+import {CollectionView} from 'backbone.marionette';
 import Child from './Child';
 
 /**
@@ -11,14 +11,10 @@ import Child from './Child';
  * @extends Marionette.CollectionView
  * @license MPL-2.0
  */
-export default class View extends Mn.CollectionView {
+export default class View extends CollectionView {
 
     get className() {
         return 'main notes-list';
-    }
-
-    get childViewContainer() {
-        return '.notes-list';
     }
 
     /**
@@ -35,6 +31,12 @@ export default class View extends Mn.CollectionView {
      * @todo
      */
     get emptyView() {
+    }
+
+    childViewTriggers() {
+        return {
+            'navigate:search': 'childview:navigate:search',
+        };
     }
 
 }

@@ -1,7 +1,7 @@
 /**
  * @module components/notebooks/list/views/Tags
  */
-import Mn from 'backbone.marionette';
+import {CollectionView} from 'backbone.marionette';
 import Tag from './Tag';
 import _ from 'underscore';
 import Navigate from '../../../../behaviors/Navigate';
@@ -13,7 +13,7 @@ import Navigate from '../../../../behaviors/Navigate';
  * @extends Marionette.CollectionView
  * @license MPL-2.0
  */
-export default class Tags extends Mn.CollectionView {
+export default class Tags extends CollectionView {
 
     get className() {
         return 'list list--tags';

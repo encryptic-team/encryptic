@@ -2,7 +2,7 @@
  * @module components/importExport/migrate/Controller
  */
 import _ from 'underscore';
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import deb from 'debug';
 import localforage from 'localforage';
@@ -19,7 +19,7 @@ const log = deb('lav:components/importExport/migrate/Controller');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Controller extends Mn.Object {
+export default class Controller extends MnObject {
 
     /**
      * @returns {Promise}

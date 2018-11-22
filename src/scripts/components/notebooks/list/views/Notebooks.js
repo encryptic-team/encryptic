@@ -1,7 +1,7 @@
 /**
  * @module components/notebooks/list/views/Notebooks
  */
-import Mn from 'backbone.marionette';
+import {CollectionView} from 'backbone.marionette';
 import _ from 'underscore';
 import deb from 'debug';
 import Notebook from './Notebook';
@@ -16,7 +16,7 @@ const log = deb('lav:components/notebooks/list/views/Notebooks');
  * @extends Marionette.CollectionView
  * @license MPL-2.0
  */
-export default class Notebooks extends Mn.CollectionView {
+export default class Notebooks extends CollectionView {
 
     get className() {
         return 'list--notebooks';

@@ -1,7 +1,7 @@
 /**
  * @module behaviors/NavModel
  */
-import Mn from 'backbone.marionette';
+import {Behavior} from 'backbone.marionette';
 import $ from 'jquery';
 
 /**
@@ -12,7 +12,7 @@ import $ from 'jquery';
  * @extends Marionette.Behavior
  * @license MPL-2.0
  */
-export default class NavModel extends Mn.Behavior {
+export default class NavModel extends Behavior {
 
     ui() {
         return {

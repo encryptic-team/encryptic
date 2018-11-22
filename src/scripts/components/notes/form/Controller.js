@@ -1,7 +1,7 @@
 /**
  * @module components/notes/form/Controller
  */
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import _ from 'underscore';
 import deb from 'debug';
@@ -17,7 +17,7 @@ const log = deb('lav:components/notes/form/Controller');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Controller extends Mn.Object {
+export default class Controller extends MnObject {
 
     get configs() {
         return Radio.request('collections/Configs', 'findConfigs');

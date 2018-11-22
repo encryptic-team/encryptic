@@ -1,7 +1,7 @@
 /**
  * @module components/setup/Controller
  */
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import * as openpgp from 'openpgp';
@@ -19,7 +19,7 @@ const log = deb('lav:components/setup/Controller');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Controller extends Mn.Object {
+export default class Controller extends MnObject {
 
     /**
      * Configs radio channel.

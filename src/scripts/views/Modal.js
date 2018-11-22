@@ -1,7 +1,7 @@
 /**
  * @module views/Modal
  */
-import Mn from 'backbone.marionette';
+import {Region} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import $ from 'jquery';
 
@@ -12,7 +12,7 @@ import $ from 'jquery';
  * @extends Marionette.Region
  * @license MPL-2.0
  */
-export default class Modal extends Mn.Region {
+export default class Modal extends Region {
 
     /**
      * Radio channel.

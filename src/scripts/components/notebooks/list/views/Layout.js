@@ -1,7 +1,7 @@
 /**
  * @module components/notebooks/list/views/Layout
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import Mousetrap from 'mousetrap';
@@ -17,7 +17,7 @@ import Sidebar from '../../../../behaviors/Sidebar';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Layout extends Mn.View {
+export default class Layout extends View {
 
     get template() {
         const tmpl = require('../templates/layout.html');

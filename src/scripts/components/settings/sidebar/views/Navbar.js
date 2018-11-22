@@ -1,7 +1,7 @@
 /**
  * @module components/settings/sidebar/Navbar
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 
 /**
@@ -11,7 +11,7 @@ import _ from 'underscore';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Navbar extends Mn.View {
+export default class Navbar extends View {
 
     get template() {
         const tmpl = require('../templates/navbar.html');

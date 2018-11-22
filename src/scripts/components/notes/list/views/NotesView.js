@@ -1,7 +1,7 @@
 /**
  * @module components/notes/list/views/NotesView
  */
-import Mn from 'backbone.marionette';
+import {CollectionView} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import NoteView from './NoteView';
 import Navigate from '../../../../behaviors/Navigate';
@@ -13,7 +13,7 @@ import Navigate from '../../../../behaviors/Navigate';
  * @extends Marionette.CollectionView
  * @license MPL-2.0
  */
-export default class NotesView extends Mn.CollectionView {
+export default class NotesView extends CollectionView {
 
     /**
      * Listen to keybindings used for navigating between items (j-k).
@@ -61,6 +61,12 @@ export default class NotesView extends Mn.CollectionView {
      */
     childViewOptions() {
         return {filterArgs: this.options.filterArgs};
+    }
+
+    childViewTriggers() {
+        return {
+            'scroll:top': 'childview:scroll:top',
+        };
     }
 
 }

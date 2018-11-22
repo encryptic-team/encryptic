@@ -1,7 +1,7 @@
 /**
  * @module components/notes/form/views/Notebooks
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 
@@ -14,7 +14,7 @@ import NotebooksCollection from './NotebooksCollection';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Notebooks extends Mn.View {
+export default class Notebooks extends View {
 
     get template() {
         const tmpl = require('../templates/notebooks.html');

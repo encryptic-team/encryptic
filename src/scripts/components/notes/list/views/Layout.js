@@ -1,7 +1,7 @@
 /**
  * @module components/notes/list/views/Layout
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 import deb from 'debug';
 
@@ -18,7 +18,7 @@ const log = deb('lav:components/notes/list/views/Layout');
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Layout extends Mn.View {
+export default class Layout extends View {
 
     get template() {
         const tmpl = require('../templates/layout.html');
