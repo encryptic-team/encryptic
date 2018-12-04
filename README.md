@@ -2,9 +2,10 @@
   <h1>Encryptic | The open source note-taking app</h1>
 
   <h3>🔖  &nbsp;🔏  &nbsp;📄&nbsp;</h3>
-  <p><strong>An encryption-focused open source note taking applciation.</strong><br>
-    Demo: https://encryptic.org
-    Encryptic is based upon the <a href="https://github.com/Laverna/laverna">Laverna Project</a>.
+  <p><strong>An encryption-focused open source note taking application.</strong><br>
+    <h3><a href="https://encryptic.org">Website</a></h3>
+    <h3><a href="https://app.encryptic.org">Demo</a></h3>
+    Encryptic is based upon the <a href="https://github.com/Laverna/laverna">Laverna Project</a>
 
   [![Build Status](https://travis-ci.org/encryptic-team/Encryptic.svg?branch=master)](https://travis-ci.org/encryptic-team/Encryptic)
   [![Coverage Status](https://coveralls.io/repos/github/encryptic-team/Encryptic/badge.svg?branch=master)](https://coveralls.io/github/encryptic-team/Encryptic)
@@ -41,10 +42,6 @@
 * Syntax highlighting, MathJax support
 * Robust keyboard shortcuts
 
-<hr>
-<img src="https://s3.amazonaws.com/Encryptic-readme/Screen+Recording+2017-10-16+at+10.10+PM-min.gif">
-<hr>
-
 ## Security
 * [Client-side document encryption](#encryption)
 * No registration required. Encryptic manages signup/login via security tools built in to all modern browsers.
@@ -69,13 +66,13 @@ None.  Removed the signal server component for the time being.
 
 #### Arch Linux (or derived distributions)
 
-* Install the package [hosted here](https://aur.archlinux.org/packages/encryptic/). Once installed, run: `$ pacaur -S encryptic`
+* Install the package [encryptic](https://aur.archlinux.org/packages/encryptic/) with your favorite AUR helper (e.g. `$ yay -S encryptic`)
 
 > *Running into issues with Arch Linux installation? Report [here](https://github.com/funilrys/PKGBUILD/issues/new) or contact [@funilrys](https://github.com/funilrys) on Gitter [here](https://gitter.im/funilrys_/PKGBUILD)*.
 
 ### Previous Releases
 
-* All historical releases[ are available here](https://github.com/Encryptic/Encryptic/releases).
+* All historical releases [are available here](https://github.com/encryptic-team/encryptic/releases).
 
 ## Developer Install & Documentation
 
@@ -88,45 +85,41 @@ Setting up the Encryptic development environment only takes a few minutes. To ru
 ### Part One: Install Encryptic
 
 If you're planning to contribute to the project's development, hit the fork button at the top of the page and move on to **step 2**.
-<br/>
+
 
 **1. Clone the Encryptic repository:**
 
+With SSH :
 ```bash
 $ git clone git@github.com:daed/encryptic.git
 ```
-<br/>
 
-**2. Navigate to project directory and checkout `dev` branch:**
+With HTTPS :
+```bash
+$ git clone https://github.com/encryptic-team/encryptic.git
+```
+
+
+**2. Navigate to project directory and install gulp and yarn globally:**
 
 ```bash
 $ cd encryptic
 
-# unless you're patching bugs in the latest release, switch to dev branch:
-$ git fetch && git checkout dev
-```
-<br/>
-
-**3. Install Gulp:**
-
-(yarn instructions coming soon)
-```bash
-$ npm install gulp
 $ npm install -g gulp
+$ npm install -g yarn
 ```
-<br/>
+
 
 **4. Install dependencies and build:**
 
 ```bash
 $ yarn
 ```
-- or -
+\- or -
 ```bash
 $ npm run setup
 ```
 
-<br/>
 
 **5. Start Encryptic:**
 
@@ -134,21 +127,19 @@ $ npm run setup
 $ gulp
 ```
 
-**6. Point a web broswer to http://localhost:9000**
+**6. Point a web browser to http://localhost:9000**
 
 ## Coding Style Guidelines
 
-We ask that you use either **plain JavaScript or the [Marionette.js](http://marionette.js/) framework** (for more details on the preferred coding style see [.editorconfig](https://github.com/Encryptic/Encryptic/blob/master/.editorconfig)). All experimental changes are pushed to the `dev` branch. Feature changes need to be done on either `dev` or a branch that uses `dev` as its parent.
-
-Localizations [are available here.](https://github.com/Encryptic/Encryptic/blob/dev/CONTRIBUTE.md)
+We ask that you use either **plain JavaScript or the [Marionette.js](http://marionette.js/) framework** (for more details on the preferred coding style see [.editorconfig](https://github.com/encryptic-team/Encryptic/blob/master/.editorconfig)).
 
 ## Encryption
 
-**However, in our effort to permanently enhance the application's security**, Encryptic is implementing OpenPGP encryption via [OpenPGP.js](https://github.com/openpgpjs/openpgpjs).
+**In our effort to permanently enhance the application's security**, Encryptic is implementing OpenPGP encryption via [OpenPGP.js](https://github.com/openpgpjs/openpgpjs).
 
 ## Support Encryptic
 
-* Hit the star button on [GitHub](https://github.com/encryptic-team/Encryptic)
+* Hit the star button on [GitHub](https://github.com/encryptic-team/encryptic)
 * Like us on [alternativeto.net](http://alternativeto.net/software/Encryptic/)
 * Contribute!
 
@@ -156,17 +147,4 @@ Localizations [are available here.](https://github.com/Encryptic/Encryptic/blob/
 ## License
 
 Published under [MPL-2.0 License](https://www.mozilla.org/en-US/MPL/2.0/).
-Encryptic uses a lot of other libraries and each of these [libraries use different licenses](https://github.com/Encryptic/Encryptic/blob/master/bower.json).
-
-[1]: http://bitwiseshiftleft.github.io/sjcl/
-[2]: https://github.com/Encryptic/Encryptic/blob/master/bower.json
-[4]: https://www.gittip.com/Encryptic/
-[5]: http://alternativeto.net/software/Encryptic/
-[6]: https://github.com/Encryptic/Encryptic
-[7]: https://github.com/Encryptic/Encryptic/blob/master/CONTRIBUTE.md
-[8]: http://nodejs.org
-[9]: https://github.com/Encryptic/static-Encryptic/archive/gh-pages.zip
-[11]: https://www.mozilla.org/en-US/MPL/2.0/
-[12]: https://www.bountysource.com/teams/Encryptic
-[13]: https://github.com/Encryptic/Encryptic/releases
-[14]: https://git-scm.com/book/en/v2
+Encryptic uses a lot of other libraries and each of these [libraries use different licenses](https://github.com/encryptic-team/encryptic/blob/master/package.json).
