@@ -2,7 +2,7 @@
  * @module components/share/View
  */
 import _ from 'underscore';
-import Mn from 'backbone.marionette';
+import {View as MnView} from 'backbone.marionette';
 import Users from './users/View';
 import Info from './info/View';
 
@@ -13,7 +13,7 @@ import Info from './info/View';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class View extends Mn.View {
+export default class View extends MnView {
 
     get template() {
         const tmpl = require('./template.html');
@@ -100,6 +100,13 @@ export default class View extends Mn.View {
         this.showChildView('content', new Info(data));
         this.ui.back.removeClass('hidden');
         this.ui.userError.addClass('hidden');
+    }
+
+    childViewTriggers() {
+        return {
+            'add:trust': 'childview:add:trust',
+            'share'    : 'childview:share',
+        };
     }
 
 }

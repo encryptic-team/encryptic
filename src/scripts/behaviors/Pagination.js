@@ -1,7 +1,7 @@
 /**
  * @module behaviors/Pagination
  */
-import Mn from 'backbone.marionette';
+import {Behavior} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 
 /**
@@ -11,7 +11,7 @@ import Radio from 'backbone.radio';
  * @extends Marionette.Behavior
  * @license MPL-2.0
  */
-export default class Pagination extends Mn.Behavior {
+export default class Pagination extends Behavior {
 
     ui() {
         return {

@@ -1,7 +1,7 @@
 /**
  * @module behaviors/Navigate
  */
-import Mn from 'backbone.marionette';
+import {Behavior} from 'backbone.marionette';
 import _ from 'underscore';
 import $ from 'jquery';
 import Mousetrap from 'mousetrap';
@@ -19,7 +19,7 @@ const log = deb('lav:behaviors/Navigate');
  * @extends Marionette.Behavior
  * @license MPL-2.0
  */
-export default class Navigate extends Mn.Behavior {
+export default class Navigate extends Behavior {
 
     initialize() {
         this.collection = this.view.options.collection;

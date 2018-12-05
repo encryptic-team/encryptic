@@ -1,7 +1,7 @@
 /**
  * @module components/help/about/Controller
  */
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 
 import constants from '../../../constants';
@@ -14,7 +14,7 @@ import View from './View';
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Controller extends Mn.Object {
+export default class Controller extends MnObject {
 
     init() {
         this.show();

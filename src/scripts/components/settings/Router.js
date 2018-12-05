@@ -1,7 +1,7 @@
 /**
  * @module components/settings/Router
  */
-import Mn from 'backbone.marionette';
+import AppRouter from 'marionette.approuter';
 import Radio from 'backbone.radio';
 import controller from './controller';
 
@@ -12,7 +12,7 @@ import controller from './controller';
  * @extends Marionette.AppRouter
  * @license MPL-2.0
  */
-export default class Router extends Mn.AppRouter {
+export default class Router extends AppRouter {
 
     /**
      * Controller.

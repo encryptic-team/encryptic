@@ -2,7 +2,7 @@
  * @module components/fileDialog/View
  */
 /* global Modernizr */
-import Mn from 'backbone.marionette';
+import {View as MnView} from 'backbone.marionette';
 import _ from 'underscore';
 import Dropzone from 'dropzone';
 import ModalForm from '../../behaviors/ModalForm';
@@ -14,7 +14,7 @@ import ModalForm from '../../behaviors/ModalForm';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class View extends Mn.View {
+export default class View extends MnView {
 
     get template() {
         const tmpl = require('./templates/dialog.html');

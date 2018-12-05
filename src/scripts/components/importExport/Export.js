@@ -1,7 +1,7 @@
 /**
  * @module components/importExport/Export
  */
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import JSZip from 'jszip';
@@ -18,7 +18,7 @@ const log = deb('lav:components/importExport/Export');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Export extends Mn.Object {
+export default class Export extends MnObject {
 
     /**
      * Current user's profile model data.

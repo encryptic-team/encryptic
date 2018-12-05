@@ -1,7 +1,7 @@
 /**
  * @module components/notes/form/views/NotebooksCollection
  */
-import Mn from 'backbone.marionette';
+import {CollectionView} from 'backbone.marionette';
 import _ from 'underscore';
 import Notebook from './Notebook';
 
@@ -12,7 +12,7 @@ import Notebook from './Notebook';
  * @extends Marionette.CollectionView
  * @license MPL-2.0
  */
-export default class NotebooksCollection extends Mn.CollectionView {
+export default class NotebooksCollection extends CollectionView {
 
     get tagName() {
         return 'optgroup';

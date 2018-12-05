@@ -1359,10 +1359,17 @@ babylon@^6.18.0:
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
   integrity sha512-q/UEjfGJ2Cm3oKV71DJz9d25TPnq5rhBVL2Q4fA5wcC3jcrdn7+SssEybFIxwAvvP+YCsCYNKughoF33GxgycQ==
 
-backbone.marionette@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/backbone.marionette/-/backbone.marionette-3.5.1.tgz#cb22ca68cf986cbcda9fdb544fb785dd66f8f248"
-  integrity sha1-yyLKaM+YbLzan9tUT7eF3Wb48kg=
+backbone.marionette@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/backbone.marionette/-/backbone.marionette-4.0.0.tgz#9640dd923f9e4f0da692daa3913fb587a6057f1a"
+  integrity sha512-8CHN0Cl0z5bYtrqP7x6f+gYpNKD3jVONNkggOS+cP8sF12bBOJkWgMGn/geWh9UO78O+I88qKwvWQo+YuW7Q9w==
+  dependencies:
+    backbone.radio "^2.0.0"
+
+"backbone.marionette@^4.0.0, 4.0.0-beta.1":
+  version "4.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/backbone.marionette/-/backbone.marionette-4.0.0-beta.1.tgz#793528fc5c60620200e2440e6dcd04ba16c3aab3"
+  integrity sha1-eTUo/FxgYgIA4kQObc0EuhbDqrM=
   dependencies:
     backbone.radio "^2.0.0"
 
@@ -6204,6 +6211,13 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+marionette.approuter@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/marionette.approuter/-/marionette.approuter-1.0.1.tgz#1b17ff745d03c752d948ba5fd2e5d7a5fbb68b0b"
+  integrity sha512-+NrBCUM2JN0vfyB0tcKN372YQFsNu3h7ugCsR2fyp68u5c55mXY7GRCkTFX2idY0+a+tyY6T6dgJOsNJCKZg4w==
+  dependencies:
+    backbone.marionette "^4.0.0, 4.0.0-beta.1"
 
 markdown-it-hashtag@^0.4.0:
   version "0.4.0"

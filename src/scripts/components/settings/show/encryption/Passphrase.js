@@ -1,7 +1,7 @@
 /**
  * @module components/settings/show/encryption/Passphrase
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import deb from 'debug';
@@ -15,7 +15,7 @@ const log = deb('lav:components/settings/show/encryption/Passphrase');
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Passphrase extends Mn.View {
+export default class Passphrase extends View {
 
     get template() {
         const tmpl = require('./passphrase.html');

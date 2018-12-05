@@ -1,7 +1,7 @@
 /**
  * @module components/fuzzySearch/views/Region
  */
-import Mn from 'backbone.marionette';
+import {Region as MnRegion} from 'backbone.marionette';
 import $ from 'jquery';
 
 /**
@@ -11,7 +11,7 @@ import $ from 'jquery';
  * @extends Marionette.Region
  * @license MPL-2.0
  */
-export default class Region extends Mn.Region {
+export default class Region extends MnRegion {
 
     /**
      * Show the region block.

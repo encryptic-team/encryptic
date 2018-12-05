@@ -1,7 +1,7 @@
 /**
  * @module behavior/ModalForm
  */
-import Mn from 'backbone.marionette';
+import {Behavior} from 'backbone.marionette';
 import _ from 'underscore';
 
 /**
@@ -18,7 +18,7 @@ import _ from 'underscore';
  * @extends Marionette.Behavior
  * @license MPL-2.0
  */
-export default class ModalForm extends Mn.Behavior {
+export default class ModalForm extends Behavior {
 
     get uiFocus() {
         return this.view.uiFocus || 'name';

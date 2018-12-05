@@ -1,7 +1,7 @@
 /**
  * @module components/importExport/Import
  */
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import JSZip from 'jszip';
@@ -19,7 +19,7 @@ const log = deb('lav:components/importExport/Import');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Import extends Mn.Object {
+export default class Import extends MnObject {
 
     /**
      * Radio channel (components/importExport).

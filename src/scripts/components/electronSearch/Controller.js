@@ -1,7 +1,7 @@
 /**
  * @module components/electronSearch/Controller
  */
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import Mousetrap from 'mousetrap';
 import Radio from 'backbone.radio';
 import View from './View';
@@ -16,7 +16,7 @@ const log = deb('lav:components/electronSearch/Controller');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Controller extends Mn.Object {
+export default class Controller extends MnObject {
 
     /**
      * Region name where the view will be rendered.

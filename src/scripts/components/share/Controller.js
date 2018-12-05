@@ -3,7 +3,7 @@
  */
 import _ from 'underscore';
 import Radio from 'backbone.radio';
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import View from './View';
 import deb from 'debug';
 
@@ -16,7 +16,7 @@ const log = deb('lav:components/share/Controller');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Controller extends Mn.Object {
+export default class Controller extends MnObject {
 
     /**
      * Component channel (components/share)

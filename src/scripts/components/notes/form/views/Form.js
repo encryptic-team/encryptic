@@ -1,7 +1,7 @@
 /**
  * @module components/notes/form/views/Form
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import _ from 'underscore';
 import $ from 'jquery';
@@ -22,7 +22,7 @@ const log = deb('lav:components/notes/form/views/Form');
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Form extends Mn.View {
+export default class Form extends View {
 
     get template() {
         const tmpl = require('../templates/form.html');

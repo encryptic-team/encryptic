@@ -1,7 +1,7 @@
 /**
  * @module components/setup/export/View
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 
 /**
@@ -11,7 +11,7 @@ import _ from 'underscore';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Export extends Mn.View {
+export default class Export extends View {
 
     get template() {
         const tmpl = require('./template.html');

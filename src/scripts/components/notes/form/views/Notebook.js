@@ -1,7 +1,7 @@
 /**
  * @module components/notes/form/views/Notebook
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 
 /**
@@ -11,7 +11,7 @@ import _ from 'underscore';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Notebook extends Mn.View {
+export default class Notebook extends View {
 
     get template() {
         return _.template('{=_.cleanXSS(name)}');

@@ -3,7 +3,7 @@
  */
 import Radio from 'backbone.radio';
 import _ from 'underscore';
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 
 /**
  * Show a list of users whom you trust or invited.
@@ -12,7 +12,7 @@ import Mn from 'backbone.marionette';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Users extends Mn.View {
+export default class Users extends View {
 
     get template() {
         const tmpl = require('./users.html');

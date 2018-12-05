@@ -1,7 +1,7 @@
 /**
  * @module views/Brand
  */
-import Mn from 'backbone.marionette';
+import {Region} from 'backbone.marionette';
 
 /**
  * The region that shows its content on fullscreen and on green background.
@@ -10,7 +10,7 @@ import Mn from 'backbone.marionette';
  * @extends Marionette.Region
  * @license MPL-2.0
  */
-export default class Brand extends Mn.Region {
+export default class Brand extends Region {
 
     /**
      * Show the region with animation.

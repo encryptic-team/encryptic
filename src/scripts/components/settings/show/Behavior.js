@@ -1,7 +1,7 @@
 /**
  * @module components/settings/show/Behavior
  */
-import Mn from 'backbone.marionette';
+import {Behavior as MnBehavior} from 'backbone.marionette';
 
 /**
  * Behavior for settings tab views.
@@ -10,7 +10,7 @@ import Mn from 'backbone.marionette';
  * @extends Marionette.Behavior
  * @license MPL-2.0
  */
-export default class Behavior extends Mn.Behavior {
+export default class Behavior extends MnBehavior {
 
     /**
      * Events.

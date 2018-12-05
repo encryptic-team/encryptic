@@ -2,7 +2,7 @@
  * @module components/share/Info
  */
 import _ from 'underscore';
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 
 /**
  * Show information about a user.
@@ -11,7 +11,7 @@ import Mn from 'backbone.marionette';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Info extends Mn.View {
+export default class Info extends View {
 
     get template() {
         const tmpl = require('./template.html');

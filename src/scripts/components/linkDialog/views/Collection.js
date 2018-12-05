@@ -1,7 +1,7 @@
 /**
  * @module components/linkDialog/views/Collection
  */
-import Mn from 'backbone.marionette';
+import {CollectionView} from 'backbone.marionette';
 import View from './Item';
 import Radio from 'backbone.radio';
 
@@ -12,7 +12,7 @@ import Radio from 'backbone.radio';
  * @extends Marionette.CollectionView
  * @license MPL-2.0
  */
-export default class Collection extends Mn.CollectionView {
+export default class Collection extends CollectionView {
 
     get tagName() {
         return 'ul';

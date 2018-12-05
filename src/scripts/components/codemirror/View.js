@@ -1,7 +1,7 @@
 /**
  * @module components/codemirror/View
  */
-import Mn from 'backbone.marionette';
+import {View as MnView} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import _ from 'underscore';
 import $ from 'jquery';
@@ -13,7 +13,7 @@ import $ from 'jquery';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class View extends Mn.View {
+export default class View extends MnView {
 
     get template() {
         const tmpl = require('./template.html');

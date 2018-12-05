@@ -1,7 +1,7 @@
 /**
  * @module components/encryption/encrypt/Controller
  */
-import Mn from 'backbone.marionette';
+import {MnObject} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import deb from 'debug';
@@ -16,7 +16,7 @@ const log = deb('lav:components/encryption/encrypt/Controller');
  * @extends Marionette.Object
  * @license MPL-2.0
  */
-export default class Controller extends Mn.Object {
+export default class Controller extends MnObject {
 
     /**
      * App settings.

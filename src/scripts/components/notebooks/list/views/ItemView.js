@@ -1,7 +1,7 @@
 /**
  * @module components/notebooks/list/views/ItemView
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import NavModel from '../../../../behaviors/NavModel';
@@ -13,7 +13,7 @@ import NavModel from '../../../../behaviors/NavModel';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class ItemView extends Mn.View {
+export default class ItemView extends View {
 
     get className() {
         return 'list--group list-group';

@@ -1,7 +1,7 @@
 /**
  * @module views/Layout
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 import $ from 'jquery';
 import Radio from 'backbone.radio';
@@ -20,7 +20,7 @@ const log = deb('lav:views/Layout');
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Layout extends Mn.View {
+export default class Layout extends View {
 
     get template() {
         const tmpl = require('../templates/layout.html');

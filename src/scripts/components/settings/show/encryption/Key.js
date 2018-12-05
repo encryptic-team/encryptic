@@ -1,7 +1,7 @@
 /**
  * @module components/settings/show/encryption/Key
  */
-import Mn from 'backbone.marionette';
+import {View} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 
@@ -12,7 +12,7 @@ import Radio from 'backbone.radio';
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class Key extends Mn.View {
+export default class Key extends View {
 
     get template() {
         const tmpl = require('./key.html');

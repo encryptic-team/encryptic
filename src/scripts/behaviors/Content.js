@@ -1,7 +1,7 @@
 /**
  * @module behaviors/Content
  */
-import Mn from 'backbone.marionette';
+import {Behavior} from 'backbone.marionette';
 import $ from 'jquery';
 import Hammer from 'hammerjs';
 import Radio from 'backbone.radio';
@@ -20,7 +20,7 @@ import Radio from 'backbone.radio';
  * @extends Marionette.Behavior
  * @license MPL-2.0
  */
-export default class Content extends Mn.Behavior {
+export default class Content extends Behavior {
 
     events() {
         return {

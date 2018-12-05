@@ -1,7 +1,7 @@
 /**
  * @module components/notes/show/View
  */
-import Mn from 'backbone.marionette';
+import {View as MnView} from 'backbone.marionette';
 import _ from 'underscore';
 import Mousetrap from 'mousetrap';
 import Radio from 'backbone.radio';
@@ -19,7 +19,7 @@ const log = deb('lav:components/notes/show/View');
  * @extends Marionette.View
  * @license MPL-2.0
  */
-export default class View extends Mn.View {
+export default class View extends MnView {
 
     get template() {
         const tmpl = require('./template.html');
