@@ -84,7 +84,7 @@
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.9.0",
     "faucet": "^0.0.1",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
