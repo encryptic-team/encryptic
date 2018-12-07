@@ -13,7 +13,7 @@
                     <table class="table table-condensed">
                         <tr>
                             <td>{{_.i18n('User ID')}}</td>
-                            <td>{{key.users[0].userId.userid}}</td>
+                            <td>{{key.getUserIds()[0]}}</td>
                         </tr>
                         <tr>
                             <td>{{_.i18n('Key ID')}}</td>
@@ -25,18 +25,16 @@
                         </tr>
                         <tr>
                             <td>{{_.i18n('Type')}}</td>
-                            <td>{{getType()}}</td>
+                            <td>{{key.getAlgorithmInfo().algorithm.split('_')[0]}}</td>
                         </tr>
                         <tr>
                             <td>{{_.i18n('Created')}}</td>
-                            <td>{{key.primaryKey.created.toLocaleDateString()}}</td>
+                            <td>{{key.getCreationTime().toLocaleDateString()}}</td>
                         </tr>
                         <tr>
                             <td>{{_.i18n('Expires')}}</td>
                             <td>
-                                <% if (key.primaryKey.expirationTimeV3 === 0) { %>
                                 {{_.i18n('Never')}}
-                                <% } %>
                             </td>
                         </tr>
                     </table>
@@ -49,7 +47,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default btn--close">
+            <button type="button" class="btn btn-default btn--close" data-dismiss="modal">
                 {{ _.i18n('Close') }}
             </button>
         </div>
