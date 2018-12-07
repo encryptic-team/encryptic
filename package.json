@@ -47,7 +47,7 @@
     "finalhandler": "^1.1.1",
     "fuse.js": "^3.3.0",
     "hammerjs": "^2.0.8",
-    "i18next": "^10.2.1",
+    "i18next": "^12.1.0",
     "i18next-xhr-backend": "^1.5.0",
     "jquery": "^3.2.1",
     "js-md5": "^0.7.3",
