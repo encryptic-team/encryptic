@@ -10,6 +10,8 @@ const path  = require('path'),
     pkg     = require('./package.json');
 
 module.exports = {
+    mode: 'development',
+
     devtool: 'source-map',
 
     node: {
@@ -29,13 +31,11 @@ module.exports = {
 
     resolve: {
         alias: {
-            modernizr: path.resolve(__dirname, '.modernizrrc'),
+            modernizr$: path.resolve(__dirname, '.modernizrrc'),
         },
     },
 
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({names: ['vendor']}),
-
         new webpack.ProvidePlugin({
             _               : 'underscore',
             $               : 'jquery',
@@ -49,8 +49,8 @@ module.exports = {
         rules: [
             // WebWorkers
             {
-                test: /worker\.js$/,
-                loader: 'worker-loader',
+                test   : /worker\.js$/,
+                loader : 'worker-loader',
             },
 
             // Babel
@@ -62,14 +62,14 @@ module.exports = {
 
             // Modernizr
             {
-                test: /\.modernizrrc$/,
-                loader: 'modernizr-loader!json-loader',
+                test : /\.modernizrrc$/,
+                use  : ['modernizr-loader', 'json-loader'],
             },
 
             // Templates
             {
-                test:  /\.html$/,
-                loader: 'raw-loader',
+                test   :  /\.html$/,
+                loader : 'raw-loader',
             },
         ],
     },
