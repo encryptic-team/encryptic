@@ -2,7 +2,7 @@
 
 module.exports = function(gulp, plugins, pkg) {
     return function() {
-        var platforms = [
+        let platforms = [
             'darwin-x64',
             // 'linux-arm',
             'linux-ia32',
@@ -11,11 +11,11 @@ module.exports = function(gulp, plugins, pkg) {
             'win32-x64'
         ];
 
-        if (plugins.util.env.platform) {
-            platforms = [plugins.util.env.platform];
+        if (plugins.minimist.platform) {
+            platforms = [plugins.minimist.platform];
         }
 
-        return gulp.src('./electron.js')
+        return gulp.src('./electron/electron.js')
         // .pipe(replace('__dirname + \'/dist\'', '__dirname'))
         .pipe(gulp.dest('./release/Encryptic'))
         .pipe(plugins.electron({
@@ -26,7 +26,7 @@ module.exports = function(gulp, plugins, pkg) {
             version     : 'v2.0.7',
             packaging   : true,
             // rebuild     : true,
-            platforms   : platforms,
+            platforms,
             platformResources: {
                 darwin: {
                     CFBundleDisplayName : pkg.name,
@@ -39,7 +39,7 @@ module.exports = function(gulp, plugins, pkg) {
                     'version-string'    : pkg.version,
                     'file-version'      : pkg.version,
                     'product-version'   : pkg.version,
-                    icon              : './src/images/icon/icon-120x120.png',
+                    icon                : './src/images/icon/icon-120x120.png',
                 },
             },
         }));

@@ -19,15 +19,15 @@ module.exports = function(gulp, $) {
         'set TAP_DIAG=1 && babel-node ./test/tape/index.js',
     ]));
 
-    gulp.task('test:run', ['lint', 'tape']);
+    gulp.task('test:run', gulp.series('lint', 'tape'));
 
-    gulp.task('test', ['test:run'], () => {
-        gulp.watch(['./src/scripts/**/*.js', 'test/tape/**/*.js'], ['tape']);
-    });
+    gulp.task('test', gulp.series('test:run', () => {
+        gulp.watch(['./src/scripts/**/*.js', 'test/tape/**/*.js'], gulp.series('tape'));
+    }));
 
     gulp.task('cover:run', $.shell.task(['npm run cover']));
-    gulp.task('cover', ['cover:run'], () => {
-        gulp.watch(['./src/scripts/**/*.js', 'test/tape/**/*.js'], ['cover:run']);
-    });
+    gulp.task('cover', gulp.series('cover:run', () => {
+        gulp.watch(['./src/scripts/**/*.js', 'test/tape/**/*.js'], gulp.series('cover:run'));
+    }));
 
 };

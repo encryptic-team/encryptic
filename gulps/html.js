@@ -10,7 +10,7 @@
 module.exports = function(gulp, $) {
     gulp.task('html', () => {
         return gulp.src('./src/*.html')
-        .pipe(!$.util.env.prod ? $.util.noop() : $.htmlmin({
+        .pipe(!$.minimist.prod ? $.through2.obj() : $.htmlmin({
             collapseWhitespace : true,
             quoteCharacter     : '\'',
         }))
@@ -20,8 +20,8 @@ module.exports = function(gulp, $) {
 
     gulp.task('html:manifest:create', () => {
         // Don't generate manifest for Electron app
-        if ($.util.env.electron) {
-            return $.util.noop();
+        if ($.minimist.electron) {
+            return $.through2.obj();
         }
 
         return gulp.src([
@@ -44,12 +44,12 @@ module.exports = function(gulp, $) {
         .pipe(gulp.dest($.distDir));
     });
 
-    gulp.task('html:manifest', ['html:manifest:create'], () => {
+    gulp.task('html:manifest', gulp.series('html:manifest:create', () => {
         const htmlStr  = '<html class="no-js">';
         const manifest = '<html manifest="app.appcache" class="no-js">';
 
         return gulp.src(`${$.distDir}/*.html`)
-        .pipe($.util.env.electron ? $.util.noop() : $.replace(htmlStr, manifest))
+        .pipe($.minimist.electron ? $.through2.obj() : $.replace(htmlStr, manifest))
         .pipe(gulp.dest($.distDir));
-    });
+    }));
 };
