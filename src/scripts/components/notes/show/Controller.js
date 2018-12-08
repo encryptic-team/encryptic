@@ -157,8 +157,6 @@ export default class Controller extends MnObject {
             throw new Error(e);
         }
 
-        model.htmlContent = data.htmlContent;
-
         return Radio.request('collections/Notes', 'saveModel', {
             model,
             data: _.pick(mData, 'content', 'taskCompleted', 'taskAll'),
