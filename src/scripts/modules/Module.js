@@ -340,8 +340,7 @@ export default class Module {
         const data   = {[idAttr]: options[idAttr] || options.model[idAttr]};
         const model  = new this.Model(data, options);
 
-        data.trash = 2;
-        await this.saveModel({model, data});
+        this.collection.sync('delete', model);
         this.channel.trigger('destroy:model', {model});
     }
 
