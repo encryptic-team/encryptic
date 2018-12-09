@@ -2,7 +2,7 @@
  * @module utils/fileSaver
  * @license MPL-2.0
  */
-import {saveAs} from 'file-saver';
+import saveAs from 'file-saver';
 
 /**
  * Save a file in Cordova environment.
