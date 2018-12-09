@@ -62,6 +62,7 @@ export default class Key extends View {
     templateContext() {
         return {
             key: this.key,
+
             /**
              * Show armored key.
              *
@@ -79,15 +80,6 @@ export default class Key extends View {
              */
             getFingerprint() {
                 return _.splitBy4(this.key.getFingerprint());
-            },
-
-            /**
-             * Return algorithm type (RSA)
-             *
-             * @returns {String}
-             */
-            getType() {
-                return this.key.primaryKey.algorithm.split('_')[0];
             },
         };
     }
