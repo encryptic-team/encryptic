@@ -32,3 +32,12 @@
         </select>
     </div>
 </div>
+
+<div class="form-group">
+    <div class="col-sm-12 checkbox">
+         <label class="control-label">
+             <input id="lineNumbers" type="checkbox" name="lineNumbers" <% if(Number(models.lineNumbers) === 1) { %> checked<% } %> >
+             {{ _.i18n('Show line numbers') }}
+         </label>
+    </div>
+</div>
