@@ -5,6 +5,9 @@ import localforage from 'localforage';
 import _ from 'underscore';
 import uuid from 'uuid';
 
+import deb from 'debug';
+const log = deb('lav:components/Db');
+
 import WorkerModule from '../workers/Module';
 
 /**
@@ -164,7 +167,7 @@ export default class Db extends WorkerModule {
     }
 
     /**
-     * Save an item.
+     * Remove an item.
      *
      * @param {Object} options
      * @param {String} options.profileId - used for setting database name
@@ -174,9 +177,11 @@ export default class Db extends WorkerModule {
      * @returns {Promise}
      */
     removeItem(options) {
-        console.log(`removeItem: ${options.profileId}/${options.storeName}: ${options.data[idAttribute]}`);
         const idAttribute = options.idAttribute || 'id';
         const key         = options.data[idAttribute] || options[idAttribute];
+
+        log(`removeItem: ${options.profileId}/${options.storeName}: ${key}`);
+
         return this.getDb(options).removeItem(key);
     }
 

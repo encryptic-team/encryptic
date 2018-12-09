@@ -52,7 +52,7 @@ export default class Sync {
     /**
      * Override Backbone.sync with this.
      *
-     * @param {String} method - read, create, update
+     * @param {String} method - read, create, update, delete
      * @param {Object} model - Backbone model/collection
      * @param {String} [model.id] - ID of a model
      * @param {String} model.profileId - the name of a profile
