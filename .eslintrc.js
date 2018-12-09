@@ -73,6 +73,7 @@ module.exports = {
         // Classes
         'no-useless-constructor' : 2,
         'no-dupe-class-members'  : 2,
+        'getter-return'          : 'off',
 
         // Modules
         'no-duplicate-imports': 2,
@@ -86,6 +87,7 @@ module.exports = {
         'no-case-declarations' : 2,
         'no-nested-ternary'    : 2,
         'no-unneeded-ternary'  : 2,
+        'for-direction'        : 'off',
 
         // Complexity
         'max-statements': [2, 20],

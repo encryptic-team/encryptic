@@ -1,7 +1,7 @@
 /**
  * @module components/dropbox/Adapter
  */
-import Dropbox from 'dropbox';
+import {Dropbox} from 'dropbox';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import Backbone from 'backbone';
