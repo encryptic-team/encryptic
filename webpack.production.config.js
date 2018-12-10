@@ -11,13 +11,12 @@ const webpack = require('webpack'),
 // Disable source maps
 config.devtool = false;
 
+config.mode = 'production';
+
 config.plugins = config.plugins.concat([
 
     // Optimize chunk IDs
     new webpack.optimize.OccurrenceOrderPlugin(),
-
-    // Minimize code
-    new webpack.optimize.UglifyJsPlugin(),
 
     // Deduplicate libraries
     new webpack.optimize.DedupePlugin(),
