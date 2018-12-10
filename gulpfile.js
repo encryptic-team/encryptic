@@ -6,13 +6,18 @@
  * @example gulp build --distDir='~/Encryptic-dist' // To build the project and
  * place it in ~/Encryptic-dist folder.
  */
-const gulp = require('gulp'),
-    pkg    = require('./package.json'),
-    $      = require('gulp-load-plugins')();
+const gulp          = require('gulp'),
+    pkg             = require('./package.json'),
+    gulpLoadPlugins = require('gulp-load-plugins');
 
-$.del         = require('del');
+const $ = gulpLoadPlugins({
+    pattern         : ['del', 'through2'],
+    overridePattern : false,
+});
+
 $.browserSync = require('browser-sync').create();
-$.distDir     = $.util.env.distDir || './dist';
+$.minimist    = require('minimist')(process.argv.slice(2));
+$.distDir     = $.minimist.distDir || './dist';
 
 /**
  * Create a new Gulp task.
@@ -54,15 +59,16 @@ gulp.task('release:after', () => {
  * Build the app.
  * ``gulp build --dev`` to build without minifying.
  */
-gulp.task('build', $.sequence(
+gulp.task('build', gulp.series(
     'clean:dist',
-    ['bundle', 'copy', 'css', 'html']
+    gulp.parallel('bundle', 'copy', 'css', 'html')
 ));
 
-/**
- * Prepare the release files.
- */
-gulp.task('release', $.sequence(
+// Load mobile tasks
+createTask('mobile');
+
+// Prepare the release files.
+gulp.task('release', gulp.series(
     'clean:release',
     'copyDist', 
     'copyRelease',
@@ -70,18 +76,16 @@ gulp.task('release', $.sequence(
     'electron'
 ));
 
-/**
- * Build for android
- */
-gulp.task('release-mobile', $.sequence(
+// Build for android
+gulp.task('release-mobile', gulp.series(
     'clean:release',
-    ['copyDist', 'copyRelease'],
+    gulp.parallel('copyDist', 'copyRelease'),
     'npm:install',
-	'mobile:build'
+    'mobile:build'
 ));
 
 /**
  * Gulp server.
  * ``gulp --root dist`` to serve dist folder.
  */
-gulp.task('default', $.sequence('build', 'serve'));
+gulp.task('default', gulp.series('build', 'serve'));

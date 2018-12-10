@@ -12,7 +12,7 @@ const webpack       = require('webpack');
 module.exports = (gulp, $) => {
 
     // Use a different config file for production
-    let webpackConfig = ($.util.env.prod ? 'production.config' : 'config.js');
+    let webpackConfig = ($.minimist.prod ? 'production.config' : 'config.js');
     webpackConfig     = require(`../webpack.${webpackConfig}`);
 
     return cb => {

@@ -22,5 +22,5 @@ module.exports = (gulp, $) => {
         .pipe($.jsonlint.reporter());
     });
 
-    gulp.task('lint', ['jsonlint', 'eslint']);
+    gulp.task('lint', gulp.series('jsonlint', 'eslint'));
 };
