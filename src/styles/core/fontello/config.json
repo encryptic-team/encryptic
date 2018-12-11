@@ -281,6 +281,18 @@
       "css": "cog",
       "code": 59398,
       "src": "elusive"
+    },
+    {
+      "uid": "0d20938846444af8deb1920dc85a29fb",
+      "css": "logout",
+      "code": 59438,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "49ef53dc31aa9442d77f6ba4f559b528",
+      "css": "bomb",
+      "code": 61922,
+      "src": "fontawesome"
     }
   ]
 }

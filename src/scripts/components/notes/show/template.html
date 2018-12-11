@@ -34,7 +34,7 @@
         <% if (trash !== 1) { %>
         <a href="#settings" class="btn -note btn-default">
             <span class="icon-cog"></span>
-            <span>{{_.i18n('Settings')}}</span>
+            <span class="hidden-xs">{{_.i18n('Settings')}}</span>
         </a>
         <% } else { %>
         <a href="#" class="btn -note btn-default" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,7 +54,8 @@
         </div>
         <% } %>
         <a href="/" class="btn -note btn-default logout">
-            <span>{{_.i18n('Logout')}}</span>
+            <span class="icon-logout"></span>
+            <span class="hidden-xs">{{_.i18n('Logout')}}</span>
         </a>
     </div>
 </div>
