@@ -6,6 +6,9 @@ import Radio from 'backbone.radio';
 import _ from 'underscore';
 import $ from 'jquery';
 
+import deb from 'debug';
+const log = deb('lav:components/codemirror/View');
+
 /**
  * Codemirror editor view.
  *
@@ -34,8 +37,9 @@ export default class View extends MnView {
 
     events() {
         return {
-            'click .editor--btns .btn' : 'onClickButton',
-            'click .editor--col--btn'  : 'showColumn',
+            'click .editor--btns .btn'                              : 'onClickButton',
+            'click .editor--col--btn'                               : 'showColumn',
+            'click .editor--preview--block .task [type="checkbox"]' : 'toggleTask',
         };
     }
 
@@ -147,6 +151,19 @@ export default class View extends MnView {
 
         this.ui.bar.css('width', 'initial');
         return this.ui.bar.removeClass('-fixed');
+    }
+
+    /**
+     * Toggle checked status of a task
+     * 
+     * @param {Object} e - event
+     */
+    toggleTask(e) {
+        log('toggle task');
+        const $task  = this.$(e.currentTarget);
+        const taskId = Number($task.attr('data-task'));
+
+        this.trigger('toggle:task', {taskId});
     }
 
 }

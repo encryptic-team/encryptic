@@ -49,7 +49,7 @@ export default class Controller extends MnObject {
 
     initialize() {
         // Create debounced methods
-        this.autoSave = _.debounce(this.autoSave, 1000);
+        this.autoSave = _.debounce(this.autoSave, 200);
         this.onScroll = _.debounce(this.onScroll, 10);
 
         _.bindAll(
@@ -107,6 +107,7 @@ export default class Controller extends MnObject {
         // Listen to view events
         this.listenTo(this.view, 'destroy', this.destroy);
         this.listenTo(this.view, 'click:button', this.onClickButton);
+        this.listenTo(this.view, 'toggle:task', this.toggleTask);
         this.listenTo(this.view.model, 'synced', this.onModelSynced);
 
         // Listen to form view events
@@ -210,11 +211,6 @@ export default class Controller extends MnObject {
      * Trigger save:auto event.
      */
     autoSave() {
-        // Set content only if a user isn't using P2P sync
-        if (this.configs.cloudStorage !== 'p2p') {
-            this.view.model.set('content', this.getContent());
-        }
-
         this.formChannel.trigger('save:auto');
     }
 
@@ -350,6 +346,37 @@ export default class Controller extends MnObject {
      */
     makeImage(data) {
         return `!${this.makeLink(data)}`;
+    }
+
+    /**
+     * Toggle a task's status in content.
+     *
+     * @param {Object} data
+     */
+    async toggleTask(data) {
+        const content  = this.view.model.get('content');
+        const {taskId} = data;
+
+        let mData;
+        try {
+            mData = await Radio.request('components/markdown', 'toggleTask', {
+                taskId,
+                content,
+            });
+        }
+        catch (e) {
+            log('toggleTask() error:', e);
+            throw new Error(e);
+        }
+        
+        const oldMd = content.split('\n');
+        const newMd = mData.content.split('\n');
+        for (let i = oldMd.length - 1; i >= 0; --i) {
+            if (oldMd[i] !== newMd[i]) {
+                this.editor.replaceRange(newMd[i], i);
+                break;
+            }
+        }
     }
 
 }

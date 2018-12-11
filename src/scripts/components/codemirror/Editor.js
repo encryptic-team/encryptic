@@ -317,7 +317,7 @@ export default class Codemirror {
      * @param {Number} line
      */
     replaceRange(text, line) {
-        this.instance.replaceRange(text, {line, ch: 0}, {line, ch: 99999999999999});
+        this.instance.replaceRange(text, {line, ch: 0}, {line, ch: text.length});
         this.instance.focus();
     }
 

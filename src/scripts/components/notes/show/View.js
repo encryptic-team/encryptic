@@ -140,10 +140,7 @@ export default class View extends MnView {
         const $task  = this.$(e.currentTarget);
         const taskId = Number($task.attr('data-task'));
 
-        $task.blur();
-        $task.prop('checked', $task.is(':checked') === false);
         this.trigger('toggle:task', {taskId});
-        $task.prop('checked', !$task.is(':checked'));
     }
 
     /**
