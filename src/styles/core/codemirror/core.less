@@ -235,13 +235,12 @@ span.CodeMirror-selectedtext { background: none; }
     user-select         : none;
 }
 
-.CodeMirror-linenumbers {}
 .CodeMirror-linenumber {
-    padding     : 0 3px 0 5px;
     min-width   : 20px;
     text-align  : right;
     color       : #999;
     white-space : nowrap;
+    left        : -6px !important;
 }
 
 .CodeMirror-guttermarker {
@@ -334,7 +333,15 @@ div.CodeMirror-dragcursors {
 
 .editor--fullscreen.-preview {
     .CodeMirror-lines {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left  : 10px;
+        padding-right : 10px;
+    }
+
+    .CodeMirror-linenumber {
+        left: -16px !important;
+    }
+
+    .CodeMirror-gutter-wrapper + .CodeMirror-line {
+        left: -5px;
     }
 }
