@@ -91,7 +91,7 @@ If you're planning to contribute to the project's development, hit the fork butt
 
 With SSH :
 ```bash
-$ git clone git@github.com:daed/encryptic.git
+$ git clone git@github.com:encryptic-team/encryptic.git
 ```
 
 With HTTPS :
