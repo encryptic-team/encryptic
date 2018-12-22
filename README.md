@@ -131,7 +131,7 @@ $ gulp
 
 ## Coding Style Guidelines
 
-We ask that you use either **plain JavaScript or the [Marionette.js](http://marionette.js/) framework** (for more details on the preferred coding style see [.editorconfig](https://github.com/encryptic-team/Encryptic/blob/master/.editorconfig)).
+We ask that you use either **plain JavaScript or the [Marionette.js](http://marionettejs.com/) framework** (for more details on the preferred coding style see [.editorconfig](https://github.com/encryptic-team/Encryptic/blob/master/.editorconfig)).
 
 ## Encryption
 
