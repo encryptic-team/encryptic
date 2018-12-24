@@ -97,13 +97,14 @@ export default class Db extends WorkerModule {
         /* Add the prefix only if it's not "notes-db" profile to
            be compatible with old backups */
 
+        let dbId = id;
         if (id !== 'notes-db') {
-            id = `lav-${id}`;
+            dbId = `lav-${id}`;
         }
-        console.log(`dropInstance(${id})`);
+        console.log(`dropInstance(${dbId})`);
         this.getDb({}).dropInstance({
             // storeName,
-            name: id,
+            name: dbId,
         })
         .then(console.log('removing profile key'));
         console.log('Booooooooom!!!!');

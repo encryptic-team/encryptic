@@ -60,6 +60,7 @@ export default class View extends MnView {
     async doWipeAllData() {
         // Don't show the confirmation dialog if a user is enabling encryption
         const answer = await Radio.request('components/confirm', 'show', {
+            // eslint-disable-next-line max-len
             content: _.i18n('Remove ALL of this user\'s data from this device and return to login screen?'),
         });
 

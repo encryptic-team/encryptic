@@ -141,7 +141,8 @@ export default class Encryption {
             }
 
             // My public key
-            this.keys.publicKeys[this.user.username] = this.keys.privateKeys[0].toPublic();
+            const username = this.user.username;
+            this.keys.publicKeys[username] = this.keys.privateKeys[0].toPublic();
 
             return this.readPublicKeys()
             .then(() => {
@@ -345,6 +346,7 @@ export default class Encryption {
         const keys = this.getUserKeys(options.username);
         // openpgp 4 needs a 'message', not 'data'
         if (keys.publickeys === null && keys.privateKey === null) {
+            // eslint-disable-next-line max-len
             console.log('encryption: encrypt(): no pub/priv key found. Is this an old laverna import?');
             return options.data;
         }

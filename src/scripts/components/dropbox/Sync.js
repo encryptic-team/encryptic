@@ -201,11 +201,11 @@ export default class Sync {
 
             if (!model || model.get('updated') < file.updated) {
                 this.stat.statRemote = true;
-                const newModel = promises.push(collection.channel.request('saveModelObject', {
+                const mdl = promises.push(collection.channel.request('saveModelObject', {
                     data      : file,
                     profileId : this.profileId,
                 }));
-                Radio.trigger('components/notes', 'save:model', {model: newModel});
+                Radio.trigger('components/notes', 'save:model', {model: mdl});
             }
         });
 

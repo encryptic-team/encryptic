@@ -197,6 +197,7 @@ export default class Controller extends MnObject {
     async save({username, keyData, keys, register}) {
 
         // Break registration for now
+        // eslint-disable-next-line no-param-reassign
         register = false;
 
         const view  = this.view.getChildView('content');
