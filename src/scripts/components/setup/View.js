@@ -62,8 +62,8 @@ export default class View extends MnView {
 
     childViewTriggers() {
         return {
-            'check:user': 'childview:check:user',
-            'save'      : 'childview:save',
+            'check:user'  : 'childview:check:user',
+            save          : 'childview:save',
         };
     }
 

@@ -128,7 +128,7 @@ export default class Controller extends MnObject {
             this.onSaveObject);
     }
 
-    
+
     /**
      * Save the model.
      *
@@ -141,11 +141,11 @@ export default class Controller extends MnObject {
         let data = await this.getData();
         data     = this.checkTitle(data);
         //        data.content = data.content.replace('&amp;', '&amp;amp;');
-        
+
         if (data.hasOwnProperty('content')) {
             data.content = _.escape(data.content);
         }
-        
+
         try {
             await this.notesChannel.request('saveModel', {
                 data,

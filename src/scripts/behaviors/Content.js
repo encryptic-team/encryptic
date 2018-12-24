@@ -10,11 +10,11 @@ import Radio from 'backbone.radio';
  * Content region behavior.
  * It allows to show only one region on small screens (either content or sidebar)
  * This provides rendering behaviors in the main window.  See usage in:
- * 
+ *
  * components/notes/form/views/Form.js
  * components/notes/show/View.js
  * components/settings/show/View.js
- * 
+ *
  *
  * @class
  * @extends Marionette.Behavior

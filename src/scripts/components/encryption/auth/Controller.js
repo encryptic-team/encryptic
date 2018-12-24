@@ -99,7 +99,7 @@ export default class Controller extends MnObject {
         const username   = this.view.ui.username.val().trim();
 
         Radio.request('collections/Profiles', 'setUser', {username});
-        //Radio.request('components/Encryption', 'readKeys', {passphrase})
+        // Radio.request('components/Encryption', 'readKeys', {passphrase})
         return Radio.request('components/Encryption', 'readKeys', {passphrase})
         // Fetch a user's configs
         .then(() => {
@@ -107,7 +107,7 @@ export default class Controller extends MnObject {
             Radio.request('collections/Configs', 'find', {profileId: username});
         })
         .then(() => {
-            this.onSuccess()
+            this.onSuccess();
         })
         .catch(error => {
             log('readKeys error', error);

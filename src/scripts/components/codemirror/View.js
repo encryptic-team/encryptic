@@ -155,7 +155,7 @@ export default class View extends MnView {
 
     /**
      * Toggle checked status of a task
-     * 
+     *
      * @param {Object} e - event
      */
     toggleTask(e) {

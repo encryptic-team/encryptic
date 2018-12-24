@@ -6,13 +6,13 @@ import _ from 'underscore';
 
 /**
  * Modal form behavior.
- * 
- * Example usage in: 
+ *
+ * Example usage in:
  *   components/fileDialog/View.js
  *   components/linkDialog/views/View.js
  *   components/notebooks/form/notebook/View.js
  *   components/notebooks/form/tag/View.js
- * 
+ *
  *
  * @class
  * @extends Marionette.Behavior

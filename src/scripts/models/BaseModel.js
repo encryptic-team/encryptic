@@ -22,13 +22,13 @@ import Radio from 'backbone.radio';
  *
  *   get escapeAttributes()
  * It should contain an array of attribute names that should be filtered from XSS.
- * 
- * 
+ *
+ *
 */
 
 
- export default class BaseModel extends Model {
-    
+export default class BaseModel extends Model {
+
     constructor(data, options = {}) {
         super(data, options);
         this.profileId = options.profileId;

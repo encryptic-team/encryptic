@@ -4,7 +4,6 @@
 import {View as MnView} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
-import * as openpgp from 'openpgp';
 
 import Behavior from '../Behavior';
 import Key from './Key';

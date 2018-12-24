@@ -170,8 +170,7 @@ export default class Export extends MnObject {
         }
         // Other collections' data is saved in one JSON file
         else {
-            if (collection.storeName === 'notebooks') 
-            {
+            if (collection.storeName === 'notebooks') {
                 coll.each(model => model.name = '');
             }
             this.exportToJSON(path, collection);

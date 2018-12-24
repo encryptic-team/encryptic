@@ -281,7 +281,7 @@ export default class Import extends MnObject {
 
         return new Promise((resolve, reject) => {
             reader.onload = evt => {
-                console.log("loading file: ");
+                console.log('loading file: ');
                 console.log(evt.target.result);
                 this.zip.loadAsync(evt.target.result)
                 .then(() => resolve(this.zip))
@@ -301,10 +301,10 @@ export default class Import extends MnObject {
     import(zip) {
         console.log(zip);
         console.log(this.options.files[0]);
-        console.log("files:");
+        console.log('files:');
 
         if (!_.isUndefined(zip.files['laverna-backups/notes-db/configs.json'])) {
-            console.log("import: import():  Old laverna backups detected.");
+            console.log('import: import():  Old laverna backups detected.');
             this.isOldBackup = true;
             return this.importCollections(zip);
         }
@@ -320,25 +320,19 @@ export default class Import extends MnObject {
      * @returns {Promise}
      */
     importProfile(zip) {
-        let filename = "";
-        for (let x in zip.files){
-            if (x.includes("profiles.json")) {
+        let filename = '';
+        for (const x in zip.files) {
+            if (x.includes('profiles.json')) {
                 filename = x;
+                break;
             }
-        };
-        let file = zip.files[filename];
-        let name = "Encryptic";
-        console.log(file);
-        if (!file) {
-            file = zip.files['laverna-backups/profiles.json'];
-            name = "laverna";
-            this.isLavernaBackup = true;
         }
 
-        if (!file && !this.user) {
+        if (!filename && !this.user) {
             return Promise.reject('You need to create a profile first!');
         }
-        console.log(name + '-backups/profiles.json');
+        console.log(filename);
+
         return zip.file(filename).async('string')
         .then(res => {
             this.profile = JSON.parse(res)[0];
@@ -362,25 +356,23 @@ export default class Import extends MnObject {
         const promises = [];
         let configFile;
 
-        console.log("import: importCollections(): isOldBackup is " + this.isOldBackup);
-        if (this.isOldBackup)
-        {
+        console.log(`import: importCollections(): isOldBackup is ${this.isOldBackup}`);
+        if (this.isOldBackup) {
             _.each(zip.files, file => {
                 // Ignore directories and non JSON files
                 if (!this.isCollectionFile(file)) {
-                    console.log("importCollections(): ignoring " + file);
+                    console.log(`importCollections(): ignoring ${file}`);
                     return;
                 }
                 promises.push(this.readLegacyFile(zip, file));
             });
             return Promise.all(promises);
         }
-        else
-        {
+        else {
             _.each(zip.files, file => {
                 // Ignore directories and non JSON files
                 if (!this.isCollectionFile(file)) {
-                    console.log("importCollections(): ignoring " + file);
+                    console.log(`importCollections(): ignoring ${file}`);
                     return;
                 }
 
@@ -406,18 +398,15 @@ export default class Import extends MnObject {
      * @returns {Promise}
      */
     importOldData(storeName = 'notes', item) {
-        const models = [];
         // We check this for a config file.
         let key;
-        if (_.isUndefined(item.id))
-        {
+        if (_.isUndefined(item.id)) {
             key = item.name;
         }
-        else
-        {
+        else {
             key = item.id;
         }
-        const forage = localforage.createInstance({storeName, name: 'notes-db'})
+        const forage = localforage.createInstance({storeName, name: 'notes-db'});
         return forage.setItem(key, item);
     }
 
@@ -432,24 +421,22 @@ export default class Import extends MnObject {
         return zip.file(file.name).async('string')
         .then(res => {
             const path      = file.name.split('/');
-            const profileId = path[1] !== 'notes-db' ? this.profile.username : path[1];
             const data      = JSON.parse(res);
-            //console.log("import: readLegacyFile(): data: ");
-            //console.log(data)
+            // console.log('import: readLegacyFile(): data: ');
+            // console.log(data)
 
             if (path[2] === 'notes') {
-                return this.importOldData("notes", data);
+                return this.importOldData('notes', data);
             }
             else if (path[2] === 'files') {
-                return this.importOldData("files", data);
+                return this.importOldData('files', data);
             }
             else {
                 const type = path[2].split('.json')[0];
-                for (let i=0; i<data.length; i++)
-                {
+                for (let i = 0; i < data.length; i++) {
                     this.importOldData(type, data[i]);
                 }
-                
+
                 return Promise.resolve();
             }
         });
@@ -478,43 +465,33 @@ export default class Import extends MnObject {
     readFile(zip, file) {
         return zip.file(file.name).async('string')
         .then(res => {
-            if (file.name.split("/")[0].includes("Encryptic")) {
-                const path      = file.name.split('/');
-                const profileId = path[2] !== 'notes-db' ? this.profile.username : path[2];
-                const data      = JSON.parse(res);
-                //console.log("data: ");
-                //console.log(data)
-                console.log("readFile(): reading " + path[3] + " file: " + path);
-                console.log(path);
-                if (path[3] === 'notes') {
-                    return this.importNote({zip, profileId, data, name: file.name});
-                }
-                else if (path[3] === 'files') {
-                    return this.importFile({profileId, data});
-                }
-                else {
-                    const type = path[3].split('.json')[0];
-                    return this.importCollection({profileId, data, type});
-                }
+            const path    = file.name.split('/');
+            const data    = JSON.parse(res);
+
+            let filename = '';
+            let userDir  = '';
+            if (file.name.startsWith('Encryptic-backups/')) {
+                filename = path[3];
+                userDir  = path[2];
             }
             else {
-                const path      = file.name.split('/');
-                const profileId = path[1] !== 'notes-db' ? this.profile.username : path[1];
-                const data      = JSON.parse(res);
-                //console.log("data: ");
-                //console.log(data)
-                console.log("readFile(): reading " + path[2] + " file: " + path);
-                console.log(path);
-                if (path[2] === 'notes') {
-                    return this.importNote({zip, profileId, data, name: file.name});
-                }
-                else if (path[2] === 'files') {
-                    return this.importFile({profileId, data});
-                }
-                else {
-                    const type = path[2].split('.json')[0];
-                    return this.importCollection({profileId, data, type});
-                }
+                filename = path[2];
+                userDir  = path[1];
+            }
+
+            const profileId = userDir === 'notes-db' ? userDir : this.profile.username;
+
+            console.log(`readFile(): reading ${filename} file: ${path}`);
+            console.log(path);
+            if (filename === 'notes') {
+                this.importNote({zip, profileId, data, name: file.name});
+            }
+            else if (filename === 'files') {
+                this.importFile({profileId, data});
+            }
+            else {
+                const type = filename.split('.json')[0];
+                this.importCollection({profileId, data, type});
             }
         });
     }

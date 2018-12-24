@@ -32,6 +32,9 @@ app/scripts/helpers/syncStatus.js
 # Intellij
 .idea
 
+# Visual Studio Code
+.vscode/
+
 # Created by https://www.gitignore.io/api/node,vim,osx,linux,windows
 
 ### Node ###
@@ -93,7 +96,8 @@ tags
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*

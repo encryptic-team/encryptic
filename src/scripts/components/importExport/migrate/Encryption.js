@@ -80,7 +80,7 @@ export default class Encryption {
             return text;
         }
         const d = sjcl.decrypt(this.keys.key, text);
-        console.log("migrate: decrypt(): data")
+        console.log('migrate: decrypt(): data');
         console.log(d);
         return d;
     }

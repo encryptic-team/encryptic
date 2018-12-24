@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @module components/navbar/View
  */
 import {View as MnView} from 'backbone.marionette';
@@ -87,7 +87,7 @@ export default class View extends MnView {
         // this.channel.trigger('show:form');
         Radio.request('components/notes', 'showForm', {});
     }
-	
+
     /**
 	 * Show a form to create a notebook.
 	 *
@@ -215,12 +215,12 @@ export default class View extends MnView {
     templateContext() {
         return {
             /**
-			 * Return true if dropbox synchronization is enabled.
+			 * Return true if synchronization is enabled.
 			 *
 			 * @returns {Boolean}
 			 */
             isSyncEnabled() {
-                return ['dropbox', 'p2p'].indexOf(this.configs.cloudStorage) !== -1;
+                return this.configs.cloudStorage !== 'p2p';
             },
         };
     }

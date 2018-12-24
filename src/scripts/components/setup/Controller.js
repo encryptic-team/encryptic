@@ -127,10 +127,11 @@ export default class Controller extends MnObject {
 
         let user;
         /*
-         *  Removed 2018-09-21 because end users shouldn't have to install mongodb for features that don't 
-         *   even exist.  This will get put back in when I (or someone) gets the chance to make the p2p
-         *   stuff actually work.  Even then, it will probably not resemble what it does today.
-         *   -BA
+         * Removed 2018-09-21 because end users shouldn't have to install mongodb for features
+         * that don't even exist. This will get put back in when I (or someone) gets the chance
+         * to make the p2p stuff actually work.
+         * Even then, it will probably not resemble what it does today.
+         * -BA
          *
 
 
@@ -195,7 +196,7 @@ export default class Controller extends MnObject {
      */
     async save({username, keyData, keys, register}) {
 
-        // Break registration for now  
+        // Break registration for now
         register = false;
 
         const view  = this.view.getChildView('content');

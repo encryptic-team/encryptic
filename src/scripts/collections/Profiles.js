@@ -24,7 +24,7 @@ export default class Profiles extends BaseCollection {
 
     destroyUser(opt) {
         console.log('destroyUser(): calling destroyDb()');
-        this.sync('destroyDb', opt, {});
+        this.sync('destroyDb', opt);
     }
 
     constructor(models) {
