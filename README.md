@@ -91,7 +91,7 @@ If you're planning to contribute to the project's development, hit the fork butt
 
 With SSH :
 ```bash
-$ git clone git@github.com:daed/encryptic.git
+$ git clone git@github.com:encryptic-team/encryptic.git
 ```
 
 With HTTPS :
@@ -131,7 +131,7 @@ $ gulp
 
 ## Coding Style Guidelines
 
-We ask that you use either **plain JavaScript or the [Marionette.js](http://marionette.js/) framework** (for more details on the preferred coding style see [.editorconfig](https://github.com/encryptic-team/Encryptic/blob/master/.editorconfig)).
+We ask that you use either **plain JavaScript or the [Marionette.js](http://marionettejs.com/) framework** (for more details on the preferred coding style see [.editorconfig](https://github.com/encryptic-team/Encryptic/blob/master/.editorconfig)).
 
 ## Encryption
 
