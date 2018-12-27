@@ -18,9 +18,6 @@ config.plugins = config.plugins.concat([
     // Optimize chunk IDs
     new webpack.optimize.OccurrenceOrderPlugin(),
 
-    // Deduplicate libraries
-    new webpack.optimize.DedupePlugin(),
-
 ]);
 
 module.exports = config;
