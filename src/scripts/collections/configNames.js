@@ -74,6 +74,7 @@ const configNames = {
      */
     encrypt       : '0',
     encryptBackup : {},
+
     /**
      * Keybinding settings.
      *
@@ -91,21 +92,23 @@ const configNames = {
      * @prop {String} appSearch - show search box (default /)
      * @prop {String} appKeyboardHelp - show keybinding help (default ?)
      */
-    navigateTop        : 'k',
-    navigateBottom     : 'j',
-    jumpInbox          : 'g i',
-    jumpNotebook       : 'g n',
-    jumpFavorite       : 'g f',
-    jumpRemoved        : 'g t',
-    jumpOpenTasks      : 'g o',
-    actionsEdit        : 'e',
-    actionsOpen        : 'o',
-    actionsRemove      : 'shift+3',
-    actionsRotateStar  : 's',
-    appCreateNote      : 'c',
-    appSearch          : '/',
-    appKeyboardHelp    : '?',
-    appShowSidemenu    : 's m',
+    keybindings: {
+        navigateTop        : 'k',
+        navigateBottom     : 'j',
+        jumpInbox          : 'g i',
+        jumpNotebook       : 'g n',
+        jumpFavorite       : 'g f',
+        jumpRemoved        : 'g t',
+        jumpOpenTasks      : 'g o',
+        actionsEdit        : 'e',
+        actionsOpen        : 'o',
+        actionsRemove      : 'shift+3',
+        actionsRotateStar  : 's',
+        appCreateNote      : 'c',
+        appSearch          : '/',
+        appKeyboardHelp    : '?',
+        appShowSidemenu    : 's m',
+    }
 };
 
 export {configNames};
