@@ -19,22 +19,22 @@ import WorkerModule from '../workers/Module';
  */
 /**
  * Some non-obvious terminology is at work here.
- * 
- * - profileId 
+ *
+ * - profileId
  * The highest object under the website.  Example "db-notes", "lav-brad",
  * or "lav-default"
- * 
+ *
  * - storeName
  * The second highest object under the website.  Example "configs", "notebooks",
  * or "notes"
- * 
+ *
  * - id (or idAttribute)
  * A single key residing under any storeName.  Ours are frequently uuids
- * 
+ *
  * - data
  * The value corresponding to a given id (as defined above).
- * 
- * 
+ *
+ *
  */
 export default class Db extends WorkerModule {
 
@@ -96,14 +96,15 @@ export default class Db extends WorkerModule {
         this.getDb({profileId: 'default', storeName: 'profiles'}).removeItem(id);
         /* Add the prefix only if it's not "notes-db" profile to
            be compatible with old backups */
-        
+
+        let dbId = id;
         if (id !== 'notes-db') {
-            id = `lav-${id}`;
+            dbId = `lav-${id}`;
         }
-        console.log(`dropInstance(${id})`);
+        console.log(`dropInstance(${dbId})`);
         this.getDb({}).dropInstance({
             // storeName,
-            name: id,
+            name: dbId,
         })
         .then(console.log('removing profile key'));
         console.log('Booooooooom!!!!');

@@ -4,7 +4,6 @@
 import {View as MnView} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
-import * as openpgp from 'openpgp';
 
 import Behavior from '../Behavior';
 import Key from './Key';
@@ -110,7 +109,7 @@ export default class View extends MnView {
      */
     serializeData() {
         const models = this.collection.getConfigs();
-        const privateKey = Radio.request('components/Encryption', 'getUserKeys').privateKey;
-        return {models, privateKey};
+        const privKey = Radio.request('components/Encryption', 'getUserKeys').privateKey;
+        return {models, privateKey: privKey};
     }
 }

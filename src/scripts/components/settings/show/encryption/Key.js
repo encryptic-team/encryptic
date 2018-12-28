@@ -53,7 +53,7 @@ export default class Key extends View {
     initialize() {
         this.user = Radio.request('collections/Profiles', 'getUser');
         this.key = Radio.request('components/Encryption', 'getUserKeys').privateKey;
-        
+
         // console.log('this.key:');
         // console.log(this.key);
     }

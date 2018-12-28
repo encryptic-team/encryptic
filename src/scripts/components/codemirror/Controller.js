@@ -368,7 +368,7 @@ export default class Controller extends MnObject {
             log('toggleTask() error:', e);
             throw new Error(e);
         }
-        
+
         const oldMd = content.split('\n');
         const newMd = mData.content.split('\n');
         for (let i = oldMd.length - 1; i >= 0; --i) {

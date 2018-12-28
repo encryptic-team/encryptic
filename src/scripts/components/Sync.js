@@ -170,10 +170,9 @@ export default class Sync {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    async destroyDb(model, options) {
+    async destroyDb(model) {
         this.sleep(1000);
         console.log('Sync.destroyDb(): Calling db.dropdb()');
-        const opt = _.extend(options);
         return this.db.dropDb(model);
     }
 

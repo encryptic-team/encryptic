@@ -28,8 +28,8 @@ function initializer() {
     new Notebooks();
     new Notes();
     new Tags();
-    //new Shadows();
-    //new Edits();
+    // new Shadows();
+    // new Edits();
 
     // Find or create configs
     return Radio.request('collections/Profiles', 'find');

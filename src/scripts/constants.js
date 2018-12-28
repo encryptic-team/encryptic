@@ -30,8 +30,8 @@ const constants = {
     dropboxKeyNeed: false,
 
     singleUserMode: false,
-    singleUserProfile : "",
-    singleUserPassword: "",
+    singleUserProfile : '',
+    singleUserPassword: '',
 };
 
 // The default Dropbox API key will not work

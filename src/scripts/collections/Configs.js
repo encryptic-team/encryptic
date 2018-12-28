@@ -100,7 +100,6 @@ export default class Configs extends BaseCollection {
         // We set theme here because there's surprisingly few places we see the full config.
         const theme = data.theme;
         Radio.trigger('components/settings', 'changeTheme', {theme});
-        // console.log(this.models);
         return data;
     }
 

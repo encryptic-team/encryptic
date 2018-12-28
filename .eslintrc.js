@@ -29,7 +29,7 @@ module.exports = {
         'newline-per-chained-call' : 2,
         'space-in-parens'          : [2, 'never'],
         'array-bracket-spacing'    : [2, 'never'],
-        'max-len'                  : [2, {'code': 90}],
+        'max-len'                  : [2, {'code': 90, 'comments': 100}],
         'comma-style'              : [2, 'last'],
         'comma-dangle'             : [2, 'always-multiline'],
         'camelcase'                : 2,
@@ -88,6 +88,7 @@ module.exports = {
         'no-nested-ternary'    : 2,
         'no-unneeded-ternary'  : 2,
         'for-direction'        : 'off',
+        'no-trailing-spaces'   : 'error',
 
         // Complexity
         'max-statements': [2, 20],

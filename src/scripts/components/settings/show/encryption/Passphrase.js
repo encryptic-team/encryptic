@@ -38,7 +38,7 @@ export default class Passphrase extends View {
     events() {
         return {
             'click .btn--cancel' : 'destroy',
-            'click .btn--close'  : 'close',            
+            'click .btn--close'  : 'close',
             'click .btn--save'   : 'save',
             'keyup input'        : 'saveOnEnter',
         };

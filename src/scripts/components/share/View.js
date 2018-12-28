@@ -104,8 +104,8 @@ export default class View extends MnView {
 
     childViewTriggers() {
         return {
-            'add:trust': 'childview:add:trust',
-            'share'    : 'childview:share',
+            'add:trust' : 'childview:add:trust',
+            share       : 'childview:share',
         };
     }
 

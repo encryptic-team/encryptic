@@ -127,7 +127,7 @@ export default class Controller extends MnObject {
         })
         .catch(error => {
             log('error', error);
-            
+
             this.view.triggerMethod('migrate:failure', {error});
         });
     }

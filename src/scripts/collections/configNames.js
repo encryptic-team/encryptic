@@ -1,5 +1,3 @@
-import _ from 'underscore';
-
 /**
  * Default config values.
  *

@@ -27,12 +27,6 @@ export default class View extends CollectionView {
         return Child;
     }
 
-    /**
-     * @todo
-     */
-    get emptyView() {
-    }
-
     childViewTriggers() {
         return {
             'navigate:search': 'childview:navigate:search',

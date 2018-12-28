@@ -13,7 +13,7 @@ import './remove/Controller';
 const log = deb('lav:components/notebooks/controller');
 
 export default {
-           
+
 
     /**
      * Show a list of notebooks and tags.
