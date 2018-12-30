@@ -85,16 +85,21 @@ export default class Controller extends MnObject {
      * @param {String} data.query
      */
     search(data) {
-        if (this.wait && !this.waitIsResolved) {
-            return this.wait.then(() => this.search(data));
+        if (data.query === ''){
+            this.view.destroy();
         }
-
-        const models = this.collection.fuzzySearch(data.query);
-        this.collection.reset(models);
-
-        // Render the view if it isn't rendered yet
-        if (!this.view.isRendered()) {
-            Radio.request('Layout', 'show', {region: 'fuzzySearch', view: this.view});
+        else {
+            if (this.wait && !this.waitIsResolved) {
+                return this.wait.then(() => this.search(data));
+            }
+    
+            const models = this.collection.fuzzySearch(data.query);
+            this.collection.reset(models);
+    
+            // Render the view if it isn't rendered yet
+            if (!this.view.isRendered()) {
+                Radio.request('Layout', 'show', {region: 'fuzzySearch', view: this.view});
+            }
         }
     }
 
