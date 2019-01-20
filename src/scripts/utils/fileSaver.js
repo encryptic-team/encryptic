@@ -2,7 +2,9 @@
  * @module utils/fileSaver
  * @license MPL-2.0
  */
-import saveAs from 'file-saver';
+
+// fix saveAs not working
+const saveAs = global.saveAs || require('file-saver');
 
 /**
  * Save a file in Cordova environment.
