@@ -41,7 +41,7 @@ const configNames = {
      * @prop {String} textEditor - keybindings used for the editor (vim|emacs|sublime)
      * @prop {String} indentUnit - number of spaces used for indentation
      */
-    editMode           : 'preview',
+    editMode           : 'normal',
     textEditor         : 'default',
     indentUnit         : '4',
 
