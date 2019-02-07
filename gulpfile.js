@@ -48,16 +48,9 @@ function createTask(name) {
     'copyRelease',
 ].forEach(createTask);
 
-gulp.task('release:after', () => {
-    return gulp.src('./release')
-    .pipe($.shell([
-        'cd ./release && zip -r ../release/webapp.zip ./Encryptic',
-    ]));
-});
-
 /**
  * Build the app.
- * ``gulp build --dev`` to build without minifying.
+ * `gulp build --dev` to build without minifying.
  */
 gulp.task('build', gulp.series(
     'clean:dist',
