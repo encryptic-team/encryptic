@@ -62,6 +62,7 @@ createTask('mobile');
 
 // Prepare the release files.
 gulp.task('release', gulp.series(
+    'build',
     'clean:release',
     'copyDist', 
     'copyRelease',
