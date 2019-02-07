@@ -16,16 +16,13 @@ module.exports = function(gulp, plugins, pkg) {
         }
 
         return gulp.src('./electron/electron.js')
-        // .pipe(replace('__dirname + \'/dist\'', '__dirname'))
-        .pipe(gulp.dest('./release/Encryptic'))
         .pipe(plugins.electron({
             src         : './release/Encryptic',
             packageJson : pkg,
             release     : './release',
             cache       : './.tmp',
-            version     : 'v2.0.7',
+            version     : 'v4.0.4',
             packaging   : true,
-            // rebuild     : true,
             platforms,
             platformResources: {
                 darwin: {

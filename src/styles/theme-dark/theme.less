@@ -64,6 +64,9 @@ hr {
 .btn {
     color: #FFF;
     border-radius: 0;
+    &:hover {
+        color: @theme-success;
+    }
 }
 .btn-default {
     background-color : lighten(@theme-primary, 8%);
@@ -72,6 +75,12 @@ hr {
     &:hover {
         background-color : lighten(@theme-primary, 15%);
         color            : #FFF;
+    }
+}
+.btn-secondary {
+    background-color: @theme-primary;
+    &:hover {
+        color: @theme-success;
     }
 }
 .btn-warning {

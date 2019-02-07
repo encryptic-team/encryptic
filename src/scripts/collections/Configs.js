@@ -54,9 +54,20 @@ export default class Configs extends BaseCollection {
     createDefault() {
         const promises = [];
 
+        // flaten keybindings
+        _.each(configNames.keybindings, (value, name) => {
+            const model = new this.model({name, value}, {profileId: this.profileId});
+            this.add(model);
+            promises.push(model.save());
+        });
+
         _.each(configNames, (value, name) => {
             // If a model exists, do not override it with default values
             if (typeof this.get(name) !== 'undefined') {
+                return;
+            }
+
+            if (name === 'keybindings') {
                 return;
             }
 

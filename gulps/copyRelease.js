@@ -1,21 +1,10 @@
 'use strict';
 
-module.exports = function(gulp, plugins) {
+module.exports = function(gulp) {
     return function() {
-        /*return gulp.src([
-            './preload.js',
-            './server.js',
-            './electron.js',
-            './package-lock.json',
-            './npm-shrinkwrap.json',
-            './package.json',
-        ], {base: './'})
-        .pipe(gulp.dest('./release/Encryptic'));*/
         return gulp.src([
-            './release',
+            './electron/*.js*',
         ])
-        .pipe(plugins.shell(
-            'cp ./electron/electron.js ./electron/package-lock.json ./electron/package.json ./electron/server.js release/Encryptic'
-        ));
+        .pipe(gulp.dest('./release/Encryptic'));
     };
 };

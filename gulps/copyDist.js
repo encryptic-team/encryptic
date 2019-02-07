@@ -5,7 +5,7 @@ module.exports = function(gulp) {
         return gulp.src([
             './dist/**',
         ], {base: './'})
-        .pipe(gulp.dest('./release/Encryptic/'));
+        .pipe(gulp.dest('./release/Encryptic'));
     };
 };
 
