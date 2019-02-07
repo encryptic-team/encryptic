@@ -9,8 +9,8 @@
   },
   "scripts": {
     "start": "node ./server.js",
-    "setup": "npm install && npm i babel-cli && gulp build",
-    "electron": "NODE_ENV=dev electron .",
+    "setup": "yarn && gulp build",
+    "electron": "electron .",
     "test": "gulp test:run",
     "cover": "rm -rf _dev/cover && npm run cover:generate",
     "cover:generate": "nyc --reporter=lcov --require babel-register gulp tape && nyc report",
@@ -20,7 +20,7 @@
     "eslint": "eslint -c .eslintrc.js --fix ./src/scripts/",
     "prepub": "npm test && npm run cover && npm run cover:check"
   },
-  "main": "electron.js",
+  "main": "electron/electron.js",
   "nyc": {
     "report-dir": "_dev/cover",
     "include": [
@@ -28,7 +28,7 @@
     ]
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "@babel/polyfill": "^7.2.5",
     "backbone": "^1.3.3",
     "backbone.marionette": "^4.0.0",
     "backbone.radio": "^2.0.0",
@@ -80,10 +80,10 @@
     "xss": "^1.0.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
     "browser-sync": "^2.26.3",
     "cordova-lib": "^8.1.1",
     "del": "^3.0.0",
