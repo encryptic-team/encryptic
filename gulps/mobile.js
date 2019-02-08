@@ -40,7 +40,8 @@ module.exports = function(gulp, plug, pkg) {
             fs.statSync('./build.json');
             return gulp.src(['./build.json'])
             .pipe(gulp.dest('./cordova'));
-        } catch (e) {
+        }
+        catch (e) {
             return plug.through2.obj();
         }
     });
@@ -84,8 +85,8 @@ module.exports = function(gulp, plug, pkg) {
         return cordova.build({
             platforms: ['android'],
             options  : {
-                release: !plug.minimist.dev
-            }
+                release: !plug.minimist.dev,
+            },
         });
     }));
 

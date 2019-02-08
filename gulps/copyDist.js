@@ -2,10 +2,8 @@
 
 module.exports = function(gulp) {
     return function() {
-        return gulp.src([
-            './dist/**',
-        ], {base: './'})
-        .pipe(gulp.dest('./release/Encryptic'));
+        return gulp.src('./dist/**')
+        .pipe(gulp.dest('./electron/dist'));
     };
 };
 

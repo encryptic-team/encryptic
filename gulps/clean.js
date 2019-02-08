@@ -7,8 +7,8 @@
  */
 module.exports = function(gulp, $) {
 
-    gulp.task('clean:dist', () => $.del([`${$.distDir}/**/*`]));
+    gulp.task('clean:dist', () => $.del($.distDir));
 
-    gulp.task('clean:release', () => $.del(['./release']));
+    gulp.task('clean:release', () => $.del(['./release', './electron/dist']));
 
 };

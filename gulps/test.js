@@ -27,7 +27,10 @@ module.exports = function(gulp, $) {
 
     gulp.task('cover:run', $.shell.task(['npm run cover']));
     gulp.task('cover', gulp.series('cover:run', () => {
-        gulp.watch(['./src/scripts/**/*.js', 'test/tape/**/*.js'], gulp.series('cover:run'));
+        gulp.watch([
+            './src/scripts/**/*.js',
+            'test/tape/**/*.js',
+        ], gulp.series('cover:run'));
     }));
 
 };
