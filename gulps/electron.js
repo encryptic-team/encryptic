@@ -31,8 +31,25 @@ module.exports = function(gulp, plugins, pkg) {
         fs.createReadStream(`${electronPath}.zip`)
         .pipe(unzip.Extract({path: electronPath}))
         .on('finish', () => {
-            fs.mkdirSync(releaseDir, {recursive: true});
-
+            // the 'recursive' option fails on node < 10.12
+            try {
+                fs.mkdirSync('./release');
+            }
+            catch(err) {
+                if (err.code != 'EEXIST')
+                {
+                    console.error(err);
+                }
+            }
+            try {
+                fs.mkdirSync(releaseDir);
+            }
+            catch(err) {
+                if (err.code != 'EEXIST')
+                {
+                    console.error(err);
+                }
+            }
             gulp.src(`${electronPath}/**`)
             .pipe(gulp.dest(releaseDir))
             .on('finish', () => {
@@ -74,7 +91,15 @@ module.exports = function(gulp, plugins, pkg) {
     }
 
     return function() {
-        fs.mkdirSync(`./.tmp/${opt.version}/`, {recursive: true});
+        try {
+            fs.mkdirSync(`./.tmp/${opt.version}/`, {recursive: true});
+        }
+        catch(err) {
+            if (err.code != 'EEXIST')
+            {
+                console.error(err);
+            }
+        }
 
         if (plugins.minimist.platform)
             opt.platforms = [plugins.minimist.platform];
