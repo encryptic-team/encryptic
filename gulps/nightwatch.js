@@ -14,7 +14,7 @@ module.exports = function(gulp, plugins) {
                 cliArgs    : [
                     // '--test ' + './test/spec-ui/tests/apps/notes/show.js',
                     `--env ${(plugins.minimist.env || 'default')}`,
-                ]
+                ],
             }))
             .once('error', err => {
                 console.log('Error', err.toString());
