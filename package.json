@@ -38,7 +38,7 @@
     "codemirror": "^5.42.0",
     "debug": "^4.1.0",
     "device-detect.js": "^0.2.7",
-    "dropbox": "^4.0.14",
+    "dropbox": "^4.0.16",
     "dropzone": "^5.2.0",
     "es6-promise": "^4.2.2",
     "fast-json-patch": "^2.0.6",

@@ -2,6 +2,7 @@
 const request = require('request');
 const fs = require('fs');
 const unzip = require('unzip');
+const path = require('path');
 
 const opt = {
     version     : '4.0.4',
@@ -64,8 +65,11 @@ module.exports = function(gulp, plugins, pkg) {
                 .pipe(gulp.dest(targetDir))
                 .on('finish', () => {
                     if (plat === 'darwin-x64') {
+                        // osx has to be hard
+                        const path = `${releaseDir}/encryptic.app`;
+                        rmEntireDir(path);
                         fs.renameSync(`${releaseDir}/Electron.app`,
-                            `${releaseDir}/encryptic.app`);
+                            path);
                     }
                     else if (plat === 'win32-ia32' || plat === 'win32-x64') {
                         fs.renameSync(`${releaseDir}/electron.exe`,
@@ -74,6 +78,7 @@ module.exports = function(gulp, plugins, pkg) {
                     else {
                         fs.renameSync(`${releaseDir}/electron`,
                             `${releaseDir}/encryptic`);
+                        fs.chmodSync(`${releaseDir}/encryptic`, '0755');
                     }
 
                     if (!opt.package) {
@@ -142,4 +147,19 @@ module.exports = function(gulp, plugins, pkg) {
 
         return Promise.all(promises);
     };
+
+    function rmEntireDir(dir_path) {
+        if (fs.existsSync(dir_path)) {
+            fs.readdirSync(dir_path).forEach(function(entry) {
+                var entry_path = path.join(dir_path, entry);
+                if (fs.lstatSync(entry_path).isDirectory()) {
+                    rmEntireDir(entry_path);
+                } else {
+                    fs.unlinkSync(entry_path);
+                }
+            });
+            fs.rmdirSync(dir_path);
+        }
+    }
+    
 };
