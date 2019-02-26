@@ -5,6 +5,7 @@ import {Dropbox} from 'dropbox';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import Backbone from 'backbone';
+import constants from '../../constants';
 
 /**
  * Dropbox sync adapter.
@@ -15,12 +16,12 @@ import Backbone from 'backbone';
 export default class Adapter {
 
     /**
-     * Default Dropbox app key.
+     * Default Dropbox app key, set to constants because it should never change.
      *
      * @prop {String}
      */
     get clientKey() {
-        return 'hlicys9cs8rj3ep';
+        return constants.dropboxKey;
     }
 
     /**
@@ -109,12 +110,14 @@ export default class Adapter {
         if (window.cordova) {
             return this.authCordova();
         }
+        /*
         else if (window.electron) {
             return this.authElectron();
         }
         else {
             return this.authBrowser();
         }
+        */
     }
 
     /**
