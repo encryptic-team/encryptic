@@ -1,6 +1,6 @@
 {
   "name": "Encryptic",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "An encrypted note-taking application",
   "main": "electron.js",
   "scripts": {
