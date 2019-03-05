@@ -4,7 +4,7 @@
  */
 import Radio from 'backbone.radio';
 import Sync from './Sync';
-import View from './settings/View';
+import View from '../settings/show/sync/dropbox/View';
 
 export default function initialize() {
     const sync = Radio.request('collections/Configs', 'findConfig', {

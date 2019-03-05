@@ -5,6 +5,7 @@ import {Dropbox} from 'dropbox';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 import Backbone from 'backbone';
+import constants from '../../constants';
 
 /**
  * Dropbox sync adapter.
@@ -15,12 +16,12 @@ import Backbone from 'backbone';
 export default class Adapter {
 
     /**
-     * Default Dropbox app key.
+     * Default Dropbox app key, set to constants because it should never change.
      *
      * @prop {String}
      */
     get clientKey() {
-        return 'hlicys9cs8rj3ep';
+        return constants.dropboxKey;
     }
 
     /**
@@ -109,9 +110,14 @@ export default class Adapter {
         if (window.cordova) {
             return this.authCordova();
         }
+        /*
+        else if (window.electron) {
+            return this.authElectron();
+        }
         else {
             return this.authBrowser();
         }
+        */
     }
 
     /**
@@ -126,9 +132,7 @@ export default class Adapter {
 
         if (answer === 'confirm') {
             window.location = authUrl;
-            if (window.electron) {
-                return this.authElectron();
-            }
+
         }
     }
 
@@ -137,8 +141,32 @@ export default class Adapter {
      *
      * @returns {Promise}
      */
-    authElectron() {
-        const {ipcRenderer} = window.electron;
+    async authElectron() {
+        const url     = window.electron ? 'http://localhost:9000/' : document.location;
+        const authUrl = this.dbx.getAuthenticationUrl(url);
+        const answer  = await Radio.request('components/confirm', 'show', {
+            content: _.i18n('dropbox.auth confirm'),
+        });
+
+        if (answer === 'confirm') {
+            window.location = authUrl;
+
+        }
+
+
+        const authWindow = new electron.BrowserWindow({
+            alwaysOnTop: true,
+            minimizable: false,
+            height: 480,
+            width: 720,
+            frame: false,
+            show: false
+        });
+
+        authWindow.loadURL(authUrl);
+        authWindow.once('ready-to-show', function(){
+            authWindow.show();
+        });
 
         return new Promise(resolve => {
             ipcRenderer.once('lav:dropbox:oauth', (event, {url}) => {
@@ -153,6 +181,17 @@ export default class Adapter {
             });
         });
     }
+
+
+    authTokenReceived(event, params) {
+        token = params;
+        console.log(token);
+        dbx = new Dropbox({accessToken: params.access_token});
+        authWindow.close();
+    
+        getUserInfo();
+    }
+
 
     /**
      * Authenticate in Cordova environment (requires inappbrowser plugin).

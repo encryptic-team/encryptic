@@ -1,0 +1,26 @@
+<html>
+    <title>Login with Dropbox</title>
+    <body>
+        <h2>Encryptic </h2>
+        <h3>Login with Dropbox</h3>
+
+        <p id='status'>There was an error!</p>
+
+        <div>Your access token is <div id='token'></div></div>
+        <p>Please copy that and paste it into the access token box back in Encryptic.</p>
+    </body>
+</html>
+
+<script>
+    location.href.split('#')[1].split('&').forEach(
+        function (item) {
+            tmp = item.split('=');
+            if (tmp[0] === 'access_token')
+            {
+                result = decodeURIComponent(tmp[1]);
+                document.getElementById('token').innerHTML = result;
+                document.getElementById('status').innerHTML = 'Success!';
+            }
+        }
+    );
+</script>

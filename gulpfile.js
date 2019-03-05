@@ -45,7 +45,6 @@ function createTask(name) {
     'test',
     'copy',
     'copyDist',
-    'copyRelease',
 ].forEach(createTask);
 
 /**
@@ -65,7 +64,6 @@ gulp.task('release', gulp.series(
     'build',
     'clean:release',
     'copyDist', 
-    'copyRelease',
     'npm:install',
     'electron'
 ));
@@ -73,7 +71,7 @@ gulp.task('release', gulp.series(
 // Build for android
 gulp.task('release-mobile', gulp.series(
     'clean:release',
-    gulp.parallel('copyDist', 'copyRelease'),
+    'copyDist',
     'npm:install',
     'mobile:build'
 ));

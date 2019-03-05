@@ -3,7 +3,20 @@ const {Menu} = require('electron'),
 
 const windowStateKeeper = require('electron-window-state');
 const {app, BrowserWindow} = require('electron');
+const http         = require('http');
+const serveStatic  = require('serve-static');
+const finalHandler = require('finalhandler');
+
 let win;
+
+const port = 9000;
+let server;
+var serve = serveStatic(__dirname + '/dist', {index: ['index.html']});
+server = http.createServer(function(req, res) {
+    var done = finalHandler(req, res);
+    serve(req, res, done); 
+});
+encryptic = server.listen(port);
 
 const menuTemplate = [
     {
@@ -68,6 +81,7 @@ const menuTemplate = [
     },
 ];
 
+
 function createWindow() {
     const mainWindowState = windowStateKeeper({
         defaultWidth  : 1000,
@@ -89,16 +103,21 @@ function createWindow() {
             process.platform === 'darwin' ? 'IconMenubarTemplate.png' : 'icon.png'
         ),
     });
-
+ 
     mainWindowState.manage(win);
     Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
 
     win.on('closed', () => win = null);
+    
+    // this kills dropbox: redirect_uri=file:///home/brad/src/encryptic/release/Encryptic-0.0.3-linux-x64/resources/app/dist/index.html
+    // dropbox HAS to have http
+    //win.loadFile('./dist/index.html');
 
-    win.loadFile('./dist/index.html');
+    win.loadURL('http://localhost:' + port);
 }
 
 app.on('ready', createWindow);
 app.on('window-all-closed', () => {
     app.quit();
 });
+

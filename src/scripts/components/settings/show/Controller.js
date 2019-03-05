@@ -123,8 +123,10 @@ export default class Controller extends MnObject {
         ));
         Radio.request('Layout', 'show', {region: 'content', view: this.view});
 
+
         // Activate a tab in the sidebar
         this.channel.trigger('activate:tab', this.options);
+
     }
 
     /**
