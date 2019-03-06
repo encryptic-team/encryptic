@@ -3,6 +3,7 @@ const request = require('request');
 const fs = require('fs');
 const unzip = require('unzip');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const opt = {
     version     : '4.0.4',
@@ -68,8 +69,8 @@ module.exports = function(gulp, plugins, pkg) {
                         // osx has to be hard
                         const path = `${releaseDir}/encryptic.app`;
                         rmEntireDir(path);
-                        fs.renameSync(`${releaseDir}/Electron.app`,
-                            path);
+                        execSync(`mv ${releaseDir}/Electron.app ${path}`);
+                        //fs.renameSync(`${releaseDir}/Electron.app`, path);
                         fs.chmodSync(`${releaseDir}/encryptic.app/Contents/MacOS/Electron`, '0755');
                     }
                     else if (plat === 'win32-ia32' || plat === 'win32-x64') {
