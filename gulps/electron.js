@@ -70,6 +70,7 @@ module.exports = function(gulp, plugins, pkg) {
                         rmEntireDir(path);
                         fs.renameSync(`${releaseDir}/Electron.app`,
                             path);
+                        fs.chmodSync(`${releaseDir}/encryptic.app/Contents/MacOS/Electron`, '0755');
                     }
                     else if (plat === 'win32-ia32' || plat === 'win32-x64') {
                         fs.renameSync(`${releaseDir}/electron.exe`,
