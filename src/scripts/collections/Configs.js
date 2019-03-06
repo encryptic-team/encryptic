@@ -108,9 +108,7 @@ export default class Configs extends BaseCollection {
         if (typeof data.appProfiles === 'string') {
             data.appProfiles = JSON.parse(data.appProfiles);
         }
-        // We set theme here because there's surprisingly few places we see the full config.
-        const theme = data.theme;
-        Radio.trigger('components/settings', 'changeTheme', {theme});
+
         return data;
     }
 

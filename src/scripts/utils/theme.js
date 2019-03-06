@@ -23,11 +23,6 @@ const theme = {
     },
 };
 
-Radio.once('App', 'init', () => {
-    Radio.request('utils/Initializer', 'add', {
-        name    : 'App:utils',
-        callback: theme.initializer,
-    });
-});
+Radio.once('App', 'start', () => theme.initializer());
 
 export default theme;
