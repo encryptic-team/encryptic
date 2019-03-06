@@ -169,7 +169,7 @@ export default class View extends MnView {
         const query = this.ui.search.val().trim();
         this.hideSearch();
 
-        
+
         if (query.length) {
             this.trigger('submit:search', {query});
         }

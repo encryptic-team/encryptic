@@ -5,7 +5,6 @@ import _ from 'underscore';
 import BaseCollection from './BaseCollection';
 import Config from '../models/Config';
 import {configNames} from './configNames';
-import Radio from 'backbone.radio';
 
 /**
  * Config collection.

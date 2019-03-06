@@ -108,7 +108,7 @@ const configNames = {
         appSearch          : '/',
         appKeyboardHelp    : '?',
         appShowSidemenu    : 's m',
-    }
+    },
 };
 
 export {configNames};
