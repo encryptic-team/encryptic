@@ -20,7 +20,7 @@ module.exports = (gulp, $) => {
                 ghostMode : $.minimist.ghostMode !== undefined,
             }, function() {
                 if (this.server.address().port !== port) {
-                    reject('[ERROR] Could not serve: port 9000 is in use.');
+                    reject('port 9000 is in use.');
                 }
 
                 if (!$.minimist.dev) {
