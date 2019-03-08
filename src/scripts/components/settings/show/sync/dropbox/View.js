@@ -25,7 +25,7 @@ export default class Users extends MnView {
     get behaviors() {
         return [Behavior];
     }
-    
+
     get template() {
         const tmpl = require('./template.html');
         return _.template(tmpl);
@@ -36,19 +36,21 @@ export default class Users extends MnView {
     }
 
     get authUrl() {
+        // eslint-disable-next-line max-len
         // https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=hlicys9cs8rj3ep&redirect_uri=http://localhost:9000/sync.html
-        
+
         // modified to account for users running hosted as a node server.
         let url;
 
-        if (navigator.userAgent.indexOf('Electron') !== -1 || document.location.host.includes("localhost:9000"))
-        {
+        if (navigator.userAgent.indexOf('Electron') !== -1 ||
+            document.location.host.includes('localhost:9000')) {
+
             url = 'http://localhost:9000/auth.html';
         }
-        else
-        {
-            url = 'https://' + document.location.host + '/auth.html';
+        else {
+            url = `https://${document.location.host}/auth.html`;
         }
+
         const dbx  = new Dropbox({clientId: constants.dropboxKey});
         return dbx.getAuthenticationUrl(url);
     }

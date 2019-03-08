@@ -93,4 +93,11 @@ export default class View extends MnView {
         };
     }
 
+    /**
+     * Restore current theme when exiting
+     */
+    onDestroy() {
+        Radio.trigger('components/settings', 'changeTheme');
+    }
+
 }
