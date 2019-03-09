@@ -4,6 +4,9 @@
 import _ from 'underscore';
 import Db from './Db';
 import Radio from 'backbone.radio';
+import deb from 'debug';
+
+const log = deb('lav:components/Sync');
 
 /**
  * Override Backbone sync.
@@ -172,7 +175,7 @@ export default class Sync {
 
     async destroyDb(model) {
         this.sleep(1000);
-        console.log('Sync.destroyDb(): Calling db.dropdb()');
+        log('Sync.destroyDb(): Calling db.dropdb()');
         return this.db.dropDb(model);
     }
 

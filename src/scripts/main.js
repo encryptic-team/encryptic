@@ -72,7 +72,7 @@ Promise.polyfill();
 
 document.addEventListener('DOMContentLoaded', () => {
     // Enable debugging
-    deb.disable();
+    deb.enable('lav:*');
     log('DOM is ready');
 
     // Remove 300ms delay
