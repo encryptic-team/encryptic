@@ -8,7 +8,7 @@ import Collection from '../collections/Users';
 import * as openpgp from 'openpgp';
 import deb from 'debug';
 
-const log = deb('lav:collections/Modules/Users');
+const log = deb('lav:modules/Users');
 
 /**
  * User collection module

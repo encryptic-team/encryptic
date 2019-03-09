@@ -5,6 +5,9 @@ import _ from 'underscore';
 import Radio from 'backbone.radio';
 import Module from './Module';
 import Collection from '../collections/Notes';
+import deb from 'debug';
+
+const log = deb('lav:modules/Notes');
 
 /**
  * Notes collection module.
@@ -225,11 +228,14 @@ export default class Notes extends Module {
      * @returns {Promise}
      */
     async findFiles(model) {
-        const files = await Radio.request('collections/Files', 'findFiles', {
+        Radio.request('collections/Files', 'findFiles', {
             profileId : model.profileId,
             ids       : model.get('files'),
+        })
+        .then(() => model.set('fileModels', files))
+        .catch(e => {
+            log('error getting files', e);
         });
-        model.set('fileModels', files);
     }
 
 }
