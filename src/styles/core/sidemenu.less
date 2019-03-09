@@ -39,110 +39,105 @@
 }
 
 
-  * {
-    border:0;
-  }
-  .container{
-   margin:auto;
-   margin-top:40px;
-   width:600px;
-  }
-  button{
-      background-color: #fff;
-      border: 1px solid #fff;
-      border-radius: 4px;
-      padding: 8px 12px;
-      color: #45c8db;
-  }
-  button:hover{
-      box-shadow: 0 3px 8px 0 rgba(0,0,0,.2), 0 0 0 1px rgba(0,0,0,.08);
-  }
-  
-  [tooltip]{
-    // margin:0px 0px;
-    position:relative;
-    display:inline-block;
-  }
-  [tooltip]::before {
-      content: "";
-      position: absolute;
-      top:-6px;
-      left:50%;
-      transform: translateX(-50%);
-      border-width: 4px 6px 0 6px;
-      border-style: solid;
-      border-color: rgba(0,0,0,0.7) transparent transparent     transparent;
-      z-index: 99;
-      opacity:0;
-  }
-  
-  [tooltip-position='left']::before{
-    left:0%;
-    top:50%;
-    margin-left:-12px;
-    transform:translatey(-50%) rotate(-90deg) 
-  }
-  [tooltip-position='top']::before{
-    left:50%;
-  }
-  [tooltip-position='bottom']::before{
-    top:100%;
-    margin-top:8px;
+.sidemenu--btn:hover {
+    cursor: pointer;
+}
+
+.container {
+    margin:auto;
+    margin-top:40px;
+    width:600px;
+}
+button {
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #45c8db;
+}
+button:hover {
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,.2), 0 0 0 1px rgba(0,0,0,.08);
+}
+
+[tooltip] {
+    position: relative;
+    display: inline-block;
+}
+[tooltip]::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px 6px 0 6px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.7) transparent transparent transparent;
+    z-index: 99;
+    opacity: 0;
+}
+
+[tooltip-position='left']::before {
+    left: 0%;
+    top: 50%;
+    margin-left: -12px;
+    transform: translatey(-50%) rotate(-90deg) 
+}
+[tooltip-position='top']::before {
+    left: 50%;
+}
+[tooltip-position='bottom']::before {
+    top: 100%;
+    margin-top: 8px;
     transform: translateX(-50%) translatey(-100%) rotate(-180deg)
-  }
-  [tooltip-position='right']::before{
-    left:100%;
-    top:50%;
-    margin-left:1px;
-    transform:translatey(-50%) rotate(90deg)
-  }
-  
-  [tooltip]::after {
-      content: attr(tooltip);
-      position: absolute;
-      //left:50%;
-      //top:-6px;
-      transform: translateX(-50%)   translateY(-100%);
-      background: rgba(0,0,0,0.7);
-      text-align: center;
-      color: #fff;
-      padding:4px 2px;
-      font-size: 12px;
-      //min-width: 80px;
-      border-radius: 5px;
-      pointer-events: none;
-      padding: 4px 4px;
-      z-index:99;
-      opacity:0;
-  }
-  
-  [tooltip-position='left']::after{
-    left:0%;
-    top:50%;
+}
+[tooltip-position='right']::before {
+    left: 100%;
+    top: 50%;
+    margin-left: 1px;
+    transform: translatey(-50%) rotate(90deg)
+}
+
+[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    transform: translateX(-50%) translateY(-100%);
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    color: #fff;
+    padding: 4px 2px;
+    font-size: 12px;
+    border-radius: 5px;
+    pointer-events: none;
+    padding: 4px 4px;
+    z-index: 99;
+    opacity: 0;
+}
+
+[tooltip-position='left']::after {
+    left: 0%;
+    top: 50%;
     margin-left:-8px;
-    transform: translateX(-100%)   translateY(-50%);
-  }
-  [tooltip-position='top']::after{
-    left:50%;
-  }
-  [tooltip-position='bottom']::after{
-    top:100%;
-    margin-top:8px;
+    transform: translateX(-100%) translateY(-50%);
+}
+[tooltip-position='top']::after {
+    left: 50%;
+}
+[tooltip-position='bottom']::after {
+    top: 100%;
+    margin-top: 8px;
     transform: translateX(-50%) translateY(0%);
-  }
-  [tooltip-position='right']::after{
-    left:100%;
-    top:50%;
-    margin-left:8px;
-    transform: translateX(0%)   translateY(-50%);
-  }
-  
-  [tooltip]:hover::after,[tooltip]:hover::before {
-     opacity:1
-  }
-  
-  .input{
-    margin-left:135px
-  }
-  
-  
+}
+[tooltip-position='right']::after {
+    left: 100%;
+    top: 50%;
+    margin-left: 8px;
+    transform: translateX(0%) translateY(-50%);
+}
+
+[tooltip]:hover::after,[tooltip]:hover::before {
+    opacity: 1;
+}
+
+.input {
+    margin-left: 135px;
+}
