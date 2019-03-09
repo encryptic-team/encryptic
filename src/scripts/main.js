@@ -6,7 +6,6 @@ import FastClick from 'fastclick';
 import Hammer from 'hammerjs';
 import Promise from 'es6-promise';
 import deb from 'debug';
-import 'bootstrap';
 
 // The core app
 import App from './App';
@@ -59,7 +58,7 @@ Promise.polyfill();
 
 document.addEventListener('DOMContentLoaded', () => {
     // Enable debugging
-    deb.enable('lav*');
+    deb.disable();
     log('DOM is ready');
 
     // Remove 300ms delay
