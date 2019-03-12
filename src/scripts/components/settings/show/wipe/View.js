@@ -4,8 +4,10 @@
 import {View as MnView} from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
-
 import Behavior from '../Behavior';
+import deb from 'debug';
+
+const log = deb('lav:components/settings/show/encryption/View');
 
 /**
  * Encryption settings view.
@@ -70,7 +72,7 @@ export default class View extends MnView {
         }
         else {
             // nuke data here
-            console.log('doWipeAllData() confirmed...');
+            log('doWipeAllData() confirmed...');
             window.location.replace('/');
             Radio.request('collections/Profiles', 'destroyProfile', this.user.id);
 

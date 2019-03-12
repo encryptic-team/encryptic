@@ -1,9 +1,12 @@
 /**
- * @module collections/modules/Profiles
+ * @module modules/Profiles
  */
 import Module from './Module';
 import Collection from '../collections/Profiles';
 import Radio from 'backbone.radio';
+import deb from 'debug';
+
+const log = deb('lav:modules/Profiles');
 
 /**
  * Profiles collection module
@@ -58,7 +61,7 @@ export default class Profiles extends Module {
 
     // This destroys a user's profile outright.
     destroyProfile(opt) {
-        console.log('destroyProfile(): calling destroyUser()');
+        log('destroyProfile(): calling destroyUser()');
         this.collection.destroyUser(opt);
     }
 

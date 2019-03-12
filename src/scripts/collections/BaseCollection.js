@@ -5,6 +5,9 @@ import Backbone from 'backbone';
 // import Radio from 'backbone.radio';
 import _ from 'underscore';
 import Sync from '../components/Sync';
+import deb from 'debug';
+
+const log = deb('lav:collections/BaseCollection');
 
 /**
  * Core collection.
@@ -101,7 +104,7 @@ export default class BaseCollection extends Backbone.Collection {
     }
 
     destroyUser(opt) {
-        console.log('destroyUser(): calling destroyDb()');
+        log('destroyUser(): calling destroyDb()');
         this.sync('destroyDb', opt);
     }
 
