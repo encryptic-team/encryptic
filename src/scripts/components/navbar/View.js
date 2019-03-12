@@ -52,14 +52,14 @@ export default class View extends MnView {
 
     events() {
         return {
-            'click #header--add--notebook'  : 'navigateAddNotebook',
-            'click #header--add--tag'	    : 'navigateAddTag',
-            'click #header--about'          : 'showAbout',
-            'click #header--sync'           : 'triggerSync',
-            'click #header--sbtn'           : 'showSearch',
-            'blur @ui.search'               : 'hideSearch',
-            'keyup @ui.search'              : 'onSearchKeyup',
-            'submit #header--search'        : 'onSearchSubmit',
+            'click .header--add--notebook' : 'navigateAddNotebook',
+            'click .header--add--tag'	   : 'navigateAddTag',
+            'click #header--about'         : 'showAbout',
+            'click #header--sync'          : 'triggerSync',
+            'click #header--sbtn'          : 'showSearch',
+            'blur @ui.search'              : 'hideSearch',
+            'keyup @ui.search'             : 'onSearchKeyup',
+            'submit #header--search'       : 'onSearchSubmit',
         };
     }
 
@@ -70,8 +70,9 @@ export default class View extends MnView {
         this.listenTo(Radio.channel('components/sync'), 'start', this.onSyncStart);
         this.listenTo(Radio.channel('components/sync'), 'stop', this.onSyncStop);
 
-        // Re-render the view if notebooks collection has changed
+        // Re-render the view if notebooks or tags collection has changed
         this.listenTo(this.options.notebooks, 'change add remove', this.render);
+        this.listenTo(this.options.tags, 'change add remove', this.render);
     }
 
     onDestroy() {
@@ -212,6 +213,7 @@ export default class View extends MnView {
         return _.extend({}, this.options, {
             title     : this.options.args.titleOptions.section,
             notebooks : _.first(this.options.notebooks.toJSON(), maxNotebooks),
+            tags      : _.first(this.options.tags.toJSON(), maxNotebooks),
         });
     }
 

@@ -49,6 +49,7 @@ export default class Controller extends MnObject {
 
     onDestroy() {
         this.notebooks.removeEvents();
+        this.tags.removeEvents();
     }
 
     /**
@@ -105,6 +106,7 @@ export default class Controller extends MnObject {
         const options = {conditions: {trash: 0}};
 
         this.notebooks = await Radio.request('collections/Notebooks', 'find', options);
+        this.tags = await Radio.request('collections/Tags', 'find', options);
         this.options.titleOptions = await this.changeDocumentTitle(this.options);
     }
 
@@ -128,6 +130,7 @@ export default class Controller extends MnObject {
             args      : this.options,
             configs   : this.configs,
             notebooks : this.notebooks,
+            tags      : this.tags,
         });
 
         Radio.request('Layout', 'show', {
@@ -141,6 +144,7 @@ export default class Controller extends MnObject {
      */
     listenToEvents() {
         this.notebooks.startListening();
+        this.tags.startListening();
         this.listenTo(this.view, 'submit:search', this.navigateSearch);
     }
 

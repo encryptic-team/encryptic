@@ -27,10 +27,10 @@
             <span id="header--sync--icon"  class="icon-arrows"></span>
         </button>
         <% } %>
-        <button id="header--add--tag" class="header--add btn btn-secondary" tooltip="New tag" tooltip-position="bottom">
+        <button class="header--add header--add--tag btn btn-secondary" tooltip="New tag" tooltip-position="bottom">
             <span class="icon-tag"></span>
         </button>
-        <button id="header--add--notebook" class="header--add btn btn-secondary" tooltip="New notebook" tooltip-position="bottom">
+        <button class="header--add header--add--notebook btn btn-secondary" tooltip="New notebook" tooltip-position="bottom">
             <span class="icon-notebook"></span>
         </button>
         <a class="btn-secondary btn btn-success" tooltip="New note" tooltip-position="bottom" href="#notes/add">
@@ -54,7 +54,7 @@
         <div class="list-group-item sidemenu--item -disabled">{{_.i18n('General')}}</div>
 
         <a class="list-group-item sidemenu--item" href="#notes">
-            <i class="icon-note"></i> {{_.i18n('All Notes')}}
+            <i class="icon-note"></i> {{_.i18n('All notes')}}
         </a>
         <a class="list-group-item sidemenu--item" href="#notes/f/favorite">
             <i class="icon-favorite"></i> {{_.i18n('Favorites')}}
@@ -69,14 +69,35 @@
             <i class="icon-ok"></i> {{ _.i18n('Open Tasks') }}
         </a>
 
-        <% if (notebooks !== null && notebooks.length) { %>
-        <div class="list-group-item sidemenu--item -disabled">{{_.i18n('Notebooks')}}</div>
-        <% notebooks.forEach(function(notebook) { %>
-        <a class="list-group-item sidemenu--item" href="#notes/f/notebook/q/{{notebook.id}}">
-            <i class="icon-notebook"></i>  {=_.cleanXSS(notebook.name)}
-        </a>
-        <% }); } %>
+        <div class="list-group-item sidemenu--item -disabled">
+            {{_.i18n('Notebooks')}}
 
+            <a class="sidemenu--btn header--add--notebook" tooltip="New notebook" tooltip-position="bottom">
+                <span class="icon-plus"></span>
+            </a>
+        </div>
+        <% if (_.isArray(notebooks)) { %>
+            <% notebooks.forEach(notebook => { %>
+                <a class="list-group-item sidemenu--item" href="#notes/f/notebook/q/{{notebook.id}}">
+                    <i class="icon-notebook"></i>  {=_.cleanXSS(notebook.name)}
+                </a>
+            <% }); %>
+        <% } %>
+
+        <div class="list-group-item sidemenu--item -disabled">
+            {{_.i18n('Tags')}}
+            
+            <a class="sidemenu--btn header--add--tag" tooltip="New tag" tooltip-position="bottom">
+                <span class="icon-plus"></span>
+            </a>
+        </div>
+        <% if (_.isArray(tags)) { %>
+            <% tags.forEach(tag => { %>
+                <a class="list-group-item sidemenu--item" href="#notes/f/tag/q/{{tag.name}}">
+                    <i class="icon-tag"></i>  {=_.cleanXSS(tag.name)}
+                </a>
+            <% }); %>
+        <% } %>
         <div class="list-group-item sidemenu--item -disabled">{{_.i18n('Other')}}</div>
         <a class="list-group-item sidemenu--item" href="#settings">
             <i class="icon-cog"></i>  {{_.i18n('Settings')}}
