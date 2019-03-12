@@ -10,13 +10,11 @@ const finalHandler = require('finalhandler');
 let win;
 
 const port = 9000;
-let server;
-var serve = serveStatic(__dirname + '/dist', {index: ['index.html']});
-server = http.createServer(function(req, res) {
-    var done = finalHandler(req, res);
-    serve(req, res, done); 
+const serve = serveStatic(`${__dirname}/dist`, {index: ['index.html']});
+const server = http.createServer((req, res) => {
+    serve(req, res, finalHandler(req, res));
 });
-encryptic = server.listen(port);
+server.listen(port);
 
 const menuTemplate = [
     {
@@ -103,21 +101,21 @@ function createWindow() {
             process.platform === 'darwin' ? 'IconMenubarTemplate.png' : 'icon.png'
         ),
     });
- 
+
     mainWindowState.manage(win);
     Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
 
     win.on('closed', () => win = null);
-    
+
+    // eslint-disable-next-line max-len
     // this kills dropbox: redirect_uri=file:///home/brad/src/encryptic/release/Encryptic-0.0.3-linux-x64/resources/app/dist/index.html
     // dropbox HAS to have http
-    //win.loadFile('./dist/index.html');
+    // win.loadFile('./dist/index.html');
 
-    win.loadURL('http://localhost:' + port);
+    win.loadURL(`http://localhost:${port}`);
 }
 
 app.on('ready', createWindow);
 app.on('window-all-closed', () => {
     app.quit();
 });
-

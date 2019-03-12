@@ -120,8 +120,8 @@ export default class Controller extends MnObject {
             if (!res) {
                 return this.view.triggerMethod('auth:failure');
             }
-            console.log('startMigration(): promise result:');
-            console.log(res);
+            log('startMigration(): promise result:');
+            log(res);
 
             return this.migrateCollections();
         })
@@ -199,9 +199,9 @@ export default class Controller extends MnObject {
     migrateModel({attributes}) {
         const name = `collections/${_.capitalize(attributes.type)}`;
         const data = _.omit(this.encrypt.decryptModel({attributes}), 'encryptedData');
-        console.log('migrating data:');
-        console.log(name);
-        console.log(data);
+        log('migrating data:');
+        log(name);
+        log(data);
         return Radio.request(name, 'saveModelObject', {data});
     }
 

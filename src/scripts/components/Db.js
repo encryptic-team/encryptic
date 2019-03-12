@@ -68,12 +68,11 @@ export default class Db extends WorkerModule {
         if (profileId !== 'notes-db') {
             profileId = `lav-${profileId}`;
         }
-        console.log('attempting db creation');
+        log('attempting db creation');
         this.dbs[id] = this.dbs[id] || localforage.createInstance({
             storeName,
             name: profileId,
         });
-        // console.log(this.dbs[id]);
         return this.dbs[id];
     }
 
@@ -86,13 +85,13 @@ export default class Db extends WorkerModule {
      * @returns {Object} localforage instance
      */
     dropDb(id) {
-        console.log('start dropDb()');
-        console.log(`Profile id: ${id}`);
+        log('start dropDb()');
+        log(`Profile id: ${id}`);
         // remove the keys from the profile
         const profileId = 'default';
         const storeName = 'profiles';
 
-        console.log(`attempting getDb(${profileId}, ${storeName}, ${id})`);
+        log(`attempting getDb(${profileId}, ${storeName}, ${id})`);
         this.getDb({profileId: 'default', storeName: 'profiles'}).removeItem(id);
         /* Add the prefix only if it's not "notes-db" profile to
            be compatible with old backups */
@@ -101,13 +100,11 @@ export default class Db extends WorkerModule {
         if (id !== 'notes-db') {
             dbId = `lav-${id}`;
         }
-        console.log(`dropInstance(${dbId})`);
+        log(`dropInstance(${dbId})`);
         this.getDb({}).dropInstance({
-            // storeName,
             name: dbId,
         })
-        .then(console.log('removing profile key'));
-        console.log('Booooooooom!!!!');
+        .then(() => log('removing profile key'));
     }
 
 

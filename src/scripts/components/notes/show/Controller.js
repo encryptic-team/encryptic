@@ -37,8 +37,6 @@ export default class Controller extends MnObject {
         log('options', this.options);
 
         Radio.request('Layout', 'showLoader', {region: 'content'});
-        // console.log('notes/show/Controller.js options:')
-        // console.log(this.options);
         try {
             const model = await this.fetch();
             this.show(model);

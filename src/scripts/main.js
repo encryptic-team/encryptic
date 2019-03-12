@@ -6,7 +6,20 @@ import FastClick from 'fastclick';
 import Hammer from 'hammerjs';
 import Promise from 'es6-promise';
 import deb from 'debug';
-import 'bootstrap';
+
+// Import all bootstrap except dropdown.js because it's already loaded in vendor.js
+import 'bootstrap/js/affix';
+import 'bootstrap/js/alert';
+import 'bootstrap/js/button';
+import 'bootstrap/js/carousel';
+import 'bootstrap/js/collapse';
+import 'bootstrap/js/modal';
+import 'bootstrap/js/tooltip';
+import 'bootstrap/js/popover';
+import 'bootstrap/js/scrollspy';
+import 'bootstrap/js/tab';
+import 'bootstrap/js/transition';
+
 
 // The core app
 import App from './App';
@@ -59,7 +72,7 @@ Promise.polyfill();
 
 document.addEventListener('DOMContentLoaded', () => {
     // Enable debugging
-    deb.enable('lav*');
+    deb.enable('lav:*');
     log('DOM is ready');
 
     // Remove 300ms delay
