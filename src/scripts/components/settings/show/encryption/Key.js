@@ -45,17 +45,12 @@ export default class Key extends View {
     }
 
     serializeData() {
-        // console.log("this.options");
-        // console.log(this.options);
         return this.options;
     }
 
     initialize() {
         this.user = Radio.request('collections/Profiles', 'getUser');
         this.key = Radio.request('components/Encryption', 'getUserKeys').privateKey;
-
-        // console.log('this.key:');
-        // console.log(this.key);
     }
 
 

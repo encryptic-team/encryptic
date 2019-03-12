@@ -4,6 +4,9 @@
 import _ from 'underscore';
 import sjcl from 'sjcl';
 import Radio from 'backbone.radio';
+import deb from 'debug';
+
+const log = deb('lav:components/importExport/migrate/Encryption');
 
 /**
  * Legacy encryption class (it exists only for migration purpose).
@@ -80,8 +83,8 @@ export default class Encryption {
             return text;
         }
         const d = sjcl.decrypt(this.keys.key, text);
-        console.log('migrate: decrypt(): data');
-        console.log(d);
+        log('migrate: decrypt(): data');
+        log(d);
         return d;
     }
 

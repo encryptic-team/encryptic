@@ -3,6 +3,9 @@
  */
 import BaseCollection from './BaseCollection';
 import Profile from '../models/Profile';
+import deb from 'debug';
+
+const log = deb('lav:collections/Profiles');
 
 /**
  * Profiles collection.
@@ -23,7 +26,7 @@ export default class Profiles extends BaseCollection {
     }
 
     destroyUser(opt) {
-        console.log('destroyUser(): calling destroyDb()');
+        log('destroyUser(): calling destroyDb()');
         this.sync('destroyDb', opt);
     }
 

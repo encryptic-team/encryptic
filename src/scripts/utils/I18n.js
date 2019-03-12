@@ -116,10 +116,7 @@ function initialize() {
     });
 
     // Initialize i18n again because every profile can use a different locale
-    Radio.request('utils/Initializer', 'add', {
-        callback,
-        name    : 'App:last',
-    });
+    Radio.once('App', 'start', callback);
 
     return callback;
 }

@@ -281,8 +281,8 @@ export default class Import extends MnObject {
 
         return new Promise((resolve, reject) => {
             reader.onload = evt => {
-                console.log('loading file: ');
-                console.log(evt.target.result);
+                log('loading file: ');
+                log(evt.target.result);
                 this.zip.loadAsync(evt.target.result)
                 .then(() => resolve(this.zip))
                 .catch(err => reject(err));
@@ -299,12 +299,12 @@ export default class Import extends MnObject {
      * @returns {Promise}
      */
     import(zip) {
-        console.log(zip);
-        console.log(this.options.files[0]);
-        console.log('files:');
+        log(zip);
+        log(this.options.files[0]);
+        log('files:');
 
         if (!_.isUndefined(zip.files['laverna-backups/notes-db/configs.json'])) {
-            console.log('import: import():  Old laverna backups detected.');
+            log('import: import():  Old laverna backups detected.');
             this.isOldBackup = true;
             return this.importCollections(zip);
         }
@@ -331,7 +331,7 @@ export default class Import extends MnObject {
         if (!filename && !this.user) {
             return Promise.reject('You need to create a profile first!');
         }
-        console.log(filename);
+        log(filename);
 
         return zip.file(filename).async('string')
         .then(res => {
@@ -356,12 +356,12 @@ export default class Import extends MnObject {
         const promises = [];
         let configFile;
 
-        console.log(`import: importCollections(): isOldBackup is ${this.isOldBackup}`);
+        log(`import: importCollections(): isOldBackup is ${this.isOldBackup}`);
         if (this.isOldBackup) {
             _.each(zip.files, file => {
                 // Ignore directories and non JSON files
                 if (!this.isCollectionFile(file)) {
-                    console.log(`importCollections(): ignoring ${file}`);
+                    log(`importCollections(): ignoring ${file}`);
                     return;
                 }
                 promises.push(this.readLegacyFile(zip, file));
@@ -372,7 +372,7 @@ export default class Import extends MnObject {
             _.each(zip.files, file => {
                 // Ignore directories and non JSON files
                 if (!this.isCollectionFile(file)) {
-                    console.log(`importCollections(): ignoring ${file}`);
+                    log(`importCollections(): ignoring ${file}`);
                     return;
                 }
 
@@ -422,8 +422,6 @@ export default class Import extends MnObject {
         .then(res => {
             const path      = file.name.split('/');
             const data      = JSON.parse(res);
-            // console.log('import: readLegacyFile(): data: ');
-            // console.log(data)
 
             if (path[2] === 'notes') {
                 return this.importOldData('notes', data);
@@ -481,8 +479,8 @@ export default class Import extends MnObject {
 
             const profileId = userDir === 'notes-db' ? userDir : this.profile.username;
 
-            console.log(`readFile(): reading ${filename} file: ${path}`);
-            console.log(path);
+            log(`readFile(): reading ${filename} file: ${path}`);
+            log(path);
             if (filename === 'notes') {
                 this.importNote({zip, profileId, data, name: file.name});
             }

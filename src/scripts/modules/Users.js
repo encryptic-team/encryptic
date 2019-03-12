@@ -8,7 +8,7 @@ import Collection from '../collections/Users';
 import * as openpgp from 'openpgp';
 import deb from 'debug';
 
-const log = deb('lav:collections/Modules/Users');
+const log = deb('lav:modules/Users');
 
 /**
  * User collection module
@@ -69,8 +69,6 @@ export default class Users extends Module {
 
         // Add a users key to the array of public keys if the user's private key exists
         if (privKey && privKey.length) {
-            // console.log("saveModel()");
-            // console.log(options);
             Radio.request('components/Encryption', 'readUserKey', {model: options.model});
         }
 

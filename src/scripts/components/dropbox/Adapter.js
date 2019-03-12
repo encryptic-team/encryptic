@@ -6,6 +6,9 @@ import _ from 'underscore';
 import Radio from 'backbone.radio';
 import Backbone from 'backbone';
 import constants from '../../constants';
+import deb from 'debug';
+
+const log = deb('lav:components/dropbox/Adapter');
 
 /**
  * Dropbox sync adapter.
@@ -60,7 +63,7 @@ export default class Adapter {
         }
         // A user has granted the permission
         else if (hash.access_token && hash.access_token.length) {
-            console.log(`Access token: ${hash.access_token}`);
+            log(`Access token: ${hash.access_token}`);
             return this.saveAccessToken(hash.access_token);
         }
         else {
@@ -193,7 +196,7 @@ export default class Adapter {
      * @returns {Promise}
      */
     async readFile({path}) {
-        console.log('dropbox/Adapter.js: readFile()');
+        log('dropbox/Adapter.js: readFile()');
         const resp = await this.dbx.filesDownload({path});
         return new Promise(resolve => {
             const reader = new FileReader();
