@@ -266,8 +266,15 @@ export default class Controller extends MnObject {
      * @returns {Promise}
      */
     async redirect(preRedirect = true) {
-        await (preRedirect ? this.preRedirect() : Promise.resolve());
-        Radio.request('utils/Url', 'navigateBack');
+        if (preRedirect) {
+            await this.preRedirect();
+            Radio.request('utils/Url', 'navigateBack');
+        }
+        else {
+            const url = Radio.request('utils/Url', 'getNoteLink', this.model);
+            Radio.request('utils/Url', 'navigate', {url});
+        }
+
         this.view.destroy();
     }
 
