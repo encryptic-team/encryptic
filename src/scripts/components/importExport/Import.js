@@ -428,8 +428,8 @@ export default class Import extends MnObject {
                     let options = { zip, data, name: file.name };
 
                     this.readMarkdown(options).then(() => {
-                        // console.log('import: readLegacyFile(): readMarkdown: ');
-                        // console.log(data);
+                        log('import: readLegacyFile(): readMarkdown: ');
+                        log(data);
 
                         this.importOldData("notes", data);
                     });
