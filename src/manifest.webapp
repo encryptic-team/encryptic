@@ -1,7 +1,7 @@
 {
     "name": "Encryptic",
     "description": "Open source note taking web application",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "launch_path": "/index.html",
     "icons": {
         "512": "/images/icon/icon.png",
