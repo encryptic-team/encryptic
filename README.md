@@ -3,9 +3,8 @@
 
   <h3>🔖  &nbsp;🔏  &nbsp;📄&nbsp;</h3>
   <p><strong>An encryption-focused open source note taking application.</strong><br>
-    <h3><a href="https://encryptic.org">Website</a></h3>
-    <h3><a href="https://app.encryptic.org">Demo</a></h3>
-    Encryptic is based upon the <a href="https://github.com/Laverna/laverna">Laverna Project</a>
+    <h3><a href="https://encryptic.org">Website</a> | <a href="https://app.encryptic.org">Demo</a></h3>
+    Encryptic is based upon the <a href="https://github.com/Laverna/laverna">Laverna Project</a><br>
 
   [![Build Status](https://travis-ci.org/encryptic-team/Encryptic.svg?branch=master)](https://travis-ci.org/encryptic-team/Encryptic)
   [![Coverage Status](https://coveralls.io/repos/github/encryptic-team/Encryptic/badge.svg?branch=master)](https://coveralls.io/github/encryptic-team/Encryptic)
@@ -39,7 +38,7 @@
 * Multiple editing modes: normal, preview, and distraction free
 * Offline access to your notes
 * WYSIWYG control buttons
-* Syntax highlighting, MathJax support
+* Syntax highlighting
 * Robust keyboard shortcuts
 
 ## Security

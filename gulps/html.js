@@ -26,7 +26,6 @@ module.exports = function(gulp, $) {
 
         return gulp.src([
             `${$.distDir}/**`,
-            `!${$.distDir}/bower_components/MathJax/**`,
         ])
         .pipe($.manifest({
             hash         : true,
