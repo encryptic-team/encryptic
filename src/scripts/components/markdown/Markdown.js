@@ -8,9 +8,7 @@ import WorkerModule from '../../workers/Module';
 
 // Plugins
 import hashtag from 'markdown-it-hashtag';
-// import imsize from 'markdown-it-imsize';
-//import mathjax from 'markdown-it-mathjax';
-import mathjax from 'markdown-it-katex';
+import katex from '@iktakahiro/markdown-it-katex';
 
 import sanitizer from 'markdown-it-sanitizer';
 import Prism from 'prismjs';
@@ -103,8 +101,7 @@ export default class Markdown extends WorkerModule {
     enablePlugins() {
         this.md
         .use(sanitizer)
-        // .use(imsize)
-        .use(mathjax)
+        .use(katex)
         .use(hashtag, {
             hashtagRegExp : '[\\u0021-\\uFFFF\\w\\-]+|<3',
             preceding     : '^|\\s',

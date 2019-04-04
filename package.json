@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "@iktakahiro/markdown-it-katex": "^3.1.0",
     "backbone": "^1.3.3",
     "backbone.marionette": "^4.0.0",
     "backbone.radio": "^2.0.0",
@@ -58,7 +59,6 @@
     "marionette.approuter": "^1.0.1",
     "markdown-it": "^8.4.2",
     "markdown-it-hashtag": "^0.4.0",
-    "markdown-it-katex": "^2.0.3",
     "markdown-it-math": "^4.1.0",
     "markdown-it-sanitizer": "^0.4.3",
     "modernizr": "^3.6.0",
@@ -105,6 +105,7 @@
     "gulp-zip": "^4.2.0",
     "jsdoc": "^3.5.5",
     "jsdom": "^13.0.0",
+    "katex": "^0.10.1",
     "merge-stream": "^1.0.1",
     "minimist": "^1.2.0",
     "node-localstorage": "^1.3.0",
