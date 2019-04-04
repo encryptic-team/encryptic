@@ -9,7 +9,9 @@ import WorkerModule from '../../workers/Module';
 // Plugins
 import hashtag from 'markdown-it-hashtag';
 // import imsize from 'markdown-it-imsize';
-import math from 'markdown-it-math';
+//import mathjax from 'markdown-it-mathjax';
+import mathjax from 'markdown-it-katex';
+
 import sanitizer from 'markdown-it-sanitizer';
 import Prism from 'prismjs';
 import task from './task';
@@ -102,15 +104,7 @@ export default class Markdown extends WorkerModule {
         this.md
         .use(sanitizer)
         // .use(imsize)
-        .use(math, {
-            inlineOpen       : '$',
-            inlineClose      : '$',
-            blockOpen        : '$$',
-            blockClose       : '$$',
-            renderingOptions : {},
-            inlineRenderer   : this.mathInlineRenderer,
-            blockRenderer    : this.mathBlockRenderer,
-        })
+        .use(mathjax)
         .use(hashtag, {
             hashtagRegExp : '[\\u0021-\\uFFFF\\w\\-]+|<3',
             preceding     : '^|\\s',
