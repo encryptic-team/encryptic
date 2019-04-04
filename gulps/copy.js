@@ -28,6 +28,12 @@ module.exports = (gulp, $) => {
                 './node_modules/openpgp/dist/openpgp.worker.js',
                 './node_modules/openpgp/dist/openpgp.js',
             ]).pipe(gulp.dest(`${$.distDir}/scripts`)),
+
+            gulp.src([
+                './node_modules/katex/dist/**/*.+(eot|svg|ttf|woff)',
+            ], {base: './node_modules/katex/dist'})
+            .pipe(gulp.dest(`${$.distDir}/styles`)),
+
         ]);
     };
 };
