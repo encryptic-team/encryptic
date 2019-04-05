@@ -121,6 +121,24 @@ hr {
     background-color: lighten(@theme-primary, 10%);
 }
 
+.CodeMirror-gutters {
+    background: darken(@theme-primary, 3%);
+    border-color: darken(@theme-primary, 6%);
+}
+
+.CodeMirror-dialog-bottom {
+    background: darken(@theme-primary, 3%);
+
+    input {
+        border: 1px solid darken(@theme-primary, 6%);
+        background: darken(@theme-primary, 3%);
+    }
+}
+
+#editor--footer {
+    background: darken(@theme-primary, 3%);
+}
+
 // Forms
 .form-control {
     background-color : @theme-primary;
