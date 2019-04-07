@@ -30,7 +30,7 @@ module.exports = (gulp, $) => {
             ]).pipe(gulp.dest(`${$.distDir}/scripts`)),
 
             gulp.src([
-                './node_modules/katex/dist/**/*.+(eot|svg|ttf|woff)',
+                './node_modules/katex/dist/**/*.+(ttf|woff|woff2)',
             ], {base: './node_modules/katex/dist'})
             .pipe(gulp.dest(`${$.distDir}/styles`)),
 
