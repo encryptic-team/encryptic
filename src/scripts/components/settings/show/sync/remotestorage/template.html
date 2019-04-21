@@ -7,7 +7,7 @@
         </fieldset>
         <p class="text-danger help--error"></p>
     <% } else { %>
-	<h3>{{_.i18n('Connected')}}</h3>
-	<button id="btn--rs-disconnect" class="btn btn-success btn-block">{{_.i18n('Disconnect')}}</button>
+		<h3>{{_.i18n('Connected to ')}}{{rsAddress}}</h3>
+		<button id="btn--rs-disconnect" class="btn btn-success btn-block">{{_.i18n('Disconnect')}}</button>
     <% } %>
 </div>

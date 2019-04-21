@@ -8,8 +8,8 @@ import {default as RsView} from '../settings/show/sync/remotestorage/View';
 import {default as DbxView} from '../settings/show/sync/dropbox/View';
 
 export default function initialize() {
-    Radio.channel('components/remotestorage').reply({getSettingsView: () => RsView});
-    Radio.channel('components/dropbox').reply({getSettingsView: () => DbxView});
+    Radio.channel('sync/remotestorage').reply({getSettingsView: () => RsView});
+    Radio.channel('sync/dropbox').reply({getSettingsView: () => DbxView});
 
     const sync = Radio.request('collections/Configs', 'findConfig', {
         name: 'cloudStorage',

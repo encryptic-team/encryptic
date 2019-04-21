@@ -81,7 +81,7 @@ export default class View extends MnView {
      * @param {String} name
      */
     showSync(name) {
-        const ViewS = Radio.request(`components/${name}`, 'getSettingsView');
+        const ViewS = Radio.request(`sync/${name}`, 'getSettingsView');
 
         // If the adapter doesn't have the settings view, just empty the region
         if (!ViewS) {

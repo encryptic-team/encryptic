@@ -250,6 +250,11 @@ export default class Sync {
 	 */
     disconnect() {
         this.stopWatch();
-        return this.cloud.disconnect();
+
+        if (_.isFunction(this.cloud.disconnect)) {
+            return this.cloud.disconnect();
+        }
+
+        return Promise.resolve();
     }
 }

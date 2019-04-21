@@ -237,14 +237,4 @@ export default class DropboxSync {
     getModelPath(model, profileId) {
         return `/${profileId}/${model.storeName}/${model.id}.json`;
     }
-
-    /**
-	 * Terminate connection to Dropbox
-	 *
-	 * @returns {Promise}
-	 */
-    disconnect() {
-        delete this.dbx;
-        return Promise.resolve();
-    }
 }
