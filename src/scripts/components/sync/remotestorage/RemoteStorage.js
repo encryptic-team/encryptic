@@ -152,20 +152,6 @@ export default class RemoteStorageSync {
     }
 
     /**
-     * Find a Backbone model
-     *
-     * @param {Object} {model}
-     * @returns {Promise} resolves with a note object
-     */
-    findModel({model}) {
-        if (!model.id) {
-            return Promise.reject('sync/RemoteStorage: no model id');
-        }
-
-        return this.readModel(this.getModelPath(model));
-    }
-
-    /**
      * Save a Backbone model
      *
      * @param {Object} model - Backbone model
