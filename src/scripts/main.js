@@ -57,7 +57,7 @@ import './components/electronSearch/Controller';
 import './components/importExport/main';
 import './components/share/Controller';
 import './components/dropbox/main';
-// import './components/remotestorage/main';
+import './components/sync/main';
 
 // Router based components
 import './components/notes/Router';
