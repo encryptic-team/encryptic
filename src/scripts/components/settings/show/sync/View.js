@@ -5,7 +5,6 @@ import {View as MnView} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import _ from 'underscore';
 import Behavior from '../Behavior';
-// import constants from '../../../../constants';
 import Users from './Users';
 
 /**
