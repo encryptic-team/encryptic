@@ -97,23 +97,13 @@ export default {
             exports: {
 
                 /**
-				 * List a directory
+				 * Get all objects from a directory
 				 *
 				 * @param {String} path - Path to the directory
 				 * @returns {Promise|Array}
 				 */
-                listDir(path) {
-                    return client.getListing(path);
-                },
-
-                /**
-				 * Get the object stored at path
-				 *
-				 * @param {String} path - Path to the file
-				 * @returns {Promise|Blob}
-				 */
-                readObject(path) {
-                    return client.getObject(path);
+                getAll(path) {
+                    return client.getAll(path);
                 },
 
                 /**

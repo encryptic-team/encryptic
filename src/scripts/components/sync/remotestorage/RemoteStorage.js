@@ -127,32 +127,8 @@ export default class RemoteStorageSync {
      * @param {String} type - [notes|notebooks|tags|files]
      * @returns {Promise}
      */
-    async find({profileId, type}) {
-        log('sync/RemoteStorage: find()');
-        const path     = `${profileId}/${type}/`;
-        const files    = await this.rs.encryptic.listDir(path);
-        const promises = [];
-
-        _.each(_.keys(files), filename => {
-            if (filename.endsWith('.json')) {
-                promises.push(this.readObject(path + filename));
-            }
-        });
-
-        return Promise.all(promises);
-    }
-
-    /**
-     * Read an object
-     *
-     * @param {String} - path of the object
-     * @returns {Promise}
-     */
-    async readObject(path) {
-        const model = await this.rs.encryptic.readObject(path);
-        delete model['@context'];
-
-        return model;
+    find({profileId, type}) {
+        return this.rs.encryptic.getAll(`${profileId}/${type}/`);
     }
 
     /**
