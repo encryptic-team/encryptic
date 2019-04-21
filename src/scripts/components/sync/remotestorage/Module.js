@@ -123,9 +123,9 @@ export default {
 				 * @param {Object} model - The model to save
 				 * @returns {Promise}
 				 */
-                saveModel(path, model) {
+                saveModel(path, type, model) {
                     return client.storeObject(
-                        model.storeName,
+                        type,
                         path,
                         model
                     );

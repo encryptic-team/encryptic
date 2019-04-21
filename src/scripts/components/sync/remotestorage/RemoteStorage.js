@@ -129,12 +129,13 @@ export default class RemoteStorageSync {
      */
     async find({profileId, type}) {
         log('sync/RemoteStorage: find()');
-        const files    = this.rs.encryptic.listDir(`/${profileId}/${type}/`);
+        const path     = `${profileId}/${type}/`;
+        const files    = await this.rs.encryptic.listDir(path);
         const promises = [];
 
-        _.each(files.entries, file => {
-            if (file.name.endsWith('.json')) {
-                promises.push(this.readObject(file.path_lower));
+        _.each(_.keys(files), filename => {
+            if (filename.endsWith('.json')) {
+                promises.push(this.readObject(path + filename));
             }
         });
 
@@ -147,8 +148,11 @@ export default class RemoteStorageSync {
      * @param {String} - path of the object
      * @returns {Promise}
      */
-    readObject(path) {
-        return this.rs.encryptic.readObject(path);
+    async readObject(path) {
+        const model = await this.rs.encryptic.readObject(path);
+        delete model['@context'];
+
+        return model;
     }
 
     /**
@@ -168,7 +172,8 @@ export default class RemoteStorageSync {
 
         return this.rs.encryptic.saveModel(
             this.getModelPath(model, profileId),
-            model
+            model.storeName,
+            model.getData()
         );
     }
 
