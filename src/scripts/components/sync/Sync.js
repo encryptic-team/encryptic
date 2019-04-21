@@ -4,6 +4,7 @@
 import Radio from 'backbone.radio';
 import _ from 'underscore';
 import deb from 'debug';
+import RemoteStorageSync from './RemoteStorage/RemoteStorage';
 
 const log = deb('lav:components/sync/Sync');
 
@@ -51,14 +52,35 @@ export default class Sync {
         return Radio.request('collections/Profiles', 'getProfile');
     }
 
-    constructor() {
+    constructor(sync) {
         /**
          * Sync cloud instance
          *
          * @prop {Object}
          */
-        // not implemented
-        return false;
+        if (sync === 'remotestorage') {
+            this.cloud = new RemoteStorageSync(this.configs);
+        }
+        else {
+            log('error: invalid sync method');
+            return false;
+        }
+
+        /**
+         * Sync stats.
+         *
+         * @prop {Object}
+         */
+        this.stat = {
+            interval    : 2000,
+            intervalMax : 15000,
+            intervalMin : 2000,
+        };
+
+        this.channel.reply({
+            start      : this.start,
+            disconnect : this.disconnect,
+        }, this);
     }
 
     /**
@@ -223,6 +245,7 @@ export default class Sync {
 	 * @returns {Promise}
 	 */
     disconnect() {
+        this.stopWatch();
         return this.cloud.disconnect();
     }
 }
