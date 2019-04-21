@@ -5,15 +5,17 @@
 import Radio from 'backbone.radio';
 import Sync from './Sync';
 import {default as RsView} from '../settings/show/sync/remotestorage/View';
+import {default as DbxView} from '../settings/show/sync/dropbox/View';
 
 export default function initialize() {
     Radio.channel('components/remotestorage').reply({getSettingsView: () => RsView});
+    Radio.channel('components/dropbox').reply({getSettingsView: () => DbxView});
 
     const sync = Radio.request('collections/Configs', 'findConfig', {
         name: 'cloudStorage',
     });
 
-    if (sync === 'remotestorage') {
+    if (sync !== 'p2p') {
         return new Sync(sync).init();
     }
 }

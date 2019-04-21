@@ -72,7 +72,6 @@ export default class View extends MnView {
 
         this.rs.on('authing', () => this.onRSAuth());
         this.rs.on('error', err => this.onRSError(err));
-        this.rs.on('connected', e => console.log('i', e));
 
         this.rs.connect(this.ui.address.val().trim());
     }

@@ -5,6 +5,7 @@ import Radio from 'backbone.radio';
 import _ from 'underscore';
 import deb from 'debug';
 import RemoteStorageSync from './RemoteStorage/RemoteStorage';
+import DropboxSync from './Dropbox';
 
 const log = deb('lav:components/sync/Sync');
 
@@ -60,6 +61,9 @@ export default class Sync {
          */
         if (sync === 'remotestorage') {
             this.cloud = new RemoteStorageSync(this.configs);
+        }
+        else if (sync === 'dropbox') {
+            this.cloud = new DropboxSync(this.configs);
         }
         else {
             log('error: invalid sync method');
