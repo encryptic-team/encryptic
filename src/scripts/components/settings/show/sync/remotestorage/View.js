@@ -77,10 +77,10 @@ export default class View extends MnView {
     }
 
     /**
-	 * Disconnect the RemoteStorage server
-	 *
-	 * @returns {Promise}
-	 */
+     * Disconnect the RemoteStorage server
+     *
+     * @returns {Promise}
+     */
     async disconnect() {
         await Radio.request('components/sync', 'disconnect');
         this.render();

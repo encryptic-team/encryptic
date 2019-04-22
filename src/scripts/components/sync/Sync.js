@@ -244,10 +244,10 @@ export default class Sync {
     }
 
     /**
-	 * Disconnect the cloud server
-	 *
-	 * @returns {Promise}
-	 */
+     * Disconnect the cloud server
+     *
+     * @returns {Promise}
+     */
     disconnect() {
         this.stopWatch();
 

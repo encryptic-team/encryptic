@@ -164,10 +164,10 @@ export default class RemoteStorageSync {
     }
 
     /**
-	 * Terminate connection to the RemoteStorage server
-	 *
-	 * @returns {Promise}
-	 */
+     * Terminate connection to the RemoteStorage server
+     *
+     * @returns {Promise}
+     */
     async disconnect() {
         if (!this.rs) {
             return;

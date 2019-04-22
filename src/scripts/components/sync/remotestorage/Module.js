@@ -97,22 +97,22 @@ export default {
             exports: {
 
                 /**
-				 * Get all objects from a directory
-				 *
-				 * @param {String} path - Path to the directory
-				 * @returns {Promise|Array}
-				 */
+                 * Get all objects from a directory
+                 *
+                 * @param {String} path - Path to the directory
+                 * @returns {Promise|Array}
+                 */
                 getAll(path) {
                     return client.getAll(path);
                 },
 
                 /**
-				 * Save a Backbone model on the RemoteStorage server
-				 *
-				 * @param {String} path - Path where to save the object
-				 * @param {Object} model - The model to save
-				 * @returns {Promise}
-				 */
+                 * Save a Backbone model on the RemoteStorage server
+                 *
+                 * @param {String} path - Path where to save the object
+                 * @param {Object} model - The model to save
+                 * @returns {Promise}
+                 */
                 saveModel(path, type, model) {
                     return client.storeObject(
                         type,
