@@ -425,13 +425,13 @@ export default class Import extends MnObject {
 
             if (path[2] === 'notes') {
                 return this.importOldData('notes', data).then(() => {
-                    let options = { zip, data, name: file.name };
+                    const options = {zip, data, name: file.name};
 
                     this.readMarkdown(options).then(() => {
                         log('import: readLegacyFile(): readMarkdown: ');
                         log(data);
 
-                        this.importOldData("notes", data);
+                        this.importOldData('notes', data);
                     });
                 });
             }

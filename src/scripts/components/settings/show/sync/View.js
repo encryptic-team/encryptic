@@ -5,7 +5,6 @@ import {View as MnView} from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import _ from 'underscore';
 import Behavior from '../Behavior';
-// import constants from '../../../../constants';
 import Users from './Users';
 
 /**
@@ -82,7 +81,7 @@ export default class View extends MnView {
      * @param {String} name
      */
     showSync(name) {
-        const ViewS = Radio.request(`components/${name}`, 'getSettingsView');
+        const ViewS = Radio.request(`sync/${name}`, 'getSettingsView');
 
         // If the adapter doesn't have the settings view, just empty the region
         if (!ViewS) {

@@ -419,11 +419,10 @@ export default class Encryption {
             return model;
         }
 
-        this.decrypt({message, username})
-        .then(msg => {
-            model.set(JSON.parse(msg));
-            return model;
-        });
+        const msg = await this.decrypt({message, username});
+
+        model.set(JSON.parse(msg));
+        return model;
     }
 
     /**

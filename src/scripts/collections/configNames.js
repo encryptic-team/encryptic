@@ -55,15 +55,18 @@ const configNames = {
      * @prop {String} cloudStorage - (p2p|dropbox|remotestorage)
      * @prop {String} dropboxKey - dropbox app key
      * @prop {String} dropboxAccessToken - dropbox access token
+     * @prop {String} remotestorageAddress - RemoteStorage address
+     * @prop {String} remotestorageToken - RemoteStorage access token
      * @prop {String} folderPath - the path to your data storage directory
      */
-    signalServer       : 'http://localhost:3000',
-    deviceId           : '',
-    peers              : [],
-    cloudStorage       : 'p2p',
-    dropboxKey         : '',
-    dropboxAccessToken : '',
-    folderPath        : '',
+    signalServer         : 'http://localhost:3000',
+    deviceId             : '',
+    peers                : [],
+    cloudStorage         : 'p2p',
+    dropboxKey           : '',
+    dropboxAccessToken   : '',
+    remotestorageAddress : '',
+    remotestorageToken   : '',
 
     /**
      * Encryption settings.

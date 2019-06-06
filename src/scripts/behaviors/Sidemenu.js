@@ -89,8 +89,7 @@ export default class Sidemenu extends Behavior {
         this.ui.sidemenu.scrollTop(0);
 
         // Hide the menu if Escape is pressed
-        if (this.options.configs.textEditor !== 'vim')
-        {
+        if (this.options.configs.textEditor !== 'vim') {
             Mousetrap.bind('esc', () => this.hideMenu());
         }
         this.$backdrop.on('click', () => this.onBackdropClick());
