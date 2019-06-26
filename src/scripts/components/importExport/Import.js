@@ -80,9 +80,9 @@ export default class Import extends MnObject {
         this.channel.trigger('completed', {msg});
 
         // Reload the page only if it isn't a backup from an older version
-        if (!this.isOldBackup) {
-            window.setTimeout(() => document.location.reload(), 800);
-        }
+        //if (!this.isOldBackup) {
+        //    window.setTimeout(() => document.location.reload(), 800);
+        //}
         // Force migration if this is a backup from an older version.
         if (this.isOldBackup) {
             new Migrate().init();
@@ -443,7 +443,6 @@ export default class Import extends MnObject {
                 for (let i = 0; i < data.length; i++) {
                     this.importOldData(type, data[i]);
                 }
-
                 return Promise.resolve();
             }
         });
@@ -477,9 +476,10 @@ export default class Import extends MnObject {
 
             let filename = '';
             let userDir  = '';
+            // if this works, then why did we test if they come to the same outcome?
             if (file.name.startsWith('Encryptic-backups/')) {
-                filename = path[3];
-                userDir  = path[2];
+                filename = path[2];
+                userDir  = path[1];
             }
             else {
                 filename = path[2];
@@ -489,9 +489,12 @@ export default class Import extends MnObject {
             const profileId = userDir === 'notes-db' ? userDir : this.profile.username;
 
             log(`readFile(): reading ${filename} file: ${path}`);
+            log(`readFile(): userDir ${userDir}`);
             log(path);
             if (filename === 'notes') {
-                this.importNote({zip, profileId, data, name: file.name});
+                log(`this.importNote(${zip}, ${profileId}, ${data}, ${file.name}`);
+                const _opt = {zip, profileId, data, name: file.name};
+                this.importNote(_opt);
             }
             else if (filename === 'files') {
                 this.importFile({profileId, data});

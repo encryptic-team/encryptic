@@ -5,6 +5,9 @@ import _ from 'underscore';
 import Radio from 'backbone.radio';
 import Module from './Module';
 import Collection from '../collections/Configs';
+import deb from 'debug';
+
+const log = deb('lav:modules/Configs');
 
 /**
  * Configs collection module
@@ -78,6 +81,8 @@ export default class Configs extends Module {
     }
 
     saveModel(options) {
+        log('saveModel(): start');
+        log(options);
         // Do nothing if it isn't encryption setting change
         if (options.model.get('name') !== 'encrypt' || options.noBackup) {
             return super.saveModel(options);
