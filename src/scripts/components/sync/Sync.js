@@ -4,7 +4,7 @@
 import Radio from 'backbone.radio';
 import _ from 'underscore';
 import deb from 'debug';
-import RemoteStorageSync from './RemoteStorage/RemoteStorage';
+import RemoteStorageSync from './remotestorage/RemoteStorage';
 import DropboxSync from './Dropbox';
 
 const log = deb('lav:components/sync/Sync');

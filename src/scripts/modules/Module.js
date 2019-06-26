@@ -302,11 +302,12 @@ export default class Module {
     async saveModelObject(options) {
         const model = new this.Model(options.data, options);
 
-        await this.decryptModel(model);
-        await this.saveModel({model, dontValidate: options.dontValidate});
+        await this.decryptModel(model).then(decrypted => {
+            this.saveModel({model: decrypted, dontValidate: options.dontValidate});
 
-        this.channel.trigger(`save:object:${model.id}`, {model});
-        return model;
+            this.channel.trigger(`save:object:${decrypted.id}`, {model: decrypted});
+            return model;
+        });
     }
 
     /**
