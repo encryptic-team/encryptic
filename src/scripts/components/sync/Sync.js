@@ -1,15 +1,16 @@
 /**
- * @module components/dropbox/Sync
+ * @module components/sync/Sync
  */
 import Radio from 'backbone.radio';
 import _ from 'underscore';
 import deb from 'debug';
-import Adapter from './Adapter';
+import RemoteStorageSync from './RemoteStorage/RemoteStorage';
+import DropboxSync from './Dropbox';
 
-const log = deb('lav:components/dropbox/Sync');
+const log = deb('lav:components/sync/Sync');
 
 /**
- * Dropbox sync.
+ * Cloud syncing
  *
  * @class
  * @license MPL-2.0
@@ -52,13 +53,22 @@ export default class Sync {
         return Radio.request('collections/Profiles', 'getProfile');
     }
 
-    constructor() {
+    constructor(sync) {
         /**
-         * Sync adapter instance (Dropbox)
+         * Sync cloud instance
          *
          * @prop {Object}
          */
-        this.adapter = new Adapter(this.configs);
+        if (sync === 'remotestorage') {
+            this.cloud = new RemoteStorageSync(this.configs);
+        }
+        else if (sync === 'dropbox') {
+            this.cloud = new DropboxSync(this.configs);
+        }
+        else {
+            log('error: invalid sync method');
+            return false;
+        }
 
         /**
          * Sync stats.
@@ -71,9 +81,9 @@ export default class Sync {
             intervalMin : 2000,
         };
 
-        // Reply to requests
         this.channel.reply({
-            start: this.start,
+            start      : this.start,
+            disconnect : this.disconnect,
         }, this);
     }
 
@@ -84,14 +94,14 @@ export default class Sync {
      */
     async init() {
         try {
-            const authenticated = await this.adapter.checkAuth();
+            const authenticated = await this.cloud.checkAuth();
             if (authenticated) {
                 return this.start();
             }
             log('Authentication failed');
         }
         catch (e) {
-            log('Dropbox auth error', e);
+            log('Cloud auth error', e);
         }
     }
 
@@ -175,7 +185,7 @@ export default class Sync {
      */
     async syncCollection(name) {
         const collection = await Radio.request(`collections/${name}`, 'find');
-        const files      = await this.adapter.find({
+        const files      = await this.cloud.find({
             type      : collection.storeName,
             profileId : this.profileId,
         });
@@ -225,7 +235,7 @@ export default class Sync {
 
             if (!file || file.updated < model.get('updated')) {
                 promises.push(
-                    this.adapter.saveModel({model, profileId: this.profileId})
+                    this.cloud.saveModel({model, profileId: this.profileId})
                 );
             }
         });
@@ -233,4 +243,18 @@ export default class Sync {
         return Promise.all(promises);
     }
 
+    /**
+     * Disconnect the cloud server
+     *
+     * @returns {Promise}
+     */
+    disconnect() {
+        this.stopWatch();
+
+        if (_.isFunction(this.cloud.disconnect)) {
+            return this.cloud.disconnect();
+        }
+
+        return Promise.resolve();
+    }
 }

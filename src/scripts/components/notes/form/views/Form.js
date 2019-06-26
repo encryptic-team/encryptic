@@ -124,8 +124,7 @@ export default class Form extends View {
      */
     bindKeys() {
         Mousetrap.bindGlobal(['ctrl+s', 'command+s'], e => this.save(e));
-        if (this.options.configs.textEditor !== 'vim')
-        {
+        if (this.options.configs.textEditor !== 'vim') {
             Mousetrap.bindGlobal(['esc'], e => this.cancel(e));
         }
     }

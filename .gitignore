@@ -6,28 +6,14 @@ build.json
 **/*.keystore
 
 # Compiled files
-app/styles/**/*.css
 dist/
 cordova/
 release/
 .tmp/
 
-# Bower
-app/bower_components
-test/bower_components
-.bower-cache
-.bower-registry
-.bower-tmp
-
 # Test reports (Nightwatch)
 .reports
 test/visual/screenshots
-
-# Old files that should not appear again if someone pushes them
-app/scripts/libs/remotestorage.js
-app/scripts/apps/settings/show/encryptView.js
-app/scripts/apps/settings/show/encryptTemplate.html
-app/scripts/helpers/syncStatus.js
 
 # Intellij
 .idea

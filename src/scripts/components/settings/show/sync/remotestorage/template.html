@@ -1,0 +1,13 @@
+<div>
+    <% if (!isRSAvailable) { %>
+        <fieldset>
+            <h3>{{_.i18n('Connect your storage')}}</h3>
+            <input id="rs-address" class="form-control" type="text" placeholder="{{_.i18n('user@provider.com')}}" />
+            <button id="btn--rs-connect" class="btn btn-success btn-block" type="button">{{_.i18n('Save and connect')}}</button>
+        </fieldset>
+        <p class="text-danger help--error"></p>
+    <% } else { %>
+        <h3>{{_.i18n('Connected to ')}}{{rsAddress}}</h3>
+        <button id="btn--rs-disconnect" class="btn btn-success btn-block">{{_.i18n('Disconnect')}}</button>
+    <% } %>
+</div>

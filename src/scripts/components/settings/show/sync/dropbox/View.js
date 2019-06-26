@@ -1,5 +1,5 @@
 /**
- * @module components/dropbox/show/settings/View
+ * @module components/settings/show/sync/dropbox/View
  */
 import _ from 'underscore';
 import {View as MnView} from 'backbone.marionette';

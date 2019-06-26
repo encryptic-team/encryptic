@@ -1,5 +1,5 @@
 /**
- * @module components/dropbox/Adapter
+ * @module components/sync/Dropbox
  */
 import {Dropbox} from 'dropbox';
 import _ from 'underscore';
@@ -8,15 +8,15 @@ import Backbone from 'backbone';
 import constants from '../../constants';
 import deb from 'debug';
 
-const log = deb('lav:components/dropbox/Adapter');
+const log = deb('lav:components/sync/Dropbox');
 
 /**
- * Dropbox sync adapter.
+ * Dropbox cloud class
  *
  * @class
  * @license MPL-2.0
  */
-export default class Adapter {
+export default class DropboxSync {
 
     /**
      * Default Dropbox app key, set to constants because it should never change.
@@ -94,10 +94,10 @@ export default class Adapter {
             const parts = str.replace(/\+/g, ' ').split('=');
 
             if (parts.length > 1) {
-                const key   = parts.shift();
-                let val     = parts.length > 0 ? parts.join('=') : undefined;
-                val         = undefined ? null : decodeURIComponent(val.trim());
-                ret[key] = val;
+                const key = parts.shift();
+                let val   = parts.length > 0 ? parts.join('=') : undefined;
+                val       = undefined ? null : decodeURIComponent(val.trim());
+                ret[key]  = val;
             }
         });
 
@@ -196,7 +196,7 @@ export default class Adapter {
      * @returns {Promise}
      */
     async readFile({path}) {
-        log('dropbox/Adapter.js: readFile()');
+        log('sync/Dropbox: readFile()');
         const resp = await this.dbx.filesDownload({path});
         return new Promise(resolve => {
             const reader = new FileReader();
@@ -205,20 +205,6 @@ export default class Adapter {
             });
             reader.readAsText(resp.fileBlob);
         });
-    }
-
-    /**
-     * Find a Backbone model on Dropbox.
-     *
-     * @param {Object} {model}
-     * @returns {Promise} resolves with a note object
-     */
-    findModel({model}) {
-        if (!model.id) {
-            return Promise.resolve();
-        }
-
-        return this.readFile({path: this.getModelPath(model)});
     }
 
     /**
@@ -251,5 +237,4 @@ export default class Adapter {
     getModelPath(model, profileId) {
         return `/${profileId}/${model.storeName}/${model.id}.json`;
     }
-
 }
