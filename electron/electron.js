@@ -6,7 +6,7 @@ const {app, BrowserWindow} = require('electron');
 const http         = require('http');
 const serveStatic  = require('serve-static');
 const finalHandler = require('finalhandler');
-
+const shell        = require('electron').shell;
 let win;
 
 const port = 9000;
@@ -66,6 +66,15 @@ const menuTemplate = [
                 },
             },
             {
+                label       : 'Back',
+                accelerator : 'CmdOrCtrl+B',
+                click       : () => {
+                    if (win.webContents.canGoBack()) {
+                        win.webContents.goBack();
+                    }
+                },
+            },
+            {
                 label       : 'Toggle Developer Tools',
                 accelerator :
                     process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
@@ -104,6 +113,20 @@ function createWindow() {
 
     mainWindowState.manage(win);
     Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
+
+    win.webContents.on('will-navigate', (event, url) => {
+        if (!url.startsWith('https://localhost') && !url.startsWith('http://localhost'))
+        {
+            event.preventDefault();
+            shell.openExternal(url);
+            /*
+            nb = new BrowserWindow();
+            nb.on('closed', () => nb = null);
+            nb.loadURL(url);
+            */
+        }
+    });
+
 
     win.on('closed', () => win = null);
 

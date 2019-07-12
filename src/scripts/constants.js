@@ -17,7 +17,7 @@ import _ from 'underscore';
  * not work and a user needs to provid their own
  */
 const constants = {
-    version       : '0.0.4',
+    version       : '0.1.0',
     url           : location.origin + location.pathname.replace('index.html', ''),
     defaultHosts  : [
         'Encryptic.io',

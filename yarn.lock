@@ -8122,7 +8122,7 @@ remarkable@^1.6.2:
     argparse "~0.1.15"
     autolinker "~0.15.0"
 
-remotestoragejs@^1.0.3:
+remotestoragejs@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/remotestoragejs/-/remotestoragejs-1.2.2.tgz#7ceb6fc43588b61bb1d0f6ba9fdeb74189a06c2c"
   integrity sha512-PfWUb82aBzej7GjPHbgTPc3kfooL9RRJFl90Ad5QF4YTQwLoZIc9aUchkFFNKPIS0quIPwCeH0Ff16dXr9j0lA==

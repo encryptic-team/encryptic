@@ -80,9 +80,9 @@ export default class Import extends MnObject {
         this.channel.trigger('completed', {msg});
 
         // Reload the page only if it isn't a backup from an older version
-        //if (!this.isOldBackup) {
-        //    window.setTimeout(() => document.location.reload(), 800);
-        //}
+        if (!this.isOldBackup) {
+            window.setTimeout(() => document.location.reload(), 800);
+        }
         // Force migration if this is a backup from an older version.
         if (this.isOldBackup) {
             new Migrate().init();
