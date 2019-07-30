@@ -1,0 +1,30 @@
+{
+    "appId" : "com.electron.encryptic",
+    "productName" : "Encryptic",
+    "afterAllArtifactBuild": "./afterPack.js",
+    "directories" : {
+        "output": "../release"
+    },
+    "mac" : {
+        "target": "zip"
+    },
+    "linux" : {
+        "executableName": "Encryptic",
+        "target": [{
+            "target": "zip",
+            "arch": [
+                "ia32",
+                "x64"
+            ]
+        }]
+    },
+    "win" : {
+        "target": [{
+            "target": "zip",
+            "arch": [
+                "x64",
+                "ia32"
+            ]
+        }]
+    }
+}
