@@ -50,7 +50,7 @@
     "hammerjs": "^2.0.8",
     "i18next": "^12.1.0",
     "i18next-xhr-backend": "^1.5.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "js-md5": "^0.7.3",
     "json-loader": "^0.5.7",
     "jsondiffpatch": "^0.3.11",
