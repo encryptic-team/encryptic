@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
+h2 {
+  margin-top: 0px;
+
+}
+
+.note-title {
+  font-family: 'Abel', sans-serif;
+  font-size: 1.5em;
+  padding-left: 4px;
+  background-color: #263238;
+  color: #EEFFFF;
+}
+
+.note-title-container {
+  background-color: #263238;
+  padding: 4px;
+  height: 4.3vh;
+  min-height: 39px;
+}
+
+.note-mtime {
+  min-height: 2.2vh;
+  max-height: 21px;
+  padding-left: 4px;
+  font-family: 'Abel', sans-serif;
+}
+
+#content-editor {
+  height: calc(100vh - 73px);
+  overflow-y: auto;
+}
+
+#content-editor:after {
+  clear: both;
+}
+

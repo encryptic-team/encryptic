@@ -1,0 +1,16 @@
+<div class="note-list-column column">
+  <div class="branding" *ngIf="notes">
+    <div class="branding note-count" > {{ this.noteCount }}</div>
+    <div class="note-sort pointer" (click)="changeSort()">
+      <img class="note-sort-img" src="{{ this.sortImage }}"/>
+    </div>
+  </div>
+  <div class="note-list">
+    <div class="note-card" *ngFor="let note of notes" (click)="onSelect(note)" [class.selected]="note === selectedNote">
+      <p class="note-card-title">{{note.plaintext.title}}</p>
+      <p class="note-card-text">{{note.plaintext.contents | previewContent }}</p>
+      <p class="note-card-mtime">{{this.dateOnly(note)}}</p>
+    </div>
+  </div>
+</div>
+<app-note-data-column [note]="selectedNote"></app-note-data-column>

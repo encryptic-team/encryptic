@@ -1,0 +1,16 @@
+
+
+body {
+	background:#fff;
+}
+
+/* Clear floats after the columns */
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+  width: 100%;
+  height:
+}
+
+

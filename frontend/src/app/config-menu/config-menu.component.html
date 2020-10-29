@@ -1,0 +1,18 @@
+<div *ngIf="this.windowMode == 'config'" class="shade center-screen">
+    <div  class="config-menu">
+        <div class="config-container">
+            <div class="exit-box branding" (click)="close()">X</div>
+            <div class="config-title branding">Configuration</div>
+            <div class="config-settings">
+                <ngx-codemirror id="config-editor"
+                [(ngModel)]="config"
+                [options]="{
+                  lineNumbers: true,
+                  theme: 'material config-editor',
+                  mode: {name: 'javascript', json: true}
+                }"> 
+            </ngx-codemirror>
+            </div>
+        </div>
+    </div>
+</div>

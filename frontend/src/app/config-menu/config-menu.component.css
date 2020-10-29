@@ -1,0 +1,61 @@
+.config-menu {
+    position: absolute;
+    margin: 4px;
+    background-color: rgba(190, 190, 190,.96);
+    z-index: 4;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 4px 4px 4px #000000;
+    border-radius: 14px;
+    width: 80%;
+    height: 80%;
+  }
+  
+  .center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .shade {
+    z-index: 4;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(20, 20, 25,.60);
+  }
+
+  .exit-box {
+    float: right;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.config-settings {
+  text-align: left;
+  height: 95%;
+}
+
+.config-container {
+    height: 95%;
+    position: relative;
+}
+
+.branding {
+    font-family: 'Abel' , sans-serif;
+    font-weight: bold;
+    font-size: large;
+  }
+
+.config-title {
+  padding-bottom: 6px;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+}

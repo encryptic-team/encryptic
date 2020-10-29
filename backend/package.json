@@ -1,0 +1,33 @@
+{
+  "name": "encryptic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MPL-2.0",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "mocha --recursive -r esm"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "@ava/typescript": "^1.1.1",
+    "@babel/compat-data": "^7.8.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "fs-extra": "^9.0.0",
+    "got": "^11.1.0",
+    "libsodium": "^0.7.6",
+    "libsodium-wrappers": "^0.7.6",
+    "mocha": "^7.1.2",
+    "tempy": "^0.5.0",
+    "uuid": "^3.4.0"
+  }
+}

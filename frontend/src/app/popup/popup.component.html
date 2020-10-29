@@ -1,0 +1,17 @@
+<div *ngIf="this.messageService.length('popup')" class="shade center-screen">
+    <div class="popup-box">
+        <div class="config-container"> {{get()}}
+            <div class="exit-box branding" (click)="close()">X</div>
+            <div class="popup-title branding">{{ this.currentTitle }}</div>
+            <div class="popup-text-box">
+                <div *ngFor="let x of currentText" class="popup-text">{{ x }}</div>
+                <div [class.hidden]="status == 'normal'" *ngFor="let x of errorMessage" class="popup-error">{{ x }}</div>
+            </div>
+            <div class="popup-input-box">
+                <input class="popup-input" [(ngModel)]="this.currentInput" (ngModelChange)="onChange()">
+            </div>
+            <button (click)="this.runOkFunc()" *ngIf="this.currentOk">Next</button>
+            <button (click)="close()" *ngIf="this.currentCancel">Cancel</button>
+        </div>
+    </div>
+</div>

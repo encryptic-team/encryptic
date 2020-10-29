@@ -1,0 +1,93 @@
+@import '~codemirror/lib/codemirror';
+@import '~codemirror/theme/material';
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
+html {
+  width: 100%;
+  display: table;
+}
+
+body {
+  width: 100%;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.note-list-column::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+.note-list-column::-webkit-scrollbar-track {
+  background: slategray;        /* color of the tracking area */
+}
+.note-list-column::-webkit-scrollbar-thumb {
+  background-color: lightblue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid slategrey;  /* creates padding around scroll thumb */
+}
+
+.note-list-column {
+  scrollbar-width: thin;          /* "auto" or "thin"  */
+  scrollbar-color: lightblue slategrey;   /* scroll thumb & track */
+  user-select: none;
+}
+
+.column {
+  float: left;
+  height: 100vh;
+}
+
+.note-data-column {
+  width: 55%;
+  background-color: steelblue;
+  overflow-y: auto;
+}
+
+.note-list-column {
+  width: 25%;
+  background-color: slategray;
+  border-collapse: collapse;
+  max-height: 100vh;
+  min-height: 300px;
+  overflow-y: auto;
+}
+
+.menu-column {
+  min-width: 20vh;
+  width: 20%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/*
+.treeview-item {
+  margin-left: 1rem;
+}
+*/
+/* Codemirror stuff */
+.cm-s-content-editor {
+  height: calc(100vh - 73px);
+  overflow-y: auto;
+}
+
+.cm-s-content-editor:after {
+  clear: both;
+}
+
+.cm-s-config-editor {
+  height: 75vh;
+  overflow-y: auto;
+}
+
+.cm-s-config-editor:after {
+  clear: both;
+}
+
+.config-editor {
+  height: 95vh;
+}

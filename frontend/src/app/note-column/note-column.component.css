@@ -1,0 +1,61 @@
+.note-card {
+  border-style: solid;
+  border-width: 0px;
+  border-top-width: 1px;
+  border-collapse: collapse;
+  height: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  position: relative;
+  cursor: pointer;
+}
+
+.branding {
+  font-family: 'Abel' , sans-serif;
+}
+
+.note-count {
+  margin: 4px;
+  float: left;
+}
+
+.note-sort {
+  right: 10px;
+  float: right;
+  padding: 4px;
+}
+
+.note-sort-img {
+  width: 20px;
+}
+
+.note-list {
+  clear: both;
+}
+
+.note-card-title {
+  margin: 6px;
+  font-family: 'Abel' , sans-serif;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.note-card-text {
+  text-overflow: clip;
+  margin: 4px;
+  /* Required for text-overflow to do anything */
+  white-space: wrap;
+  overflow: hidden;
+}
+
+.note-card-mtime {
+  position: absolute;
+  bottom: 0px;
+  margin: 4px;
+}
+
+.selected {
+  background-color: #CFD8DC;
+  color: black;
+}
+

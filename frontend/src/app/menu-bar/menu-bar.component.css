@@ -1,0 +1,57 @@
+
+
+h1 {
+  margin-top: 10px;
+  margin-left: 14px;
+}
+
+.branding {
+  font-family: 'Abel' , sans-serif;
+}
+
+.error {
+  background-color: red;
+  color: whitesmoke;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  width:20%;
+}
+
+.menu-bar {
+  width: 100%;
+  margin:auto;
+}
+
+.menu-button {
+  width: 40%;
+  margin: auto;
+}
+
+.button {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	margin-bottom: 8px;
+	cursor:pointer;
+	color:#ffffff;
+    font-family: 'Abel' , sans-serif;
+	font-size:19px;
+	padding:4px 53px;
+	text-align: center;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.button:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}

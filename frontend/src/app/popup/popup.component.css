@@ -1,0 +1,86 @@
+.popup-box {
+    position: absolute;
+    margin: 4px;
+    background-color: rgba(190, 190, 190,.96);
+    z-index: 4;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 4px 4px 4px #000000;
+    border-radius: 14px;
+  }
+
+.hidden {
+  visibility: hidden;
+}
+
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.shade {
+  z-index: 4;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(20, 20, 25,.60);
+}
+
+.exit-box {
+    float: right;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.config-container {
+    height: 95%;
+    position: relative;
+    padding: 12px;
+}
+
+.popup-title {
+  text-align: left;
+  padding-bottom: 28px;
+}
+
+.popup-text-box {
+  text-align: left;
+  min-height: 60px;
+}
+
+.popup-error {
+  text-align: left;
+  padding-top: 4px;
+  color: red;
+}
+
+.popup-input-box {
+  text-align: center;
+}
+.popup-input {
+  height: 36px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.branding {
+    font-family: 'Abel' , sans-serif;
+    font-weight: bold;
+    font-size: large;
+  }
+
+button {
+  float: right;
+  padding: 8px;
+  margin: 4px;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,18 @@
+.treeview-container {
+    height: 75%;
+    padding: 10px;
+}
+
+.treeview {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+}
+
+.form-check-label {
+    cursor: pointer;
+    user-select: none;
+}
+
+.row-item {
+    padding-bottom: 4px;
+}

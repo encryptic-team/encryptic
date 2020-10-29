@@ -1,0 +1,20 @@
+<div class='note-data-column column'>
+  <div *ngIf="note">
+    <div>
+      <div class="note-mtime">Saved at {{this.formatdt()}}</div>
+      <div class="note-title-container">
+        <div class="note-title" contenteditable="true" [(ngModel)]="note.plaintext.title" (ngModelChange)="onChange()"> </div>
+      </div>
+        <ngx-codemirror id="content-editor"
+        [(ngModel)]="note.plaintext.contents"
+        (ngModelChange)="onChange()"
+        [options]="{
+          name: 'test',
+          lineNumbers: true,
+          theme: 'material content-editor',
+          mode: 'markdown'
+        }"> 
+      </ngx-codemirror>
+    </div>
+  </div>
+</div>

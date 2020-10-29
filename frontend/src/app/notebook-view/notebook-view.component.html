@@ -1,0 +1,45 @@
+<div class="notebook-list">
+    <div *ngIf="notebooks">
+        <div class="header">
+          <div class="bottom header-text branding">Notebook List</div>
+          <div class="button bottom new-notebook" (click)="newNotebook()">New notebook</div>
+        </div>
+
+        <table>
+            <col class="table-title">
+            <col class="table-id">
+            <col class="table-length">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>uuid (remove this later)</th>
+                    <th>Note count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of notebooks">
+                    <td class="left">{{book.plaintext.title}}</td>
+                    <td class="right">{{book.id}}</td>
+                    <td class="right">{{book.plaintext.notes.length}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- 
+    <div class="branding note-count" > {{ this.noteCount }}</div>
+    <div class="note-sort pointer" (click)="changeSort()">
+      <img class="note-sort-img" src="{{ this.sortImage }}"/>
+    </div>
+  </div>
+  <div class="note-list">
+    <div class="note-card" *ngFor="let note of notes" (click)="onSelect(note)" [class.selected]="note === selectedNote">
+      <p class="note-card-title">{{note.title}}</p>
+      <p class="note-card-text">{{note.contents | previewContent }}</p>
+      <p class="note-card-mtime">{{this.dateOnly(note)}}</p>
+    </div>
+  </div>
+</div>
+<app-note-data-column [note]="selectedNote"></app-note-data-column>
+-->

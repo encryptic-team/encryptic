@@ -1,0 +1,15 @@
+<div class='menu-column column'>
+  <h1 class='branding'>Encryptic</h1>
+  <div class="menu-bar">
+    <div class="button menu-button new-note" (click)="clickNewNote()">New note</div>
+    <div class="button menu-button show-config" (click)="toggleShowConfig()">Configuration</div>
+  </div>
+  <app-menu-dir-view (changeView)="changeView($event)"></app-menu-dir-view>
+  <div *ngIf="config" class='bottom branding'>Config Version {{ config.meta.appVersion }} </div>
+  <app-notification></app-notification>
+</div>
+<app-note-view *ngIf="display=='notes'"></app-note-view>
+<app-notebook-view *ngIf="display=='notebooks'"></app-notebook-view>
+<app-popup></app-popup>
+<app-config-menu></app-config-menu>
+
