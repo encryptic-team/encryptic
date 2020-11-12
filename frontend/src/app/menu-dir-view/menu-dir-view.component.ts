@@ -86,7 +86,7 @@ export class MenuDirViewComponent implements OnInit {
             console.log(`adding ${bookKeys.length} books to view`);
             for(let j=0; j < bookKeys.length; j++) {
               let key = bookKeys[j];
-              let text = books[key].title;
+              let text = books[key].plaintext.title;
               if (!text) {
                 text = "(untitled)";
               }

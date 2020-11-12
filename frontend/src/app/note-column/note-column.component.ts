@@ -12,7 +12,7 @@ export class NoteColumnComponent implements OnInit {
 
   constructor(private notesService: NotesService,
               private configService: ConfigService) { }
-  notes: Note[];
+  notes: Note[] = [];
   selectedNote: Note;
   noteCount: string;
   ngOnInit(): void {
@@ -64,6 +64,7 @@ export class NoteColumnComponent implements OnInit {
           noteArray.push(notes[x]);
         }
         this.notes = noteArray.sort(this.sortMethod);
+        console.log("First note from getNotes():");
         console.log(this.notes[0]);
         this.getNoteCount();
     });

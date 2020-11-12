@@ -14,11 +14,12 @@ var shutDown = require('../../src/index');
 
 var testData = {
     json: {
-        contents: {
+        plaintext: {
             contents: 'this is a test note', 
             author: "brad",
             title: "another test"
-        }
+        },
+        ciphered: ""
     },
     responseType: 'json'
 };
@@ -65,7 +66,7 @@ describe('Webserver Route Tests', function() {
             })().then((note) => {
                 let file = path.join(os.homedir(), '.encryptic', 'notes', `${note.id}.json`);
                 let j = JSON.parse(fs.readFileSync(file));
-                assert.equal(j.contents.author, 'brad');
+                assert.equal(j.plaintext.author, 'brad');
                 done();
             });
         });
@@ -99,7 +100,7 @@ describe('Webserver Route Tests', function() {
             (async (done) => {
                 var note = undefined;
                 var newTestData = testData;
-                newTestData.json.contents.title = 'I changed the title';
+                newTestData.json.plaintext.title = 'I changed the title';
                 try {
                     const res = await got.post('http://localhost:3000/notes/add', newTestData);
                     note = res.body;
@@ -118,7 +119,7 @@ describe('Webserver Route Tests', function() {
                     }
                     return note;
                 })().then((note) => {
-                    assert.equal(note.contents.title, 'I changed the title');
+                    assert.equal(note.plaintext.title, 'I changed the title');
                     done();
                 });
             });   

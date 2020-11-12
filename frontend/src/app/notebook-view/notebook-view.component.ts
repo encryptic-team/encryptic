@@ -66,6 +66,11 @@ export class NotebookViewComponent implements OnInit {
       console.log(books);
       this.notebooks = [];
       for(let key in books) {
+        if (books[key].plaintext === undefined) {
+          console.log("getBooks(): plaintext is hosed and should be readable at this point");
+          books[key] = this.notebooksService.newBook();
+          books[key].plaintext.title = "(broken notebook plaintext)";
+        }
         this.notebooks.push(books[key]);
       }
       // TODO: Needs notebook sort implementations

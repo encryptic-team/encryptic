@@ -94,14 +94,40 @@ app.delete('/notes/:noteId', (req, res) => {
     });
 });
 
-app.get('/notebooks', (req, res) => {
-    var noteList = notes.listUUIDs();
+app.get('/notebooks', (req, res) => {	
+    var bookList = notebooks.listUUIDs();
     var payload = {};
-    for (let i = 0; i < noteList.length; i++) {
-        payload[noteList[i]] = notes.get({id: noteList[i]});
-    }
+    for (let i = 0; i < bookList.length; i++) {
+        payload[bookList[i]] = notebooks.get({id: bookList[i]});
+    }	  
     res.send(payload);
 });
+
+app.post('/notebooks/add', (req, res) => {	
+    notebooks.create(req.body, (id) => {	
+        res.send(id);	
+    });	
+});	
+
+app.post('/notebooks/:noteId', (req, res) => {	
+    req.body.id = req.params.noteId;	
+    notebooks.update(req.body, (id) => {	
+        res.send(id);	
+    });	
+});	
+
+app.get('/notebooks/:noteId', (req, res) => {	
+    req.body.id = req.params.noteId;	
+    res.send(notebooks.get(req.body));	
+});	
+
+app.delete('/notebooks/:noteId', (req, res) => {	
+    notebooks.del(req.params, (id) => {	
+        res.send(id);	
+    });	
+});	
+
+/*  END NOTEBOOK ROUTES  */
 
 
 var server = app.listen(port, '0.0.0.0' , () =>
