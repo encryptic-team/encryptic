@@ -60,7 +60,6 @@ export class MenuBarComponent implements OnInit {
 
   clickNewNote() {
     console.log("new note was clicked");
-    this.messageService.add('popup', this.fakeMsg);
     // TODO: This doesn't work right if the view isn't already on notes
     // This can be fixed by removing ngIf on the views and hiding/showing
     // them via CSS attributes instead.  I'm not sure if this would involve

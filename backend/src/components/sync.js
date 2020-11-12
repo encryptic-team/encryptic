@@ -5,7 +5,6 @@ import uuid from 'uuid/v4';
 import Filesystem from './storage/filesystem';
 import Config from './config';
 import Element from '../models/element';
-import 'dotenv/config';
 
 class Sync {
     constructor(config, role) {
@@ -14,13 +13,7 @@ class Sync {
         this.mode = config.settings.sync.localCache;
         if (this.mode == 'fs') {
             // TODO: This should make it into the config at some point. 
-            var dataDir;
-            if (process.env.OUTDIR) {
-                var dataDir = path.join(os.homedir(), "/.encryptic/", role);
-            }
-            else {
-                var dataDir = path.join(os.homedir(), "/.encryptic/", role);
-            }
+            var dataDir = path.join(os.homedir(), "/.encryptic/", role);
             this.use = new Filesystem(dataDir, config);
         }
     }

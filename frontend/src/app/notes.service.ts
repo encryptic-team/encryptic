@@ -61,6 +61,10 @@ export class NotesService {
     }
   }
 
+  validateData(dirtyNote: Note) {
+
+  }
+
   newNote(): Note {
     var note : Note;
     note = {
