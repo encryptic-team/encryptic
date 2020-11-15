@@ -12,6 +12,10 @@ h2 {
   padding-left: 4px;
   background-color: #263238;
   color: #EEFFFF;
+  width: 100%;
+  border-style: none;
+  border-color: transparent;
+  outline-style: none;
 }
 
 .note-title-container {

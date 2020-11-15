@@ -1,0 +1,10 @@
+<div class="note-toolbar clearfix">
+    <div class="toolbar-component">
+        note-toolbar works!
+    </div>
+    <div>
+        <select class="notebook-selector" id="note-notebook-selector" (change)="onNotebookChange($event)" [(ngModel)]="note.plaintext.notebook">
+            <option *ngFor="let book of notebooks" value="{{book.id}}">{{book.plaintext.title}}</option>
+        </select>
+    </div>
+</div>

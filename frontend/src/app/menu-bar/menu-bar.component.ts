@@ -7,6 +7,8 @@ import { ConfigMenuComponent } from '../config-menu/config-menu.component';
 import { MenuDirViewComponent } from '../menu-dir-view/menu-dir-view.component';
 import { delay } from 'rxjs/operators';
 import { MessageService } from '../message.service';
+import { Notebook } from '../../notebook';
+import { NotebooksService } from '../notebooks.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -16,7 +18,8 @@ import { MessageService } from '../message.service';
 
 export class MenuBarComponent implements OnInit {
 
-  constructor(public messageService: MessageService, private configService: ConfigService, private notesService: NotesService) { }
+  constructor(public messageService: MessageService, private configService: ConfigService,
+              private notesService: NotesService, private notebooksService: NotebooksService) { }
 
   ngOnInit(): void {
     this.getConfig();
@@ -26,19 +29,46 @@ export class MenuBarComponent implements OnInit {
     // and presents itself as a viable alternative, I will stick with this for now.
     this.messageService.createQueue('notification');
     this.messageService.createQueue('popup');
+    this.messageService.createQueue('notebookSelector');
   }
 
   config: Config = undefined;
   server: string = undefined;
   message: string = undefined;
   display: string = "notes";
+  selectedBook: string = undefined;
 
   @ViewChild(ConfigMenuComponent) public configMenuChild: ConfigMenuComponent;
   @ViewChild(NoteViewComponent) public child: NoteViewComponent;
   @ViewChild(MenuDirViewComponent) public menuDirChild: MenuDirViewComponent;
 
   changeView(mode: string) {
-    this.display = mode;
+    console.log(`changeView(): caught emitted ${mode}`);
+    if (mode == "notebooks") {
+      this.display = mode;
+    }
+    else if (mode.startsWith("notebook")) {
+      // this means that we are viewing a specific notebook
+      // as-in "notebook <uuid>".  There's probably a better
+      // way of doing this.
+      this.display = 'notes';
+      let bookId = mode.split(' ')[1];
+      if (bookId == '-2') {
+        console.log("Selected notebook view for : All Notes");
+      }
+      this.selectedBook = bookId;
+      this.messageService.add("notebookSelector", bookId);
+      /*
+      else {
+        this.notebooksService.getNotebook(bookId)
+          .subscribe(book => {
+            console.log(`Selected notebook view for : ${book.id}`);
+            this.selectedBook = book;
+          });
+      }
+      */
+    
+    }
   }
 
   toggleShowConfig() {
@@ -66,7 +96,10 @@ export class MenuBarComponent implements OnInit {
     // a performance hit, but it's probably a little too early to worry
     // about that.
     this.changeView("notes");
-    this.child.newNote();
+    // handle "All Notes" (no selected notebook) case
+    var bookId = (this.selectedBook == '-2') ? "" : this.selectedBook; 
+    console.log(`clickNewNote(): calling newNote() with notebook ${bookId}`);
+    this.child.newNote(bookId);
   }
 
   getConfig() {

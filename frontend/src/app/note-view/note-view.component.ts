@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild, Input} from '@angular/core';
 import { NoteColumnComponent } from '../note-column/note-column.component';
+import { Notebook } from '../../notebook';
 
 @Component({
   selector: 'app-note-view',
@@ -15,8 +16,8 @@ export class NoteViewComponent implements OnInit {
 
   @ViewChild(NoteColumnComponent) public child: NoteColumnComponent;
 
-  public newNote() {
-    this.child.newNote();
+  public newNote(book?: string) {
+    this.child.newNote(book);
   }
 
 }

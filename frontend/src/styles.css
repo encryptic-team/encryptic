@@ -10,6 +10,7 @@ html {
 
 body {
   width: 100%;
+  overflow: hidden;
 }
 
 html, body {
@@ -43,7 +44,7 @@ html, body {
 .note-data-column {
   width: 55%;
   background-color: steelblue;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .note-list-column {
@@ -70,9 +71,14 @@ html, body {
 }
 */
 /* Codemirror stuff */
+
+.CodeMirror-placeholder {
+  color: #999 !important;
+}
+
 .cm-s-content-editor {
-  height: calc(100vh - 73px);
-  overflow-y: auto;
+  height: calc(100vh - 80px);
+  overflow: auto;
 }
 
 .cm-s-content-editor:after {
@@ -81,7 +87,7 @@ html, body {
 
 .cm-s-config-editor {
   height: 75vh;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 .cm-s-config-editor:after {
@@ -89,5 +95,6 @@ html, body {
 }
 
 .config-editor {
+  overflow: auto;
   height: 95vh;
 }

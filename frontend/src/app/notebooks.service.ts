@@ -26,6 +26,7 @@ export class NotebooksService {
   }
 
   getNotebook(bookid: string): Observable<Notebook> {
+    console.log(`http get ${this.server}/notebooks/${bookid}`);
     return this.http.get<Notebook>(`${this.server}/notebooks/${bookid}`)
       .pipe(
         tap(test => console.log(`fetched one notebook: ${Object.keys(test)}`))

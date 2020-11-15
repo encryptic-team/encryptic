@@ -3,12 +3,12 @@ export interface Notebook {
   new: boolean;
   ciphered: string;
   plaintext: {
+    author: string;
     title: string;
     version: number;
-    notes: [];
     created: string;
     modified: string;
+    notes: [];
     comment: string;
-    author: string;
   }
 }

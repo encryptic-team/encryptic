@@ -15,6 +15,7 @@ export class MenuDirViewComponent implements OnInit {
   @Output() changeView = new EventEmitter<string>(); 
 
   setDisplay(mode: string) {
+    console.log(`setDisplay(): emitting ${mode}`);
     this.changeView.emit(mode);
   }
 
@@ -41,14 +42,17 @@ export class MenuDirViewComponent implements OnInit {
     // special cases for standard controls
     if (item.value === -2) {
       console.log(`All notes selected`);
-      this.setDisplay("notes");
+      this.setDisplay("notebook -2");
     }
-    if (item.value === -1) {
+    else if (item.value === -1) {
       console.log(`Notebook view selected`);
       this.setDisplay("notebooks");
     }
     // any other notebook
-    console.log(`notebook ${item.value} selected!`);
+    else {
+      this.setDisplay(`notebook ${item.value}`);
+      console.log(`notebook ${item.value} selected!`);
+    }
   }
 
   constructor(private notebooksService: NotebooksService,

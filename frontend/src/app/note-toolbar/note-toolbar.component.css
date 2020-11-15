@@ -1,0 +1,21 @@
+.note-toolbar {
+    width: 100%;
+    font-family: 'Abel', sans-serif;
+    padding: 4px;
+}
+
+.toolbar-component {
+    float: left;
+}
+
+.notebook-selector {
+    margin-left: 8px;
+    margin-right: 8px;
+    float:right;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

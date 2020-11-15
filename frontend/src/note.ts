@@ -5,10 +5,10 @@ export interface Note {
   plaintext: {
     author: string;
     title: string;
-    contents: string;
     version: number;
     created: string;
     modified: string;
+    contents: string;
     notebook: string;
   };
 }

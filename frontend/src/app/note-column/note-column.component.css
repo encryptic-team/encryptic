@@ -14,6 +14,12 @@
   font-family: 'Abel' , sans-serif;
 }
 
+.note-active-book {
+  margin: 6px 4px 4px 6px;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
 .note-count {
   margin: 4px;
   float: left;

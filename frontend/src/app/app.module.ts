@@ -17,6 +17,9 @@ import { NoteViewComponent } from './note-view/note-view.component';
 import { NotebookViewComponent } from './notebook-view/notebook-view.component';
 import { NotificationComponent } from './notification/notification.component';
 import { PopupComponent } from './popup/popup.component';
+import { NoteToolbarComponent } from './note-toolbar/note-toolbar.component';
+import 'codemirror/addon/display/placeholder';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { PopupComponent } from './popup/popup.component';
     NoteViewComponent,
     NotebookViewComponent,
     NotificationComponent,
-    PopupComponent
+    PopupComponent,
+    NoteToolbarComponent
   ],
   imports: [
     BrowserModule,
