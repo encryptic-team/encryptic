@@ -65,20 +65,71 @@ html, body {
   cursor: pointer;
 }
 
-/*
-.treeview-item {
-  margin-left: 1rem;
+.treeview-container {
+  height: 75%;
+  padding: 10px;
+  overflow-x: hidden;
 }
-*/
+
+.treeview-item {
+  text-overflow: ellipsis;
+}
+
 /* Codemirror stuff */
 
 .CodeMirror-placeholder {
   color: #999 !important;
 }
 
+ {
+
+}
+
+.CodeMirror-scrollbar-filler {
+  background-color: transparent;
+}
+
+.CodeMirror-hscrollbar::-webkit-scrollbar {
+  height: 12px;               /* width of the entire scrollbar */
+}
+.CodeMirror-hscrollbar::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+.CodeMirror-hscrollbar::-webkit-scrollbar-thumb {
+  background-color: lightblue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid slategrey;  /* creates padding around scroll thumb */
+}
+
+.CodeMirror-hscrollbar {
+  scrollbar-width: thin;          /* "auto" or "thin"  */
+  scrollbar-color: lightblue slategrey;   /* scroll thumb & track */
+  user-select: none;
+  outline-style: none;
+}
+
+.CodeMirror-vscrollbar::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+.CodeMirror-vscrollbar::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+.CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
+  background-color: lightblue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid slategrey;  /* creates padding around scroll thumb */
+}
+
+.CodeMirror-vscrollbar {
+  scrollbar-width: thin;          /* "auto" or "thin"  */
+  scrollbar-color: lightblue slategrey;   /* scroll thumb & track */
+  user-select: none;
+  outline-style: none;
+}
+
+
 .cm-s-content-editor {
-  height: calc(100vh - 80px);
-  overflow: auto;
+  height: 89.5vh;
 }
 
 .cm-s-content-editor:after {

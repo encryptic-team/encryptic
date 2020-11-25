@@ -20,22 +20,19 @@ h2 {
 
 .note-title-container {
   background-color: #263238;
-  padding: 4px;
-  height: 4.3vh;
-  min-height: 39px;
+  height: 4vh;
+  padding-left: 8px;
 }
 
 .note-mtime {
-  min-height: 2.2vh;
-  max-height: 21px;
+  height: 2.5vh;
   padding-left: 4px;
   font-family: 'Abel', sans-serif;
 }
 
 #content-editor {
-  height: calc(100vh - 73px);
   overflow-y: auto;
-}
+} 
 
 #content-editor:after {
   clear: both;

@@ -13,6 +13,7 @@ import { ConfigService } from '../config.service';
 export class MenuDirViewComponent implements OnInit {
 
   @Output() changeView = new EventEmitter<string>(); 
+  selectedItem: TreeviewItem;
 
   setDisplay(mode: string) {
     console.log(`setDisplay(): emitting ${mode}`);
@@ -39,6 +40,7 @@ export class MenuDirViewComponent implements OnInit {
   }
 
   select(item: TreeviewItem) {
+    this.selectedItem = item;
     // special cases for standard controls
     if (item.value === -2) {
       console.log(`All notes selected`);

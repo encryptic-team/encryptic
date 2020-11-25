@@ -18,8 +18,9 @@ import { NotebookViewComponent } from './notebook-view/notebook-view.component';
 import { NotificationComponent } from './notification/notification.component';
 import { PopupComponent } from './popup/popup.component';
 import { NoteToolbarComponent } from './note-toolbar/note-toolbar.component';
+import { NotePreviewColumnComponent } from './note-preview-column/note-preview-column.component';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import 'codemirror/addon/display/placeholder';
-
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import 'codemirror/addon/display/placeholder';
     NotebookViewComponent,
     NotificationComponent,
     PopupComponent,
-    NoteToolbarComponent
+    NoteToolbarComponent,
+    NotePreviewColumnComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,19 @@ import 'codemirror/addon/display/placeholder';
     FormsModule,
     CodemirrorModule,
     ContenteditableModule,
-    TreeviewModule.forRoot()
+    TreeviewModule.forRoot(),
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          breaks: true,
+          pedantic: false,
+          smartLists: true,
+          smartypants: false,
+        },
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

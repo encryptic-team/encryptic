@@ -1,0 +1,12 @@
+<div class='note-data-column column'>
+  <div class="preview-container" *ngIf="note">
+    <app-note-toolbar [note]="note"></app-note-toolbar>
+    <div class="preview-container">
+      <div class="note-title">
+        {{ note.plaintext.title }}
+      </div>
+      <div markdown ngPreserveWhitespaces class="note-md-text" 
+        [data]="note.plaintext.contents"></div>
+      </div>
+    </div>
+</div>

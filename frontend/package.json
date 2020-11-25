@@ -1,5 +1,5 @@
 {
-  "name": "recryptic-angular",
+  "name": "encryptic-angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,6 +22,8 @@
     "@ctrl/ngx-codemirror": "^4.0.0",
     "@ng-stack/contenteditable": "^1.0.1",
     "codemirror": "^5.56.0",
+    "component": "^1.1.0",
+    "ngx-markdown": "^10.1.1",
     "ngx-treeview": "^10.0.2",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

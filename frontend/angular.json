@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "recryptic-angular": {
+    "encryptic-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/recryptic-angular",
+            "outputPath": "dist/encryptic-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,9 +24,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/prismjs/themes/prism-okaidia.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/marked/lib/marked.js",
+                        "node_modules/prismjs/prism.js"]
           },
           "configurations": {
             "production": {
@@ -62,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "recryptic-angular:build"
+            "browserTarget": "encryptic-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "recryptic-angular:build:production"
+              "browserTarget": "encryptic-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "recryptic-angular:build"
+            "browserTarget": "encryptic-angular:build"
           }
         },
         "test": {
@@ -110,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "recryptic-angular:serve"
+            "devServerTarget": "encryptic-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "recryptic-angular:serve:production"
+              "devServerTarget": "encryptic-angular:serve:production"
             }
           }
         }
@@ -237,5 +239,5 @@
         }
       }
     }},
-  "defaultProject": "recryptic-angular"
+  "defaultProject": "encryptic-angular"
 }

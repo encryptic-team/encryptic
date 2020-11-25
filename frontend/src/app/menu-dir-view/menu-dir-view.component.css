@@ -1,18 +1,23 @@
-.treeview-container {
-    height: 75%;
-    padding: 10px;
-}
+
 
 .treeview {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9em;
+    overflow-x: hidden;
 }
 
 .form-check-label {
     cursor: pointer;
     user-select: none;
+    overflow-x: hidden;
+    padding: 2px;
 }
 
 .row-item {
     padding-bottom: 4px;
+    overflow-x: hidden;
+}
+
+.selected {
+    background-color: lightblue;
 }

@@ -26,9 +26,10 @@ let-onCheckedChange="onCheckedChange">
   <i *ngIf="!item.children && item.value < 0">
     <svg width="0.9rem" height="0.8rem" viewBox="0 0 16 16" class=""></svg>
   </i>
-  <label class="form-check-label" (click)="select(item)">{{ item.text }}</label>
+  <label class="form-check-label" [class.selected]="item === selectedItem" (click)="select(item)">{{ item.text }}</label>
 </div>
 </ng-template>
+
 <ng-template #headerTemplate let-config="config" let-item="item" let-onCollapseExpand="onCollapseExpand"
 let-onCheckedChange="onCheckedChange" let-onFilterTextChange="onFilterTextChange">
 <div *ngIf="config.hasDivider" class="dropdown-divider"></div>
