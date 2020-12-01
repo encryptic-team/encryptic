@@ -149,3 +149,10 @@ html, body {
   overflow: auto;
   height: 95vh;
 }
+
+.hidden {
+  visibility: hidden;
+  /* gotta make it really, really hidden */
+  /* display: none; /* okay maybe not this hidden */
+  max-height: 0;
+}

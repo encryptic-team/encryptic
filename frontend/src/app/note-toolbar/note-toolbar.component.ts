@@ -3,6 +3,7 @@ import { NotesService } from '../notes.service';
 import { NotebooksService } from '../notebooks.service';
 import { Notebook } from '../../notebook';
 import { Note } from '../../note';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-note-toolbar',
@@ -12,8 +13,11 @@ import { Note } from '../../note';
 export class NoteToolbarComponent implements OnInit {
 
   notebooks: Notebook[] = [];
-  @Input() note: Note; 
-  constructor( private notesService: NotesService,  private notebooksService: NotebooksService) { };
+  @Input() note: Note;
+  @Input() mode: String;
+  constructor( private notesService: NotesService,  
+               private notebooksService: NotebooksService,
+               private messageService: MessageService) { };
   
   ngOnInit(): void {
     // define a "null notebook" for notes outside of notebooks.
@@ -52,6 +56,12 @@ export class NoteToolbarComponent implements OnInit {
         }
         */
       });
+  }
+
+  changeMode(newMode: string) {
+    var queueName = 'noteViewSelector';
+    this.messageService.clear(queueName);
+    this.messageService.add(queueName, newMode);
   }
 
   onNotebookChange(e) {

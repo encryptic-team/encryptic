@@ -9,7 +9,7 @@ h2 {
 .note-title {
   font-family: 'Abel', sans-serif;
   font-size: 1.5em;
-  padding-left: 4px;
+  padding: 0 0 0 4px;
   background-color: #263238;
   color: #EEFFFF;
   width: 100%;
@@ -28,6 +28,12 @@ h2 {
   height: 2.5vh;
   padding-left: 4px;
   font-family: 'Abel', sans-serif;
+}
+
+.edit-container {
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden;
 }
 
 #content-editor {

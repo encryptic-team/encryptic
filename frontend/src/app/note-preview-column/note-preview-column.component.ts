@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/note';
 import { ConfigService } from '../config.service';
+import { MessageService } from '../message.service';
 import { NotesService } from '../notes.service';
 
 @Component({
@@ -11,8 +12,8 @@ import { NotesService } from '../notes.service';
 export class NotePreviewColumnComponent implements OnInit {
 
   constructor(private configService: ConfigService, 
-    private notesService: NotesService) { }
-
+    private notesService: NotesService,
+    private messageService: MessageService) { }
     
   ngOnInit(): void {
   }
@@ -32,6 +33,22 @@ export class NotePreviewColumnComponent implements OnInit {
       mtime = "<unknown time>";
     }
     return mtime;
+  }
+
+  isHidden() : boolean {
+    var mode = this.messageService.latest('noteViewSelector');
+    console.log(`NotePreviewColumnComponent::isHidden(): mode is ${mode}`);
+    if (mode == "preview") {
+      console.log("isHidden() returned false");
+      return false;
+    }
+    else if (mode == "edit") {
+      console.log("isHidden() returned true");
+      return true;
+    }
+    // we want default behavior to be return true;
+    console.log("isHidden() defaulting false");
+    return false;
   }
 
   update() {

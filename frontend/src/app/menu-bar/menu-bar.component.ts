@@ -30,6 +30,7 @@ export class MenuBarComponent implements OnInit {
     this.messageService.createQueue('notification');
     this.messageService.createQueue('popup');
     this.messageService.createQueue('notebookSelector');
+    this.messageService.createQueue('noteViewSelector');
   }
 
   config: Config = undefined;

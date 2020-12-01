@@ -1,8 +1,16 @@
 <div class="note-toolbar clearfix">
     <div class="toolbar-component">
-        note-toolbar works!
     </div>
-    <div>
+    <div *ngIf="mode=='edit'">
+        <div class="toolbar-component">Edit mode</div>
+        <button (click)="changeMode('preview')">Preview</button>
+        <select class="notebook-selector" id="note-notebook-selector" (change)="onNotebookChange($event)" [(ngModel)]="note.plaintext.notebook">
+            <option *ngFor="let book of notebooks" value="{{book.id}}">{{book.plaintext.title}}</option>
+        </select>
+    </div>
+    <div *ngIf="mode=='view'">
+        <div class="toolbar-component">View mode</div>
+        <button (click)="changeMode('edit')">Edit</button>
         <select class="notebook-selector" id="note-notebook-selector" (change)="onNotebookChange($event)" [(ngModel)]="note.plaintext.notebook">
             <option *ngFor="let book of notebooks" value="{{book.id}}">{{book.plaintext.title}}</option>
         </select>

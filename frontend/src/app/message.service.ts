@@ -19,6 +19,22 @@ export class MessageService {
     }
   }
 
+  peek(queueName: string) {
+    if (this.messages[queueName] !== undefined && 
+        this.length(queueName) > 0) {
+      return this.messages[queueName][0];
+    }
+  }
+
+  latest(queueName: string) {
+    if (this.messages[queueName] !== undefined && 
+        this.length(queueName) >= 1) {
+      let lastIdx = this.messages[queueName].length-1;
+      var msg = this.messages[queueName][lastIdx];
+      return msg;
+      }
+  }
+
   add(queueName: string, message: any) {
     this.messages[queueName].push(message);
   }

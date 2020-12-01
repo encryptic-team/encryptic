@@ -1,10 +1,13 @@
-<div class='note-data-column column'>
-  <div style="width: 100%; height: 100%; overflow: hidden" *ngIf="note">
-      <app-note-toolbar [note]="note"></app-note-toolbar>
+<div class='note-data-column column' [class.hidden]="isHidden()">
+  <div class='edit-container' *ngIf="note">
+      <app-note-toolbar [mode]="'edit'" [note]="note"></app-note-toolbar>
+
       <div class="note-mtime">Saved at {{this.formatdt()}}</div>
+
       <div class="note-title-container">
         <textarea class="note-title" id="note-title" placeholder="Title" [value]="note.plaintext.title" (input)="note.plaintext.title = $event.target.value;onChange();"></textarea>
       </div>
+      
       <ngx-codemirror id="content-editor"
         [(ngModel)]="note.plaintext.contents"
         (ngModelChange)="onChange()"

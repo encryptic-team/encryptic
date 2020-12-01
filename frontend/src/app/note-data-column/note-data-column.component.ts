@@ -4,6 +4,7 @@ import { ConfigService } from '../config.service';
 import { NotesService } from '../notes.service';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/markdown/markdown';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-note-data-column',
@@ -13,7 +14,8 @@ import 'codemirror/mode/markdown/markdown';
 export class NoteDataColumnComponent implements OnInit {
 
   constructor(private configService: ConfigService, 
-              private notesService: NotesService) { }
+              private notesService: NotesService,
+              private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
@@ -51,6 +53,22 @@ export class NoteDataColumnComponent implements OnInit {
         this.update();
       }, 1000);
     });
+  }
+
+  isHidden() : boolean {
+    var mode = this.messageService.latest('noteViewSelector');
+    console.log(`NoteDataColumnComponent::isHidden(): mode is ${mode}`);
+    if (mode == "preview") {
+      console.log("isHidden() returned true");
+      return true;
+    }
+    else if (mode == "edit") {
+      console.log("isHidden() returned false");
+      return false;
+    }
+    // we want default behavior to be return false;
+    console.log("isHidden() defaulting true");
+    return true;
   }
 
 }
