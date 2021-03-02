@@ -1,6 +1,18 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
+
+steps:
+  - checkout
+
+  - run:
+      command: ls /home/circleci/my-project/src/
+
+  - restore_cache:
+      keys: v1-dependencies-{{ checksum "package.json" }}
+
+  - run: npm install
+
 workflows:
   node-tests:
     jobs:
