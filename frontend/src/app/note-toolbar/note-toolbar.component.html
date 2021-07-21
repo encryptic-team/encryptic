@@ -7,6 +7,8 @@
         <select class="notebook-selector" id="note-notebook-selector" (change)="onNotebookChange($event)" [(ngModel)]="note.plaintext.notebook">
             <option *ngFor="let book of notebooks" value="{{book.id}}">{{book.plaintext.title}}</option>
         </select>
+        <button (click)="testEncrypt('this.note')">Test encrypt</button>
+        <button (click)="testDecrypt()">Test decrypt</button>
     </div>
     <div *ngIf="mode=='view'">
         <div class="toolbar-component">View mode</div>
@@ -14,5 +16,9 @@
         <select class="notebook-selector" id="note-notebook-selector" (change)="onNotebookChange($event)" [(ngModel)]="note.plaintext.notebook">
             <option *ngFor="let book of notebooks" value="{{book.id}}">{{book.plaintext.title}}</option>
         </select>
+    </div>
+    <div style="float:right;">
+        {{ getPubHash() }} <BR>
+        {{ getPrivHash() }}
     </div>
 </div>

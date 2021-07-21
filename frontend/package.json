@@ -23,8 +23,11 @@
     "@ng-stack/contenteditable": "^1.0.1",
     "codemirror": "^5.56.0",
     "component": "^1.1.0",
+    "cookie": "^0.4.1",
+    "md5": "^2.3.0",
     "ngx-markdown": "^10.1.1",
     "ngx-treeview": "^10.0.2",
+    "openpgp": "^5.0.0-3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

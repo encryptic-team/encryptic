@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ChangeDetectorRef } from '@angular/core';
 import { NotesService } from '../notes.service';
 import { ConfigService } from '../config.service';
 import { Note } from '../../note';
 import { Notebook } from 'src/notebook';
 import { MessageService } from '../message.service';
 import { NotebooksService } from '../notebooks.service';
+import { CryptoService } from '../crypto.service';
+import { NoteDataColumnComponent } from '../note-data-column/note-data-column.component';
 
 @Component({
   selector: 'app-note-column',
@@ -16,12 +18,16 @@ export class NoteColumnComponent implements OnInit {
   constructor(private notesService: NotesService,
               private configService: ConfigService,
               private messageService: MessageService,
-              private notebooksService: NotebooksService) { }
+              private notebooksService: NotebooksService,
+              private cryptoService: CryptoService
+              ) { }
   notes: Note[] = [];
   selectedNote: Note;
   noteCount: string;
   title: string;
   book: Notebook = undefined;
+
+  @ViewChild(NoteDataColumnComponent) public child: NoteDataColumnComponent;
 
   ngOnInit(): void {
     console.log(`note-column ngOnInit(): received ${this.book}`);
@@ -106,7 +112,15 @@ export class NoteColumnComponent implements OnInit {
         console.log('subscribed notes:');
         console.log(notes);
         for(let x in notes) {
-          noteArray.push(notes[x]);
+          this.cryptoService.readKeys('test passphrase')
+            .then(() => {
+              this.cryptoService.decrypt(notes[x].ciphered)
+                .then(data => {
+                  var plaintext : string = data.text.toString();
+                  notes[x].plaintext = JSON.parse(plaintext);
+                  noteArray.push(notes[x]);
+                });
+          })
         }
         if (noteArray.length > 0) {
           console.log(noteArray);
@@ -121,6 +135,14 @@ export class NoteColumnComponent implements OnInit {
         // the current selected notebook anymore.
         this.selectedNote = this.notes[0];
     });
+  }
+
+  hasUpdated() {
+    var updated = this.messageService.get('noteUpdated');
+    if (updated) {
+      console.log(`hasUpdated() detected a change, reloading for ${updated}`);
+      this.getNotes();
+    }
   }
 
   sortByModDesc(aNote: Note, bNote: Note) : number {
@@ -163,8 +185,23 @@ export class NoteColumnComponent implements OnInit {
   }
 
   onSelect(note: Note): void {
+    var passphrase = "test passphrase";
+    if (this.child.timeout) {
+      console.log("onSelect triggered but timeout still set.");
+      clearTimeout(this.child.timeout);
+      this.child.update();
+    }
     this.selectedNote = note;
-    console.log(`NoteColumn: Selected note id=${note.id}`);
+    /*
+    this.cryptoService.readKeys(passphrase)
+    .then(() => {
+      this.cryptoService.decrypt(note.ciphered)
+      .then((data) => {
+        note.plaintext = JSON.parse(data.text.toString());
+        console.log(`NoteColumn: Selected note id=${note.id}`);
+      });
+    })
+    */
   }
 
   dateOnly(note: Note): string {
@@ -172,7 +209,7 @@ export class NoteColumnComponent implements OnInit {
       return note.plaintext.modified.substr(0, 10);
     }
     else {
-      return "";
+      return ""; 
     }
   }
 }

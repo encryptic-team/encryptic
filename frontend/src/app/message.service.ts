@@ -36,11 +36,16 @@ export class MessageService {
   }
 
   add(queueName: string, message: any) {
+    if (!this.messages[queueName] !== undefined ) {
+      this.createQueue(queueName);
+    }
     this.messages[queueName].push(message);
   }
 
   get(queueName: string) {
-    return this.messages[queueName].shift();
+    if (this.messages[queueName] !== undefined ) {
+      return this.messages[queueName].shift();
+    }
   }
 
   clear(queueName: string) {

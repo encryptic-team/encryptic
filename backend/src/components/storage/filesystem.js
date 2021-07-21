@@ -37,14 +37,14 @@ class Filesystem {
     save(id, data, cb) {
         if (this.config.sync.localCache == 'fs') {
             if (this.debug()) {
-                //console.log(`saving object:`);
-                //console.log(data);
+                console.log(`saving object:`);
+                console.log(data);
             }
             const outputdir = this.outputDirectory;
             const targetPath = path.join(outputdir, `${id}.json`);
 
             if (this.debug()) {
-                //console.log(`writing file ${targetPath}`);
+                console.log(`writing file ${targetPath}`);
             }
             const outString = data.toString();
             fs.writeFileSync(targetPath, outString);

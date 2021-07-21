@@ -37,30 +37,33 @@ export class NotePreviewColumnComponent implements OnInit {
 
   isHidden() : boolean {
     var mode = this.messageService.latest('noteViewSelector');
-    console.log(`NotePreviewColumnComponent::isHidden(): mode is ${mode}`);
+    //console.log(`NotePreviewColumnComponent::isHidden(): mode is ${mode}`);
     if (mode == "preview") {
-      console.log("isHidden() returned false");
+      //console.log("isHidden() returned false");
       return false;
     }
     else if (mode == "edit") {
-      console.log("isHidden() returned true");
+      //console.log("isHidden() returned true");
       return true;
     }
     // we want default behavior to be return true;
-    console.log("isHidden() defaulting false");
+    //console.log("isHidden() defaulting false");
     return false;
   }
 
   update() {
     this.note.plaintext.modified = new Date().toISOString();
-    this.notesService.updateNote(this.note)
+    var options = {norefresh: true};
+    console.log("note-preview-column::update() -> updateNote()");
+    this.notesService.updateNote(this.note, options) 
       .subscribe(res => {
         console.log(res);
       });
+
   }
 
   onChange($event) {
-    console.log("data changed, updating");
+    console.log("note-preview-column::onChange() data changed, updating");
     clearTimeout(this.timeout);
     return new Promise(resolve => {
       this.timeout = setTimeout(() => {
