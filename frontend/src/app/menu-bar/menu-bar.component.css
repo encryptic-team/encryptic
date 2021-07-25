@@ -11,7 +11,7 @@ h1 {
 
 .error {
   background-color: red;
-  color: whitesmoke;
+  color: rgb(192, 192, 192);
 }
 
 .bottom {
@@ -19,6 +19,11 @@ h1 {
   bottom: 0;
   left: 4px;
   width:20%;
+}
+
+.menu-background {
+	color: #cfcfbf;
+	background-color: #362222;
 }
 
 .menu-bar {
@@ -39,7 +44,7 @@ h1 {
 	border:1px solid #4e6096;
 	margin-bottom: 8px;
 	cursor:pointer;
-	color:#ffffff;
+	color:#e5e4e6;
     font-family: 'Abel' , sans-serif;
 	font-size:19px;
 	padding:4px 53px;

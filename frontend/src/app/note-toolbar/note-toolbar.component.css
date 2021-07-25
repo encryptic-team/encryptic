@@ -2,7 +2,10 @@
     width: 100%;
     font-family: 'Abel', sans-serif;
     padding: 4px;
-    height: 3vh;
+    height: 6vh;
+    color: #acacaa;
+    /* background-color: #2b2b2b; */
+    /* border-bottom: 1px solid #171010; */
 }
 
 .toolbar-component {

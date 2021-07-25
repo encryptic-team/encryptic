@@ -3,6 +3,8 @@
   border-width: 0px;
   border-top-width: 1px;
   border-collapse: collapse;
+  border-color: #171010;
+  padding-left: 3px;
   height: 100px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8em;
@@ -61,7 +63,13 @@
 }
 
 .selected {
-  background-color: #CFD8DC;
-  color: black;
+  background-color: #625f5e;
+  color: #EEFFFF;
 }
 
+.note-list-column {
+  border: 1px solid #171010;
+  box-shadow: inset 4px 0px 6px 0px rgba(10, 12, 10, 1);
+  padding-left: 3px;
+  color: #acacaa;
+}

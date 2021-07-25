@@ -9,8 +9,8 @@ h2 {
 .note-title {
   font-family: 'Abel', sans-serif;
   font-size: 1.5em;
-  padding: 0 0 0 4px;
-  background-color: #263238;
+  padding: 5px 0 0 4px;
+  background-color: transparent;
   color: #EEFFFF;
   width: 100%;
   border-style: none;
@@ -19,15 +19,18 @@ h2 {
 }
 
 .note-title-container {
-  background-color: #263238;
+  background-color: transparent;
   height: 4vh;
   padding-left: 8px;
+  /* box-shadow: inset 4px 0px 6px 0px rgba(10, 12, 10, 1); */
 }
 
 .note-mtime {
   height: 2.5vh;
-  padding-left: 4px;
+  padding-left: 10px;
   font-family: 'Abel', sans-serif;
+  color: #acacaa;
+  /* background-color: #362222; */
 }
 
 .edit-container {

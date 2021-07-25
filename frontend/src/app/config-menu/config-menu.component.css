@@ -1,7 +1,7 @@
 .config-menu {
     position: absolute;
     margin: 4px;
-    background-color: rgba(190, 190, 190,.96);
+    background-color: #263238;
     z-index: 4;
     border: 1px solid;
     padding: 10px;

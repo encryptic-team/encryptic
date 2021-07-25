@@ -43,13 +43,14 @@ html, body {
 
 .note-data-column {
   width: 55%;
-  background-color: steelblue;
+  background-color: #2b2b2b;
   overflow: hidden;
+  box-shadow: inset 4px 0px 7px 0px rgba(10, 12, 10, 1);
 }
 
 .note-list-column {
-  width: 25%;
-  background-color: slategray;
+  width: 24%;
+  background-color: #423f3e;
   border-collapse: collapse;
   max-height: 100vh;
   min-height: 300px;
@@ -81,8 +82,17 @@ html, body {
   color: #999 !important;
 }
 
- {
+.cm-s-material.CodeMirror {
+  background-color: #362222;
+  color: #EEFFFF;
+  box-shadow: inset 4px 0px 6px 0px rgba(10, 12, 10, 1);
+}
 
+.cm-s-material .CodeMirror-gutters {
+  background: #362222;
+  color: #546E7A;
+  border: none;
+  box-shadow: inset 4px 0px 6px 0px rgba(10, 12, 10, 1);
 }
 
 .CodeMirror-scrollbar-filler {
@@ -129,7 +139,9 @@ html, body {
 
 
 .cm-s-content-editor {
-  height: 89.5vh;
+  height: 88vh;
+  margin-top: 1.5vh;
+
 }
 
 .cm-s-content-editor:after {
