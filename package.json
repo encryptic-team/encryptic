@@ -57,7 +57,7 @@
     "jszip": "^3.1.5",
     "localforage": "^1.7.3",
     "marionette.approuter": "^1.0.1",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.3.2",
     "markdown-it-hashtag": "^0.4.0",
     "markdown-it-math": "^4.1.0",
     "markdown-it-sanitizer": "^0.4.3",
