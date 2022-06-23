@@ -104,7 +104,7 @@
     "gulp-shell": "^0.6.3",
     "gulp-zip": "^4.2.0",
     "jsdoc": "^3.5.5",
-    "jsdom": "^13.0.0",
+    "jsdom": "^16.5.0",
     "katex": "^0.10.1",
     "merge-stream": "^1.0.1",
     "minimist": "^1.2.0",
