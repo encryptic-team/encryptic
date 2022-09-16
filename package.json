@@ -35,7 +35,7 @@
     "backbone.radio": "^2.0.0",
     "base64-js": "^1.2.1",
     "blueimp-canvas-to-blob": "^3.14.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "codemirror": "^5.45.0",
     "debug": "^4.1.0",
     "device-detect.js": "^0.2.7",
