@@ -9,7 +9,7 @@
     },
     "bs_ba": {
         "name": "Bosnian",
-        "nativeName": "Bosnian"
+        "nativeName": "Bosanski"
     },
     "cs": {
         "name": "Czech",
@@ -53,7 +53,7 @@
     },
     "hi_in": {
         "name": "Hindi",
-        "nativeName": "Hindi"
+        "nativeName": "हिंदी"
     },
     "ja": {
         "name": "Japanese",
@@ -65,7 +65,7 @@
     },
     "mr_in": {
         "name": "Marathi",
-        "nativeName": "Marathi"
+        "nativeName": "मराठी"
     },
     "nb": {
         "name": "Norwegian Bokmål",
@@ -117,10 +117,10 @@
     },
     "zh_cn": {
         "name": "Simplified Chinese",
-        "nativeName": "Simplified Chinese"
+        "nativeName": "简体中文"
     },
     "zh_tw": {
         "name": "Traditional Chinese (Taiwan)",
-        "nativeName": "Traditional Chinese (Taiwan)"
+        "nativeName": "繁體中文（台灣）"
     }
 }
