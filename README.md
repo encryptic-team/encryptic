@@ -1,6 +1,8 @@
 <div align="center">
   <h1>Encryptic | The open source note-taking app</h1>
 
+    <H2>This project is deprecated.</H2>
+
   <h3>🔖  &nbsp;🔏  &nbsp;📄&nbsp;</h3>
   <p><strong>An encryption-focused open source note taking application.</strong><br>
 <h3><a href="https://encryptic.org">Website</a> | <a href="https://app.encryptic.org">Demo</a></h3>
